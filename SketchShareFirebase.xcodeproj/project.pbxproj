@@ -12,9 +12,12 @@
 		144454B420F5F7AB00D6A30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144454B220F5F7AB00D6A30C /* Main.storyboard */; };
 		144454B620F5F7AF00D6A30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 144454B520F5F7AF00D6A30C /* Assets.xcassets */; };
 		144454B920F5F7AF00D6A30C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */; };
+		14FC56C220F6E48D001E5923 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14FC56C120F6E48D001E5923 /* GoogleService-Info.plist */; };
+		E16369DD4D4A4B90ABF4D826 /* Pods_SketchShareFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F318447B87135BE64E08B9 /* Pods_SketchShareFirebase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08F318447B87135BE64E08B9 /* Pods_SketchShareFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SketchShareFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		144454AB20F5F7AB00D6A30C /* SketchShareFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SketchShareFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		144454AE20F5F7AB00D6A30C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		144454B020F5F7AB00D6A30C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		144454B520F5F7AF00D6A30C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		144454B820F5F7AF00D6A30C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		144454BA20F5F7AF00D6A30C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14FC56C120F6E48D001E5923 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1A3F80C431943D4944040A65 /* Pods-SketchShareFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase.release.xcconfig"; sourceTree = "<group>"; };
+		FDC71EA64BA3FB63C72D0145 /* Pods-SketchShareFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E16369DD4D4A4B90ABF4D826 /* Pods_SketchShareFirebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				144454AD20F5F7AB00D6A30C /* SketchShareFirebase */,
 				144454AC20F5F7AB00D6A30C /* Products */,
+				532E00AB6C8A249FB2A96596 /* Pods */,
+				A7DDF9871CA2A4805C5D69F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +69,26 @@
 				144454B520F5F7AF00D6A30C /* Assets.xcassets */,
 				144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */,
 				144454BA20F5F7AF00D6A30C /* Info.plist */,
+				14FC56C120F6E48D001E5923 /* GoogleService-Info.plist */,
 			);
 			path = SketchShareFirebase;
+			sourceTree = "<group>";
+		};
+		532E00AB6C8A249FB2A96596 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDC71EA64BA3FB63C72D0145 /* Pods-SketchShareFirebase.debug.xcconfig */,
+				1A3F80C431943D4944040A65 /* Pods-SketchShareFirebase.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A7DDF9871CA2A4805C5D69F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08F318447B87135BE64E08B9 /* Pods_SketchShareFirebase.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 144454BD20F5F7AF00D6A30C /* Build configuration list for PBXNativeTarget "SketchShareFirebase" */;
 			buildPhases = (
+				E2E1F365B0AC3C47F28D8BE6 /* [CP] Check Pods Manifest.lock */,
 				144454A720F5F7AB00D6A30C /* Sources */,
 				144454A820F5F7AB00D6A30C /* Frameworks */,
 				144454A920F5F7AB00D6A30C /* Resources */,
+				456CBE333C1050E054CAE151 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +152,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				144454B920F5F7AF00D6A30C /* LaunchScreen.storyboard in Resources */,
+				14FC56C220F6E48D001E5923 /* GoogleService-Info.plist in Resources */,
 				144454B620F5F7AF00D6A30C /* Assets.xcassets in Resources */,
 				144454B420F5F7AB00D6A30C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		456CBE333C1050E054CAE151 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2E1F365B0AC3C47F28D8BE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SketchShareFirebase-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		144454A720F5F7AB00D6A30C /* Sources */ = {
@@ -278,14 +351,12 @@
 		};
 		144454BE20F5F7AF00D6A30C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDC71EA64BA3FB63C72D0145 /* Pods-SketchShareFirebase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SketchShareFirebase/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = seanlin.SketchShareFirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -295,14 +366,12 @@
 		};
 		144454BF20F5F7AF00D6A30C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A3F80C431943D4944040A65 /* Pods-SketchShareFirebase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SketchShareFirebase/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = seanlin.SketchShareFirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
