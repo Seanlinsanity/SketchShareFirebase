@@ -13,11 +13,11 @@
 		144454B620F5F7AF00D6A30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 144454B520F5F7AF00D6A30C /* Assets.xcassets */; };
 		144454B920F5F7AF00D6A30C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */; };
 		14FC56C220F6E48D001E5923 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14FC56C120F6E48D001E5923 /* GoogleService-Info.plist */; };
-		E16369DD4D4A4B90ABF4D826 /* Pods_SketchShareFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F318447B87135BE64E08B9 /* Pods_SketchShareFirebase.framework */; };
+		CDEF83BD20FE02AA000560A0 /* Pods_SketchShareFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEF83BC20FE02AA000560A0 /* Pods_SketchShareFirebase.framework */; };
+		CDEF83CA20FE0398000560A0 /* FirebaseFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEF83C920FE0398000560A0 /* FirebaseFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08F318447B87135BE64E08B9 /* Pods_SketchShareFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SketchShareFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		144454AB20F5F7AB00D6A30C /* SketchShareFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SketchShareFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		144454AE20F5F7AB00D6A30C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		144454B020F5F7AB00D6A30C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,6 +27,8 @@
 		144454BA20F5F7AF00D6A30C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14FC56C120F6E48D001E5923 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1A3F80C431943D4944040A65 /* Pods-SketchShareFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase.release.xcconfig"; sourceTree = "<group>"; };
+		CDEF83BC20FE02AA000560A0 /* Pods_SketchShareFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SketchShareFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDEF83C920FE0398000560A0 /* FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC71EA64BA3FB63C72D0145 /* Pods-SketchShareFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,7 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E16369DD4D4A4B90ABF4D826 /* Pods_SketchShareFirebase.framework in Frameworks */,
+				CDEF83CA20FE0398000560A0 /* FirebaseFramework.framework in Frameworks */,
+				CDEF83BD20FE02AA000560A0 /* Pods_SketchShareFirebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +89,8 @@
 		A7DDF9871CA2A4805C5D69F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				08F318447B87135BE64E08B9 /* Pods_SketchShareFirebase.framework */,
+				CDEF83C920FE0398000560A0 /* FirebaseFramework.framework */,
+				CDEF83BC20FE02AA000560A0 /* Pods_SketchShareFirebase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,13 +174,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -355,9 +359,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2V9ET57N8;
 				INFOPLIST_FILE = SketchShareFirebase/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = seanlin.SketchShareFirebase;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.SketchShareIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,9 +379,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2V9ET57N8;
 				INFOPLIST_FILE = SketchShareFirebase/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = seanlin.SketchShareFirebase;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.SketchShareIOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

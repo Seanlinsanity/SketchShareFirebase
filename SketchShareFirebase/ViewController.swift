@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
+import FirebaseFramework
 class ViewController: UIViewController {
-
+    let p = FirebaseManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

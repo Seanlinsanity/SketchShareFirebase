@@ -1,82 +1,58 @@
 PODS:
-  - Firebase/Auth (4.0.4):
-    - Firebase/Core
-    - FirebaseAuth (= 4.0.0)
-  - Firebase/Core (4.0.4):
-    - FirebaseAnalytics (= 4.0.2)
-    - FirebaseCore (= 4.0.4)
-  - Firebase/Database (4.0.4):
-    - Firebase/Core
-    - FirebaseDatabase (= 4.0.0)
-  - Firebase/Storage (4.0.4):
-    - Firebase/Core
-    - FirebaseStorage (= 2.0.0)
-  - FirebaseAnalytics (4.0.2):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseAuth (4.0.0):
-    - FirebaseAnalytics (~> 4.0)
-    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+  - Firebase/Auth (5.2.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (= 5.0.1)
+  - Firebase/CoreOnly (5.2.0):
+    - FirebaseCore (= 5.0.3)
+  - Firebase/Database (5.2.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (= 5.0.1)
+  - Firebase/Storage (5.2.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.0)
+  - FirebaseAuth (5.0.1):
+    - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.4):
+  - FirebaseCore (5.0.3):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - nanopb (~> 0.3)
-  - FirebaseDatabase (4.0.0):
-    - FirebaseAnalytics (~> 4.0)
-  - FirebaseInstanceID (2.0.0):
-    - FirebaseCore (~> 4.0)
-  - FirebaseStorage (2.0.0):
-    - FirebaseAnalytics (~> 4.0)
-    - FirebaseCore (~> 4.0)
+  - FirebaseDatabase (5.0.1):
+    - FirebaseCore (~> 5.0)
+    - leveldb-library (~> 1.18)
+  - FirebaseStorage (3.0.0):
+    - FirebaseCore (~> 5.0)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleToolboxForMac/DebugUtils (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - "GoogleToolboxForMac/NSData+zlib (2.1.1)":
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1)":
-    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)"
-  - "GoogleToolboxForMac/NSString+URLArguments (2.1.1)"
-  - GTMSessionFetcher/Core (1.1.11)
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - GTMSessionFetcher/Core (1.1.15)
+  - leveldb-library (1.20)
 
 DEPENDENCIES:
-  - Firebase/Auth
-  - Firebase/Database
-  - Firebase/Storage
+  - Firebase/Auth (~> 5.0)
+  - Firebase/Database (~> 5.0)
+  - Firebase/Storage (~> 5.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Firebase
-    - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseCore
     - FirebaseDatabase
-    - FirebaseInstanceID
     - FirebaseStorage
     - GoogleToolboxForMac
     - GTMSessionFetcher
-    - nanopb
+    - leveldb-library
 
 SPEC CHECKSUMS:
-  Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
-  FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
-  FirebaseAuth: ebb6abcbabae00fc47446d690c19ce68d8484fde
-  FirebaseCore: cfc042628ef9f20debe09c0eb683135fcd404cb4
-  FirebaseDatabase: d829b3a8c3e2ac7a16773c5df226966b0805dfc2
-  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
-  FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Firebase: 25ed0412036d7d008568d1fb4d2e9d81ea8a0a2c
+  FirebaseAuth: 463b8ce33bd5d05f706dcd4615499e3212b4132b
+  FirebaseCore: a3c87242451633fff8490183898075ce77d168d2
+  FirebaseDatabase: 482bad9c2abd422bb2321194fb8c937e67426a89
+  FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
 
-PODFILE CHECKSUM: c2f66c1b9be057445c2c94ce2e7d6c16ad0caae5
+PODFILE CHECKSUM: 2a06eacb5bd13783288e7962d1af1c259f0a96da
 
 COCOAPODS: 1.5.3
