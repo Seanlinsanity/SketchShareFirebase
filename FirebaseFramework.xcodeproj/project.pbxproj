@@ -40,13 +40,13 @@
 /* Begin PBXFileReference section */
 		096DE496B68E5625286C8609 /* Pods-FirebaseFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework/Pods-FirebaseFramework.release.xcconfig"; sourceTree = "<group>"; };
 		7BDBFAFC15231F7EFF2ABFE4 /* Pods-FirebaseFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework/Pods-FirebaseFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		CD52D4AF20FE1F7900D34370 /* FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCA79D420FDDB6A00B97433 /* FirebaseFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseFramework.h; sourceTree = "<group>"; };
 		CDCA79D520FDDB6A00B97433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDCA79EB20FDDB8700B97433 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		CDCA79ED20FDE06900B97433 /* FirebaseLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLoginManager.swift; sourceTree = "<group>"; };
 		CDEF83C420FE0323000560A0 /* FirebaseFrameworkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFrameworkTests.swift; sourceTree = "<group>"; };
 		CDEF83C520FE0323000560A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CDEF83C820FE0352000560A0 /* FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FirebaseFramework.framework; path = "/Users/jerryee/Documents/GitHub/SketchShareFirebase/build/Debug-iphoneos/FirebaseFramework.framework"; sourceTree = "<absolute>"; };
 		CDEF83CD20FE07E0000560A0 /* FirebaseFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirebaseFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE17202F5E9A5420D4EAF536 /* Pods_FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,6 +87,7 @@
 				CDCA79EF20FDF2A300B97433 /* Frameworks */,
 				9CFC841DEE848C702FC3D71D /* Pods */,
 				CDEF83CD20FE07E0000560A0 /* FirebaseFrameworkTests.xctest */,
+				CD52D4AF20FE1F7900D34370 /* FirebaseFramework.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,7 +150,7 @@
 			);
 			name = FirebaseFramework;
 			productName = FirebaseFramework;
-			productReference = CDEF83C820FE0352000560A0 /* FirebaseFramework.framework */;
+			productReference = CD52D4AF20FE1F7900D34370 /* FirebaseFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		CDCA79D920FDDB6A00B97433 /* FirebaseFrameworkTests */ = {
@@ -409,6 +410,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = FirebaseFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,6 +439,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = FirebaseFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
