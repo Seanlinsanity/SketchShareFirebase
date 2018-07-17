@@ -8,7 +8,8 @@
 
 import UIKit
 import Firebase
-
+import FirebaseFramework
+let firebaseManager = FirebaseManager()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

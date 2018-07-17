@@ -7,11 +7,8 @@
 //
 
 import Foundation
-
-//let providers: [FUIAuthProvider] = [
-//    FUIGoogleAuth(),
-//    FUIFacebookAuth(),
-//
-//    FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()),
-//]
-//self.authUI.providers = providers
+//登入的部分
+public class FirebaseLogingManager
+{
+    
+}
