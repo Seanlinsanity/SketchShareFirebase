@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B6CF2D8A919686F63347E2DE /* Pods_FirebaseFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE17202F5E9A5420D4EAF536 /* Pods_FirebaseFramework.framework */; };
+		CD23FAF920FF0EE5004D9F13 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23FAF820FF0EE5004D9F13 /* FirestoreManager.swift */; };
+		CD23FAFD20FF14E8004D9F13 /* FirebaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23FAFC20FF14E8004D9F13 /* FirebaseField.swift */; };
+		CD23FAFF20FF1F74004D9F13 /* FirebaseObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23FAFE20FF1F74004D9F13 /* FirebaseObjectProtocol.swift */; };
+		CD52D4B220FF020200D34370 /* FirestoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD52D4B120FF020200D34370 /* FirestoreObject.swift */; };
+		CD52D4B420FF022C00D34370 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD52D4B320FF022C00D34370 /* FirebaseModel.swift */; };
+		CD52D4B620FF025C00D34370 /* FirebaseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD52D4B520FF025C00D34370 /* FirebaseModelProtocol.swift */; };
 		CDCA79E220FDDB6A00B97433 /* FirebaseFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCA79D420FDDB6A00B97433 /* FirebaseFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDCA79EC20FDDB8700B97433 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA79EB20FDDB8700B97433 /* FirebaseManager.swift */; };
 		CDCA79EE20FDE06900B97433 /* FirebaseLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA79ED20FDE06900B97433 /* FirebaseLoginManager.swift */; };
@@ -40,7 +46,13 @@
 /* Begin PBXFileReference section */
 		096DE496B68E5625286C8609 /* Pods-FirebaseFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework/Pods-FirebaseFramework.release.xcconfig"; sourceTree = "<group>"; };
 		7BDBFAFC15231F7EFF2ABFE4 /* Pods-FirebaseFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework/Pods-FirebaseFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		CD23FAF820FF0EE5004D9F13 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		CD23FAFC20FF14E8004D9F13 /* FirebaseField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseField.swift; sourceTree = "<group>"; };
+		CD23FAFE20FF1F74004D9F13 /* FirebaseObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObjectProtocol.swift; sourceTree = "<group>"; };
 		CD52D4AF20FE1F7900D34370 /* FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD52D4B120FF020200D34370 /* FirestoreObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreObject.swift; sourceTree = "<group>"; };
+		CD52D4B320FF022C00D34370 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
+		CD52D4B520FF025C00D34370 /* FirebaseModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModelProtocol.swift; sourceTree = "<group>"; };
 		CDCA79D420FDDB6A00B97433 /* FirebaseFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseFramework.h; sourceTree = "<group>"; };
 		CDCA79D520FDDB6A00B97433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDCA79EB20FDDB8700B97433 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -79,6 +91,36 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CD23FAFA20FF1020004D9F13 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CDCA79EB20FDDB8700B97433 /* FirebaseManager.swift */,
+				CDCA79ED20FDE06900B97433 /* FirebaseLoginManager.swift */,
+				CD23FAF820FF0EE5004D9F13 /* FirestoreManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CD23FAFB20FF14DF004D9F13 /* Field */ = {
+			isa = PBXGroup;
+			children = (
+				CD23FAFC20FF14E8004D9F13 /* FirebaseField.swift */,
+			);
+			path = Field;
+			sourceTree = "<group>";
+		};
+		CD52D4B020FF01DA00D34370 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD23FAFB20FF14DF004D9F13 /* Field */,
+				CD52D4B120FF020200D34370 /* FirestoreObject.swift */,
+				CD52D4B320FF022C00D34370 /* FirebaseModel.swift */,
+				CD52D4B520FF025C00D34370 /* FirebaseModelProtocol.swift */,
+				CD23FAFE20FF1F74004D9F13 /* FirebaseObjectProtocol.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CDCA79C720FDDB6A00B97433 = {
 			isa = PBXGroup;
 			children = (
@@ -94,10 +136,10 @@
 		CDCA79D320FDDB6A00B97433 /* FirebaseFramework */ = {
 			isa = PBXGroup;
 			children = (
+				CD23FAFA20FF1020004D9F13 /* Manager */,
+				CD52D4B020FF01DA00D34370 /* Model */,
 				CDCA79D420FDDB6A00B97433 /* FirebaseFramework.h */,
 				CDCA79D520FDDB6A00B97433 /* Info.plist */,
-				CDCA79EB20FDDB8700B97433 /* FirebaseManager.swift */,
-				CDCA79ED20FDE06900B97433 /* FirebaseLoginManager.swift */,
 			);
 			path = FirebaseFramework;
 			sourceTree = "<group>";
@@ -143,6 +185,7 @@
 				CDCA79CE20FDDB6A00B97433 /* Headers */,
 				CDCA79CF20FDDB6A00B97433 /* Resources */,
 				CDEF83CB20FE0556000560A0 /* CopyFiles */,
+				CD23FB0020FF2756004D9F13 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -245,6 +288,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CD23FB0020FF2756004D9F13 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"| perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -252,8 +308,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD52D4B420FF022C00D34370 /* FirebaseModel.swift in Sources */,
+				CD23FAFF20FF1F74004D9F13 /* FirebaseObjectProtocol.swift in Sources */,
+				CD23FAF920FF0EE5004D9F13 /* FirestoreManager.swift in Sources */,
+				CD23FAFD20FF14E8004D9F13 /* FirebaseField.swift in Sources */,
+				CD52D4B620FF025C00D34370 /* FirebaseModelProtocol.swift in Sources */,
 				CDCA79EE20FDE06900B97433 /* FirebaseLoginManager.swift in Sources */,
 				CDCA79EC20FDDB8700B97433 /* FirebaseManager.swift in Sources */,
+				CD52D4B220FF020200D34370 /* FirestoreObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

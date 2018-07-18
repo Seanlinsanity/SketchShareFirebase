@@ -28,3 +28,4 @@ public class FirebaseManager {
 }
 
 //REF:https://stackoverflow.com/questions/41527058/many-to-many-relationship-in-firebase
+let firebaseManager = FirebaseManager()
