@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+/// firestore存取
 public class FirestoreManager {
     
 }

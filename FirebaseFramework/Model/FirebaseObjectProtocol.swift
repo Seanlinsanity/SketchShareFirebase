@@ -11,7 +11,7 @@ import FirebaseDatabase
 protocol  FirebaseObjectProtocol{
     var collection: String{get set}
     var id: String{get set}
-    var parentRef:Database{get set}
+    var parentRef:Database!{get set}
     // parentRef: firebase.firestore.DocumentReference;
     func bindID(id: String);
 }

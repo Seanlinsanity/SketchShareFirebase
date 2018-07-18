@@ -2,8 +2,8 @@
 //  FirebaseFramework.h
 //  FirebaseFramework
 //
-//  Created by 詹易衡 on 2018/7/17.
-//  Copyright © 2018年 詹易衡. All rights reserved.
+//  Created by 詹易衡 on 2018/7/18.
+//  Copyright © 2018年 SEAN. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -11,8 +11,14 @@ import FirebaseFramework
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        firebaseManager.setValue(url: "test", obj: "eeee")
+//        firebaseManager.configure()
+//        firebaseManager.setValue(url: "test", obj: "test")
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
