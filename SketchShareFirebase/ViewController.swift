@@ -14,13 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-<<<<<<< HEAD
-=======
-        firebaseManager.setValue(url: "test", obj: "eeee")
+
+        firebaseManager.setValue(url: "test", obj: ["name": "Sean", "email": "sean@gmail.com"])
 //        firebaseManager.configure()
 //        firebaseManager.setValue(url: "test", obj: "test")
->>>>>>> 391b219eb5569aca73badb8381b982978e173619
+
         // Do any additional setup after loading the view, typically from a nib.
         
     }

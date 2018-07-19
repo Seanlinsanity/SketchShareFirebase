@@ -14,11 +14,14 @@ import PromiseKit
  * 管理firebase的api 和 realtime database 存取
  */
 public class FirebaseManager {
+    
     var ref: DatabaseReference!
     public let loginManager = FirebaseLogingManager()
+    
     public init() {
         
     }
+    
     public func configure(){
         FirebaseApp.configure()
         
@@ -27,6 +30,7 @@ public class FirebaseManager {
         debugPrint(ref)
         
     }
+    
     //realtime database 讀取
     public func getValue(url:String)->Promise<NSDictionary>{
         return Promise<NSDictionary>{seal in
@@ -47,6 +51,7 @@ public class FirebaseManager {
         print("firebase Set value \(url):\(obj)")
         ref.child(url).setValue(obj)        
     }
+    
     func pushValue(url:String,obj:Any){
         
     }
