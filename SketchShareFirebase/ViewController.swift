@@ -15,7 +15,11 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
 
-        firebaseManager.setValue(url: "test", obj: ["name": "Sean", "email": "sean@gmail.com"])
+//        firebaseManager.setValue(url: "testUser", value: ["name": "Sean", "email": "sean@gmail.com"])
+//        firebaseManager.deleteValue(url: "testUser")
+//        firebaseManager.pushValue(url: "test12", value: [ "id": 1234567 ])
+        firebaseManager.loginManager.checkUserId()
+
 //        firebaseManager.configure()
 //        firebaseManager.setValue(url: "test", obj: "test")
 

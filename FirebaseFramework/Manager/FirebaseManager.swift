@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import FirebaseCore
-import FirebaseDatabase
+import Firebase
 import PromiseKit
 /**
  * 管理firebase的api 和 realtime database 存取
@@ -24,7 +23,6 @@ public class FirebaseManager {
     
     public func configure(){
         FirebaseApp.configure()
-        
         ref = Database.database().reference()
         
         debugPrint(ref)
@@ -32,14 +30,15 @@ public class FirebaseManager {
     }
     
     //realtime database 讀取
-    public func getValue(url:String)->Promise<NSDictionary>{
-        return Promise<NSDictionary>{seal in
+    public func getValue(url: String) -> Promise<NSDictionary> {
+        return Promise<NSDictionary> {seal in
             
             ref.child(url).observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as! NSDictionary
-                debugPrint("Firebase get:\(value)")
-                
-                seal.fulfill(value)
+                if let value = snapshot.value as? NSDictionary{
+                    debugPrint("Firebase get: \(value)")
+                    
+                    seal.fulfill(value)
+                }
             }) { (error) in
                 print(error.localizedDescription)
             }
@@ -47,13 +46,35 @@ public class FirebaseManager {
         
     }
     ///寫入
-    public func setValue(url:String,obj:Any) {
-        print("firebase Set value \(url):\(obj)")
-        ref.child(url).setValue(obj)        
+    public func setValue(url: String, value: Any) {
+        ref.child(url).setValue(value) { (error, ref) in
+            if error != nil {
+                print("Failed to set value in Firebase: ", error ?? "error")
+                return
+            }
+            print("Successfully to set value :\(value) in Firebase")
+        }
     }
     
-    func pushValue(url:String,obj:Any){
-        
+    public func pushValue(url: String, value: Any){
+        guard let updateValue = value as? [String: Any] else { return }
+        ref.child(url).updateChildValues(updateValue) { (error, ref) in
+            if error != nil{
+                print("Failed to update value in Firebase: ", error ?? "error")
+                return
+            }
+            print("Successfully to update value: \(value) in Firebase")
+        }
+    }
+    
+    public func deleteValue(url: String){
+        ref.child(url).removeValue { (error, ref) in
+            if error != nil {
+                print("Failed to delete value in Firebase: ", error ?? "error")
+                return
+            }
+            print("Successfully to delete value at \(url) in Firebase")
+        }
     }
     
 }
