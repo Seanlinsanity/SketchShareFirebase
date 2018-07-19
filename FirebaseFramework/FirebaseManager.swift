@@ -14,16 +14,20 @@ import FirebaseDatabase
  */
 public class FirebaseManager {
     public let loginManager = FirebaseLogingManager()
+    
     public init() {
+    }
+    
+    //realtime database 讀取/寫入
+    public func setValue(url: String, obj: Any) {
 
     }
-    //realtime database 讀取/寫入
-    func setValue(url:String,obj:Any) {
+    
+    public func pushValue(url: String, obj: Any){
         
     }
-    func pushValue(url:String,obj:Any){
-        
-    }
+    
+
     
 }
 

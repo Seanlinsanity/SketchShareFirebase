@@ -7,8 +7,13 @@
 //
 
 import Foundation
+
 //登入的部分
 public class FirebaseLogingManager
 {
+    public init() {
+        //FirebaseApp.configure()
+    }
+    
     
 }
