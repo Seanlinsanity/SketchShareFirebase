@@ -12,12 +12,72 @@
 		144454B420F5F7AB00D6A30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144454B220F5F7AB00D6A30C /* Main.storyboard */; };
 		144454B620F5F7AF00D6A30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 144454B520F5F7AF00D6A30C /* Assets.xcassets */; };
 		144454B920F5F7AF00D6A30C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */; };
+<<<<<<< HEAD
 		14F6D1B820FF396900755BDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14F6D1B720FF396900755BDF /* GoogleService-Info.plist */; };
 		CDEF83BD20FE02AA000560A0 /* Pods_SketchShareFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEF83BC20FE02AA000560A0 /* Pods_SketchShareFirebase.framework */; };
 		CDEF83CA20FE0398000560A0 /* FirebaseFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEF83C920FE0398000560A0 /* FirebaseFramework.framework */; };
+=======
+		4CE47FC14DAFE31EDBB08B62 /* Pods_SketchShareFirebase_FirebaseFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE2E71BE6BABCF7C083C175 /* Pods_SketchShareFirebase_FirebaseFramework.framework */; };
+		C78F5AFA550CC5895BD38A90 /* Pods_SketchShareFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF4AF32767C6E4F6EE4FD21 /* Pods_SketchShareFirebase.framework */; };
+		CD281E1E20FF80690079BF59 /* FirebaseFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD281E1520FF80690079BF59 /* FirebaseFramework.framework */; };
+		CD281E2520FF80690079BF59 /* FirebaseFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E2420FF80690079BF59 /* FirebaseFrameworkTests.swift */; };
+		CD281E2720FF80690079BF59 /* FirebaseFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CD281E1720FF80690079BF59 /* FirebaseFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD281E4720FF851B0079BF59 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3420FF80730079BF59 /* FirebaseManager.swift */; };
+		CD281E4820FF851B0079BF59 /* FirebaseLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3520FF80730079BF59 /* FirebaseLoginManager.swift */; };
+		CD281E4920FF851B0079BF59 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3620FF80730079BF59 /* FirestoreManager.swift */; };
+		CD281E4A20FF85250079BF59 /* FirebaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3820FF80730079BF59 /* FirebaseField.swift */; };
+		CD281E4B20FF85250079BF59 /* FirestoreObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3A20FF80730079BF59 /* FirestoreObject.swift */; };
+		CD281E4C20FF85250079BF59 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3B20FF80730079BF59 /* FirebaseModel.swift */; };
+		CD281E4D20FF85250079BF59 /* FirebaseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3C20FF80730079BF59 /* FirebaseModelProtocol.swift */; };
+		CD281E4E20FF85250079BF59 /* FirebaseObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3D20FF80730079BF59 /* FirebaseObjectProtocol.swift */; };
+		CD281E5E20FF8C2C0079BF59 /* FirebaseFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD281E1520FF80690079BF59 /* FirebaseFramework.framework */; };
+		CD281E5F20FF8C2C0079BF59 /* FirebaseFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD281E1520FF80690079BF59 /* FirebaseFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CD281E6820FF92710079BF59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD281E6720FF92710079BF59 /* GoogleService-Info.plist */; };
+		CD281E6920FF92710079BF59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD281E6720FF92710079BF59 /* GoogleService-Info.plist */; };
+		CD281E6A20FF92710079BF59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD281E6720FF92710079BF59 /* GoogleService-Info.plist */; };
+>>>>>>> 391b219eb5569aca73badb8381b982978e173619
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CD281E1F20FF80690079BF59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 144454A320F5F7AB00D6A30C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD281E1420FF80690079BF59;
+			remoteInfo = FirebaseFramework;
+		};
+		CD281E2120FF80690079BF59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 144454A320F5F7AB00D6A30C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 144454AA20F5F7AB00D6A30C;
+			remoteInfo = SketchShareFirebase;
+		};
+		CD281E6020FF8C2C0079BF59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 144454A320F5F7AB00D6A30C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD281E1420FF80690079BF59;
+			remoteInfo = FirebaseFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CD281E6220FF8C2C0079BF59 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CD281E5F20FF8C2C0079BF59 /* FirebaseFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		10E4A2CCF777F25D71A57DA8 /* Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase-FirebaseFramework/Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		144454AB20F5F7AB00D6A30C /* SketchShareFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SketchShareFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		144454AE20F5F7AB00D6A30C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		144454B020F5F7AB00D6A30C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,10 +85,35 @@
 		144454B520F5F7AF00D6A30C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		144454B820F5F7AF00D6A30C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		144454BA20F5F7AF00D6A30C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		14F6D1B720FF396900755BDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+=======
+>>>>>>> 391b219eb5569aca73badb8381b982978e173619
 		1A3F80C431943D4944040A65 /* Pods-SketchShareFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase.release.xcconfig"; sourceTree = "<group>"; };
-		CDEF83BC20FE02AA000560A0 /* Pods_SketchShareFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_SketchShareFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDEF83C920FE0398000560A0 /* FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CF4AF32767C6E4F6EE4FD21 /* Pods_SketchShareFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SketchShareFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BDE7259D9DC21955DCC4F6E /* Pods-FirebaseFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework/Pods-FirebaseFramework.release.xcconfig"; sourceTree = "<group>"; };
+		35873EA372FB20E38855DDD0 /* Pods-FirebaseFramework-SketchShareFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework-SketchShareFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework-SketchShareFirebase/Pods-FirebaseFramework-SketchShareFirebase.release.xcconfig"; sourceTree = "<group>"; };
+		3797B5CFD8FFFB6F8512ACF9 /* Pods-FirebaseFramework-SketchShareFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework-SketchShareFirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework-SketchShareFirebase/Pods-FirebaseFramework-SketchShareFirebase.debug.xcconfig"; sourceTree = "<group>"; };
+		6068CDE028FC0DAD8BDC0CB6 /* Pods-SketchShareFirebase-FirebaseFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase-FirebaseFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase-FirebaseFramework/Pods-SketchShareFirebase-FirebaseFramework.release.xcconfig"; sourceTree = "<group>"; };
+		68D31B07B293D6276C97FF34 /* Pods-SketchShare-SketchShareFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShare-SketchShareFirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShare-SketchShareFirebase/Pods-SketchShare-SketchShareFirebase.debug.xcconfig"; sourceTree = "<group>"; };
+		8AE2E71BE6BABCF7C083C175 /* Pods_SketchShareFirebase_FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SketchShareFirebase_FirebaseFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD281E1520FF80690079BF59 /* FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FirebaseFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD281E1720FF80690079BF59 /* FirebaseFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseFramework.h; sourceTree = "<group>"; };
+		CD281E1820FF80690079BF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD281E1D20FF80690079BF59 /* FirebaseFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirebaseFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD281E2420FF80690079BF59 /* FirebaseFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFrameworkTests.swift; sourceTree = "<group>"; };
+		CD281E2620FF80690079BF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD281E3420FF80730079BF59 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		CD281E3520FF80730079BF59 /* FirebaseLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLoginManager.swift; sourceTree = "<group>"; };
+		CD281E3620FF80730079BF59 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		CD281E3820FF80730079BF59 /* FirebaseField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseField.swift; sourceTree = "<group>"; };
+		CD281E3A20FF80730079BF59 /* FirestoreObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreObject.swift; sourceTree = "<group>"; };
+		CD281E3B20FF80730079BF59 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
+		CD281E3C20FF80730079BF59 /* FirebaseModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModelProtocol.swift; sourceTree = "<group>"; };
+		CD281E3D20FF80730079BF59 /* FirebaseObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObjectProtocol.swift; sourceTree = "<group>"; };
+		CD281E6720FF92710079BF59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D97AC78E1B556B8CF15EFAB5 /* Pods-FirebaseFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework/Pods-FirebaseFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		F7F344615124734981CE9319 /* Pods-SketchShare-SketchShareFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShare-SketchShareFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShare-SketchShareFirebase/Pods-SketchShare-SketchShareFirebase.release.xcconfig"; sourceTree = "<group>"; };
 		FDC71EA64BA3FB63C72D0145 /* Pods-SketchShareFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,8 +122,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDEF83CA20FE0398000560A0 /* FirebaseFramework.framework in Frameworks */,
-				CDEF83BD20FE02AA000560A0 /* Pods_SketchShareFirebase.framework in Frameworks */,
+				CD281E5E20FF8C2C0079BF59 /* FirebaseFramework.framework in Frameworks */,
+				C78F5AFA550CC5895BD38A90 /* Pods_SketchShareFirebase.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD281E1120FF80690079BF59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CE47FC14DAFE31EDBB08B62 /* Pods_SketchShareFirebase_FirebaseFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD281E1A20FF80690079BF59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD281E1E20FF80690079BF59 /* FirebaseFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				144454AD20F5F7AB00D6A30C /* SketchShareFirebase */,
+				CD281E1620FF80690079BF59 /* FirebaseFramework */,
+				CD281E2320FF80690079BF59 /* FirebaseFrameworkTests */,
 				144454AC20F5F7AB00D6A30C /* Products */,
 				532E00AB6C8A249FB2A96596 /* Pods */,
 				A7DDF9871CA2A4805C5D69F6 /* Frameworks */,
@@ -59,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				144454AB20F5F7AB00D6A30C /* SketchShareFirebase.app */,
+				CD281E1520FF80690079BF59 /* FirebaseFramework.framework */,
+				CD281E1D20FF80690079BF59 /* FirebaseFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,13 +171,17 @@
 		144454AD20F5F7AB00D6A30C /* SketchShareFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				CD281E6720FF92710079BF59 /* GoogleService-Info.plist */,
 				144454AE20F5F7AB00D6A30C /* AppDelegate.swift */,
 				144454B020F5F7AB00D6A30C /* ViewController.swift */,
 				144454B220F5F7AB00D6A30C /* Main.storyboard */,
 				144454B520F5F7AF00D6A30C /* Assets.xcassets */,
 				144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */,
 				144454BA20F5F7AF00D6A30C /* Info.plist */,
+<<<<<<< HEAD
 				14F6D1B720FF396900755BDF /* GoogleService-Info.plist */,
+=======
+>>>>>>> 391b219eb5569aca73badb8381b982978e173619
 			);
 			path = SketchShareFirebase;
 			sourceTree = "<group>";
@@ -82,6 +191,14 @@
 			children = (
 				FDC71EA64BA3FB63C72D0145 /* Pods-SketchShareFirebase.debug.xcconfig */,
 				1A3F80C431943D4944040A65 /* Pods-SketchShareFirebase.release.xcconfig */,
+				3797B5CFD8FFFB6F8512ACF9 /* Pods-FirebaseFramework-SketchShareFirebase.debug.xcconfig */,
+				35873EA372FB20E38855DDD0 /* Pods-FirebaseFramework-SketchShareFirebase.release.xcconfig */,
+				68D31B07B293D6276C97FF34 /* Pods-SketchShare-SketchShareFirebase.debug.xcconfig */,
+				F7F344615124734981CE9319 /* Pods-SketchShare-SketchShareFirebase.release.xcconfig */,
+				D97AC78E1B556B8CF15EFAB5 /* Pods-FirebaseFramework.debug.xcconfig */,
+				2BDE7259D9DC21955DCC4F6E /* Pods-FirebaseFramework.release.xcconfig */,
+				10E4A2CCF777F25D71A57DA8 /* Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig */,
+				6068CDE028FC0DAD8BDC0CB6 /* Pods-SketchShareFirebase-FirebaseFramework.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -89,13 +206,74 @@
 		A7DDF9871CA2A4805C5D69F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CDEF83C920FE0398000560A0 /* FirebaseFramework.framework */,
-				CDEF83BC20FE02AA000560A0 /* Pods_SketchShareFirebase.framework */,
+				1CF4AF32767C6E4F6EE4FD21 /* Pods_SketchShareFirebase.framework */,
+				8AE2E71BE6BABCF7C083C175 /* Pods_SketchShareFirebase_FirebaseFramework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CD281E1620FF80690079BF59 /* FirebaseFramework */ = {
+			isa = PBXGroup;
+			children = (
+				CD281E3720FF80730079BF59 /* Manager */,
+				CD281E3E20FF80730079BF59 /* Model */,
+				CD281E1720FF80690079BF59 /* FirebaseFramework.h */,
+				CD281E1820FF80690079BF59 /* Info.plist */,
+			);
+			path = FirebaseFramework;
+			sourceTree = "<group>";
+		};
+		CD281E2320FF80690079BF59 /* FirebaseFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD281E2420FF80690079BF59 /* FirebaseFrameworkTests.swift */,
+				CD281E2620FF80690079BF59 /* Info.plist */,
+			);
+			path = FirebaseFrameworkTests;
+			sourceTree = "<group>";
+		};
+		CD281E3720FF80730079BF59 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CD281E3420FF80730079BF59 /* FirebaseManager.swift */,
+				CD281E3520FF80730079BF59 /* FirebaseLoginManager.swift */,
+				CD281E3620FF80730079BF59 /* FirestoreManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CD281E3920FF80730079BF59 /* Field */ = {
+			isa = PBXGroup;
+			children = (
+				CD281E3820FF80730079BF59 /* FirebaseField.swift */,
+			);
+			path = Field;
+			sourceTree = "<group>";
+		};
+		CD281E3E20FF80730079BF59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD281E3920FF80730079BF59 /* Field */,
+				CD281E3A20FF80730079BF59 /* FirestoreObject.swift */,
+				CD281E3B20FF80730079BF59 /* FirebaseModel.swift */,
+				CD281E3C20FF80730079BF59 /* FirebaseModelProtocol.swift */,
+				CD281E3D20FF80730079BF59 /* FirebaseObjectProtocol.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CD281E1220FF80690079BF59 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD281E2720FF80690079BF59 /* FirebaseFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		144454AA20F5F7AB00D6A30C /* SketchShareFirebase */ = {
@@ -106,16 +284,56 @@
 				144454A720F5F7AB00D6A30C /* Sources */,
 				144454A820F5F7AB00D6A30C /* Frameworks */,
 				144454A920F5F7AB00D6A30C /* Resources */,
-				456CBE333C1050E054CAE151 /* [CP] Embed Pods Frameworks */,
+				CD281E6220FF8C2C0079BF59 /* Embed Frameworks */,
+				BBDABC0FCB5036E980A9AFE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CD281E6120FF8C2C0079BF59 /* PBXTargetDependency */,
 			);
 			name = SketchShareFirebase;
 			productName = SketchShareFirebase;
 			productReference = 144454AB20F5F7AB00D6A30C /* SketchShareFirebase.app */;
 			productType = "com.apple.product-type.application";
+		};
+		CD281E1420FF80690079BF59 /* FirebaseFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD281E3020FF80690079BF59 /* Build configuration list for PBXNativeTarget "FirebaseFramework" */;
+			buildPhases = (
+				31B690DAF5B43389434D992E /* [CP] Check Pods Manifest.lock */,
+				CD281E1020FF80690079BF59 /* Sources */,
+				CD281E1120FF80690079BF59 /* Frameworks */,
+				CD281E1220FF80690079BF59 /* Headers */,
+				CD281E1320FF80690079BF59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FirebaseFramework;
+			productName = FirebaseFramework;
+			productReference = CD281E1520FF80690079BF59 /* FirebaseFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CD281E1C20FF80690079BF59 /* FirebaseFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD281E3220FF80690079BF59 /* Build configuration list for PBXNativeTarget "FirebaseFrameworkTests" */;
+			buildPhases = (
+				CD281E1920FF80690079BF59 /* Sources */,
+				CD281E1A20FF80690079BF59 /* Frameworks */,
+				CD281E1B20FF80690079BF59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD281E2020FF80690079BF59 /* PBXTargetDependency */,
+				CD281E2220FF80690079BF59 /* PBXTargetDependency */,
+			);
+			name = FirebaseFrameworkTests;
+			productName = FirebaseFrameworkTests;
+			productReference = CD281E1D20FF80690079BF59 /* FirebaseFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -125,10 +343,17 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = SEAN;
+				ORGANIZATIONNAME = com.sketchshare;
 				TargetAttributes = {
 					144454AA20F5F7AB00D6A30C = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					CD281E1420FF80690079BF59 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					CD281E1C20FF80690079BF59 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 144454AA20F5F7AB00D6A30C;
 					};
 				};
 			};
@@ -146,6 +371,8 @@
 			projectRoot = "";
 			targets = (
 				144454AA20F5F7AB00D6A30C /* SketchShareFirebase */,
+				CD281E1420FF80690079BF59 /* FirebaseFramework */,
+				CD281E1C20FF80690079BF59 /* FirebaseFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -155,32 +382,86 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD281E6820FF92710079BF59 /* GoogleService-Info.plist in Resources */,
 				144454B920F5F7AF00D6A30C /* LaunchScreen.storyboard in Resources */,
+<<<<<<< HEAD
 				14F6D1B820FF396900755BDF /* GoogleService-Info.plist in Resources */,
+=======
+>>>>>>> 391b219eb5569aca73badb8381b982978e173619
 				144454B620F5F7AF00D6A30C /* Assets.xcassets in Resources */,
 				144454B420F5F7AB00D6A30C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD281E1320FF80690079BF59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD281E6920FF92710079BF59 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD281E1B20FF80690079BF59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD281E6A20FF92710079BF59 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		456CBE333C1050E054CAE151 /* [CP] Embed Pods Frameworks */ = {
+		31B690DAF5B43389434D992E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SketchShareFirebase-FirebaseFramework-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBDABC0FCB5036E980A9AFE7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -217,7 +498,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD281E1020FF80690079BF59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD281E4D20FF85250079BF59 /* FirebaseModelProtocol.swift in Sources */,
+				CD281E4E20FF85250079BF59 /* FirebaseObjectProtocol.swift in Sources */,
+				CD281E4C20FF85250079BF59 /* FirebaseModel.swift in Sources */,
+				CD281E4820FF851B0079BF59 /* FirebaseLoginManager.swift in Sources */,
+				CD281E4B20FF85250079BF59 /* FirestoreObject.swift in Sources */,
+				CD281E4920FF851B0079BF59 /* FirestoreManager.swift in Sources */,
+				CD281E4720FF851B0079BF59 /* FirebaseManager.swift in Sources */,
+				CD281E4A20FF85250079BF59 /* FirebaseField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD281E1920FF80690079BF59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD281E2520FF80690079BF59 /* FirebaseFrameworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD281E2020FF80690079BF59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD281E1420FF80690079BF59 /* FirebaseFramework */;
+			targetProxy = CD281E1F20FF80690079BF59 /* PBXContainerItemProxy */;
+		};
+		CD281E2220FF80690079BF59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 144454AA20F5F7AB00D6A30C /* SketchShareFirebase */;
+			targetProxy = CD281E2120FF80690079BF59 /* PBXContainerItemProxy */;
+		};
+		CD281E6120FF8C2C0079BF59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD281E1420FF80690079BF59 /* FirebaseFramework */;
+			targetProxy = CD281E6020FF8C2C0079BF59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		144454B220F5F7AB00D6A30C /* Main.storyboard */ = {
@@ -357,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FDC71EA64BA3FB63C72D0145 /* Pods-SketchShareFirebase.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2V9ET57N8;
@@ -366,7 +689,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.SketchShareIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = seanlin.SketchShareFirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -377,6 +700,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1A3F80C431943D4944040A65 /* Pods-SketchShareFirebase.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2V9ET57N8;
@@ -386,10 +710,110 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.SketchShareIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = seanlin.SketchShareFirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CD281E2C20FF80690079BF59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10E4A2CCF777F25D71A57DA8 /* Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C2V9ET57N8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FirebaseFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.FirebaseFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CD281E2D20FF80690079BF59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6068CDE028FC0DAD8BDC0CB6 /* Pods-SketchShareFirebase-FirebaseFramework.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = C2V9ET57N8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FirebaseFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.FirebaseFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CD281E2E20FF80690079BF59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FirebaseFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.FirebaseFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SketchShareFirebase.app/SketchShareFirebase";
+			};
+			name = Debug;
+		};
+		CD281E2F20FF80690079BF59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FirebaseFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.FirebaseFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SketchShareFirebase.app/SketchShareFirebase";
 			};
 			name = Release;
 		};
@@ -410,6 +834,24 @@
 			buildConfigurations = (
 				144454BE20F5F7AF00D6A30C /* Debug */,
 				144454BF20F5F7AF00D6A30C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD281E3020FF80690079BF59 /* Build configuration list for PBXNativeTarget "FirebaseFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD281E2C20FF80690079BF59 /* Debug */,
+				CD281E2D20FF80690079BF59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD281E3220FF80690079BF59 /* Build configuration list for PBXNativeTarget "FirebaseFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD281E2E20FF80690079BF59 /* Debug */,
+				CD281E2F20FF80690079BF59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
