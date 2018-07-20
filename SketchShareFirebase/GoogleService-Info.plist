@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>704767379676-tthnmab6l3gtbunuqtbj7voqqo0cb3pp.apps.googleusercontent.com</string>
+	<string>704767379676-mssm23ltt1cr330jfcbp4q6bl5grbl0v.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.704767379676-tthnmab6l3gtbunuqtbj7voqqo0cb3pp</string>
+	<string>com.googleusercontent.apps.704767379676-mssm23ltt1cr330jfcbp4q6bl5grbl0v</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCZ6ILRK3zOC5j1VPQMcmxpKdp5ef9fbIE</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.sketchshare.SketchShareFirebase</string>
+	<string>seanlin.SketchShareFirebase</string>
 	<key>PROJECT_ID</key>
 	<string>sketchshare-d7848</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:704767379676:ios:6b2d5bfbcd7ca1c2</string>
+	<string>1:704767379676:ios:491e07d0fc0ed499</string>
 	<key>DATABASE_URL</key>
 	<string>https://sketchshare-d7848.firebaseio.com</string>
 </dict>
