@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseFramework
 import FBSDKLoginKit
+import GoogleSignIn
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GIDSignInUIDelegate {
     
     let customFBLoginButton: UIButton = {
         let loginButton = UIButton(type: .system)
@@ -22,12 +23,34 @@ class ViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(handleCustomFBLogin), for: .touchUpInside)
         return loginButton
     }()
+    
+    let customGoogleLoginButton: UIButton = {
+        let loginButton = UIButton(type: .system)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.setTitle("Google帳戶登入", for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.backgroundColor = UIColor.red
+        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        loginButton.addTarget(self, action: #selector(handleCustomGoogleSignIn), for: .touchUpInside)
+        return loginButton
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupFacebookLoginButton()
         firebaseManager.loginManager.checkUserId()
+        firebaseManager.loginManager.signOut()
+        
+        setupFacebookLoginButton()
+        setupGoogleLoginButton()
+    }
+    
+    private func setupGoogleLoginButton(){
+        view.addSubview(customGoogleLoginButton)
+        customGoogleLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        customGoogleLoginButton.bottomAnchor.constraint(equalTo: customFBLoginButton.topAnchor, constant: -16).isActive = true
+        customGoogleLoginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -32).isActive = true
+        customGoogleLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
     
     private func setupFacebookLoginButton(){
@@ -36,6 +59,10 @@ class ViewController: UIViewController {
         customFBLoginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 16).isActive = true
         customFBLoginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -32).isActive = true
         customFBLoginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    @objc private func handleCustomGoogleSignIn(){
+        GIDSignIn.sharedInstance().signIn()
     }
 
     @objc private func handleCustomFBLogin(){

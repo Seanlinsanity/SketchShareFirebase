@@ -13,6 +13,7 @@ def firebase_pods
     pod 'FBSDKCoreKit', '~> 4.0'
     pod 'FBSDKShareKit', '~> 4.0'
     pod 'FBSDKLoginKit', '~> 4.0'
+    pod 'GoogleSignIn', '~> 4.0'
     #pod 'FirebaseUI', '~> 5.0'       # Pull in all Firebase UI features
 end
 

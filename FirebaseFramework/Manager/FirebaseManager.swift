@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import PromiseKit
+import GoogleSignIn
 /**
  * 管理firebase的api 和 realtime database 存取
  */
@@ -23,10 +24,10 @@ public class FirebaseManager {
     
     public func configure(){
         FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+
         ref = Database.database().reference()
-        
         debugPrint(ref)
-        
     }
     
     //realtime database 讀取

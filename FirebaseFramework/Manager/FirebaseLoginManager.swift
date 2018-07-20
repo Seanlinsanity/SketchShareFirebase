@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FBSDKLoginKit
+import GoogleSignIn
 
 //登入的部分
 public class FirebaseLogingManager{
@@ -40,7 +41,32 @@ public class FirebaseLogingManager{
                 print("Failed to start graph request: ", err ?? "error")
                 return
             }
-            print(result ?? "")
+            guard let result = result as? [String: Any] else { return }
+            guard let email = result["email"] else { return }
+            print("user email: ", email)
+        }
+    }
+    
+    public func signInFirebaseWithGoogle(user: GIDGoogleUser){
+        guard let idToken = user.authentication.idToken else { return }
+        guard let accessToken = user.authentication.accessToken else { return }
+        let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+        Auth.auth().signInAndRetrieveData(with: credentials) { (result, error) in
+            if let err = error {
+                print("Failed to create a Firebase User with Google account: ", err)
+                return
+            }
+            print(user.profile.email ?? "user email error")
+        }
+    }
+    
+    public func signOut(){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print("sign out successfully")
+        } catch let signOutError as NSError {
+            print ("Error signing out: ", signOutError)
         }
     }
 }
