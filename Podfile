@@ -10,6 +10,9 @@ def firebase_pods
     pod 'Firebase/Storage', '~> 5.0'
     pod 'Firebase/Firestore', '~> 5.0'
     pod 'PromiseKit', '~> 6.0'
+    pod 'FBSDKCoreKit', '~> 4.0'
+    pod 'FBSDKShareKit', '~> 4.0'
+    pod 'FBSDKLoginKit', '~> 4.0'
     #pod 'FirebaseUI', '~> 5.0'       # Pull in all Firebase UI features
 end
 
