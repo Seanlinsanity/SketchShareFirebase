@@ -72,11 +72,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
             }
             firebaseManager.loginManager.signInFirebaseWithFB()
         }
-        
+    
     }
-    
-    
-   
+
 
 
 }

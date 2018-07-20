@@ -7,13 +7,13 @@
 //
 
 import Foundation
+//管理登入的部分
 import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
-
 //登入的部分
-public class FirebaseLogingManager{
-    
+public class FirebaseLogingManager
+{
     public init() {
         //FirebaseApp.configure()
     }
@@ -69,4 +69,5 @@ public class FirebaseLogingManager{
             print ("Error signing out: ", signOutError)
         }
     }
+    
 }
