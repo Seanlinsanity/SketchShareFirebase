@@ -167,6 +167,7 @@
 				144454B520F5F7AF00D6A30C /* Assets.xcassets */,
 				144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */,
 				144454BA20F5F7AF00D6A30C /* Info.plist */,
+
 			);
 			path = SketchShareFirebase;
 			sourceTree = "<group>";
@@ -377,6 +378,7 @@
 			files = (
 				CD281E6820FF92710079BF59 /* GoogleService-Info.plist in Resources */,
 				144454B920F5F7AF00D6A30C /* LaunchScreen.storyboard in Resources */,
+
 				144454B620F5F7AF00D6A30C /* Assets.xcassets in Resources */,
 				144454B420F5F7AB00D6A30C /* Main.storyboard in Resources */,
 			);

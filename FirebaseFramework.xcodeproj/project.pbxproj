@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C09B930920FE75C78EBDC6F /* Pods_SketchShare_FirebaseFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A074979C5A61F84657D6BB6 /* Pods_SketchShare_FirebaseFramework.framework */; };
 		5EEB4CD0D9A70685014A6C47 /* Pods_FirebaseFrameworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 761CCB8CA6E94D3033FD3112 /* Pods_FirebaseFrameworkTests.framework */; };
 		CD23FAF920FF0EE5004D9F13 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23FAF820FF0EE5004D9F13 /* FirestoreManager.swift */; };
 		CD23FAFD20FF14E8004D9F13 /* FirebaseField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD23FAFC20FF14E8004D9F13 /* FirebaseField.swift */; };
@@ -48,7 +47,6 @@
 /* Begin PBXFileReference section */
 		096DE496B68E5625286C8609 /* Pods-FirebaseFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework/Pods-FirebaseFramework.release.xcconfig"; sourceTree = "<group>"; };
 		4A074979C5A61F84657D6BB6 /* Pods_SketchShare_FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SketchShare_FirebaseFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7490FBEF2D56354128E14491 /* Pods-SketchShare-FirebaseFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShare-FirebaseFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShare-FirebaseFramework/Pods-SketchShare-FirebaseFramework.release.xcconfig"; sourceTree = "<group>"; };
 		761CCB8CA6E94D3033FD3112 /* Pods_FirebaseFrameworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseFrameworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDBFAFC15231F7EFF2ABFE4 /* Pods-FirebaseFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework/Pods-FirebaseFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		81E85CA0C9F9C384BF098D3C /* Pods-FirebaseFrameworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFrameworkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFrameworkTests/Pods-FirebaseFrameworkTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 		CDEF83C420FE0323000560A0 /* FirebaseFrameworkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseFrameworkTests.swift; sourceTree = "<group>"; };
 		CDEF83C520FE0323000560A0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDEF83CD20FE07E0000560A0 /* FirebaseFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirebaseFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8D0BCBE819E141C97FA9601 /* Pods-SketchShare-FirebaseFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShare-FirebaseFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShare-FirebaseFramework/Pods-SketchShare-FirebaseFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		FE17202F5E9A5420D4EAF536 /* Pods_FirebaseFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C09B930920FE75C78EBDC6F /* Pods_SketchShare_FirebaseFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,8 +100,6 @@
 				81E85CA0C9F9C384BF098D3C /* Pods-FirebaseFrameworkTests.release.xcconfig */,
 				A0D47F039043CCEF4630BDAF /* Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig */,
 				865042109995B17DE27E4754 /* Pods-SketchShareFirebase-FirebaseFramework.release.xcconfig */,
-				F8D0BCBE819E141C97FA9601 /* Pods-SketchShare-FirebaseFramework.debug.xcconfig */,
-				7490FBEF2D56354128E14491 /* Pods-SketchShare-FirebaseFramework.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -202,7 +196,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDCA79E520FDDB6A00B97433 /* Build configuration list for PBXNativeTarget "FirebaseFramework" */;
 			buildPhases = (
-				951B8B855DF9C7BF2737F8B4 /* [CP] Check Pods Manifest.lock */,
 				CDCA79CC20FDDB6A00B97433 /* Sources */,
 				CDCA79CD20FDDB6A00B97433 /* Frameworks */,
 				CDCA79CE20FDDB6A00B97433 /* Headers */,
@@ -331,24 +324,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FirebaseFrameworkTests/Pods-FirebaseFrameworkTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		951B8B855DF9C7BF2737F8B4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SketchShare-FirebaseFramework-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		95216E8689C65FD2AA56FABD /* [CP] Check Pods Manifest.lock */ = {
@@ -528,7 +503,6 @@
 		};
 		CDCA79E620FDDB6A00B97433 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8D0BCBE819E141C97FA9601 /* Pods-SketchShare-FirebaseFramework.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -541,11 +515,7 @@
 				INFOPLIST_FILE = FirebaseFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jerryee.sketchshare.FirebaseFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -557,7 +527,6 @@
 		};
 		CDCA79E720FDDB6A00B97433 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7490FBEF2D56354128E14491 /* Pods-SketchShare-FirebaseFramework.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -570,11 +539,7 @@
 				INFOPLIST_FILE = FirebaseFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jerryee.sketchshare.FirebaseFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -591,11 +556,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2V9ET57N8;
 				INFOPLIST_FILE = FirebaseFrameworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jerryee.sketchshare.FirebaseFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -611,11 +572,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2V9ET57N8;
 				INFOPLIST_FILE = FirebaseFrameworkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jerryee.sketchshare.FirebaseFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

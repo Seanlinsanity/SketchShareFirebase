@@ -36,3 +36,9 @@ end
 #
 #end
 
+target 'FirebaseFrameworkTests' do
+    workspace 'SketchShareFirebase.xcworkspace'
+    project 'FirebaseFramework.xcodeproj'
+    firebase_pods
+end
+

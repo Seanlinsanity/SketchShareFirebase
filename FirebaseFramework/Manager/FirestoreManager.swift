@@ -14,6 +14,7 @@ public class FirestoreManager {
     init(db:Firestore) {
         self.db = db
     }
+    
     func getDocumentRef(collection: String, id: String)->DocumentReference {
         return db.collection(collection).document(id)
     }

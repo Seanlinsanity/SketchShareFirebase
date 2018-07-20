@@ -8,15 +8,21 @@
 
 import UIKit
 import FirebaseFramework
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        firebaseManager.setValue(url: "test", obj: "eeee")
+
+//        firebaseManager.setValue(url: "testUser", value: ["name": "Sean", "email": "sean@gmail.com"])
+//        firebaseManager.deleteValue(url: "testUser")
+//        firebaseManager.pushValue(url: "test12", value: [ "id": 1234567 ])
+        firebaseManager.loginManager.checkUserId()
+
 //        firebaseManager.configure()
 //        firebaseManager.setValue(url: "test", obj: "test")
+
         // Do any additional setup after loading the view, typically from a nib.
         
     }
