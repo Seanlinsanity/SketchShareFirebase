@@ -1,19 +1,19 @@
 //
-//  FirebaseFrameworkTests.swift
-//  FirebaseFrameworkTests
+//  SketchShareFirebaseTests.swift
+//  SketchShareFirebaseTests
 //
-//  Created by 詹易衡 on 2018/7/18.
-//  Copyright © 2018年 SEAN. All rights reserved.
+//  Created by 詹易衡 on 2018/7/19.
+//  Copyright © 2018年 com.sketchshare. All rights reserved.
 //
 
 import XCTest
-@testable import FirebaseFramework
-
-class FirebaseFrameworkTests: XCTestCase {
+import FirebaseFramework
+class SketchShareFirebaseTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+       
     }
     
     override func tearDown() {
@@ -24,6 +24,7 @@ class FirebaseFrameworkTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
     }
     
     func testPerformanceExample() {

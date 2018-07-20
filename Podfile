@@ -16,7 +16,7 @@ end
 target 'SketchShareFirebase' do
     workspace 'SketchShareFirebase.xcworkspace'
     project 'SketchShareFirebase.xcodeproj'
-    
+     pod 'PromiseKit', '~> 6.0'
     target 'FirebaseFramework' do
        firebase_pods
     end
