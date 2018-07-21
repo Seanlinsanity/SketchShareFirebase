@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         GIDSignIn.sharedInstance().delegate = self
         
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        
+        let loginController = LoginController()
+        window?.rootViewController = loginController
+        
         return true
     }
     

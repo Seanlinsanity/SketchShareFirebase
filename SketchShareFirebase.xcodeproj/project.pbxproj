@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		144454AF20F5F7AB00D6A30C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144454AE20F5F7AB00D6A30C /* AppDelegate.swift */; };
-		144454B120F5F7AB00D6A30C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144454B020F5F7AB00D6A30C /* ViewController.swift */; };
+		144454B120F5F7AB00D6A30C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144454B020F5F7AB00D6A30C /* LoginController.swift */; };
 		144454B420F5F7AB00D6A30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144454B220F5F7AB00D6A30C /* Main.storyboard */; };
 		144454B620F5F7AF00D6A30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 144454B520F5F7AF00D6A30C /* Assets.xcassets */; };
 		144454B920F5F7AF00D6A30C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */; };
@@ -64,7 +64,7 @@
 		10E4A2CCF777F25D71A57DA8 /* Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase-FirebaseFramework/Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		144454AB20F5F7AB00D6A30C /* SketchShareFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SketchShareFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		144454AE20F5F7AB00D6A30C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		144454B020F5F7AB00D6A30C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		144454B020F5F7AB00D6A30C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		144454B320F5F7AB00D6A30C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		144454B520F5F7AF00D6A30C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		144454B820F5F7AF00D6A30C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 				14BC70AE21024A30008F5F8C /* SketchShareFirebase.entitlements */,
 				CD281E6720FF92710079BF59 /* GoogleService-Info.plist */,
 				144454AE20F5F7AB00D6A30C /* AppDelegate.swift */,
-				144454B020F5F7AB00D6A30C /* ViewController.swift */,
+				144454B020F5F7AB00D6A30C /* LoginController.swift */,
 				144454B220F5F7AB00D6A30C /* Main.storyboard */,
 				144454B520F5F7AF00D6A30C /* Assets.xcassets */,
 				144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */,
@@ -534,7 +534,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				144454B120F5F7AB00D6A30C /* ViewController.swift in Sources */,
+				144454B120F5F7AB00D6A30C /* LoginController.swift in Sources */,
 				144454AF20F5F7AB00D6A30C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ import FirebaseFramework
 import FBSDKLoginKit
 import GoogleSignIn
 
-class ViewController: UIViewController, GIDSignInUIDelegate {
+class LoginController: UIViewController, GIDSignInUIDelegate {
     
     let customFBLoginButton: UIButton = {
         let loginButton = UIButton(type: .system)
@@ -37,6 +37,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
+        
         firebaseManager.loginManager.checkUserId()
         firebaseManager.loginManager.signOut()
         
