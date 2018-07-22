@@ -69,7 +69,6 @@ playground.xcworkspace
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
-Pods/
  
 # Pods/
 
@@ -94,7 +93,6 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
-Pods/
 .DS_Store
 
 # https://docs.fastlane.tools/best-practices/source-control/#source-control
