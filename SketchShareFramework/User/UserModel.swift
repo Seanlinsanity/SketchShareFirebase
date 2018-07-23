@@ -6,16 +6,16 @@
 //  Copyright © 2018年 com.sketchshare. All rights reserved.
 //
 
-import Foundation
-import FirebaseFramework
-public class UserObject extends FirestoreObject
-{
-    init(){
-        
-    }
-    brief:
-}
-public class UserBriefModel extends FirebaseModel
-{
-    init()
-}
+//import Foundation
+//import FirebaseFramework
+//public class UserObject extends FirestoreObject
+//{
+//    init(){
+//        
+//    }
+//    brief:
+//}
+//public class UserBriefModel extends FirebaseModel
+//{
+//    init()
+//}
