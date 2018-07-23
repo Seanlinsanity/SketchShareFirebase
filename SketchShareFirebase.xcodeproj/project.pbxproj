@@ -26,6 +26,15 @@
 		CD281E4D20FF85250079BF59 /* FirebaseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3C20FF80730079BF59 /* FirebaseModelProtocol.swift */; };
 		CD281E4E20FF85250079BF59 /* FirebaseObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3D20FF80730079BF59 /* FirebaseObjectProtocol.swift */; };
 		CD281E5F20FF8C2C0079BF59 /* FirebaseFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD281E1520FF80690079BF59 /* FirebaseFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CDF79FD32105D79A00B97367 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF79FD22105D79A00B97367 /* UserModel.swift */; };
+		CDF79FD92105D82100B97367 /* SketchShareMetal.metal in Sources */ = {isa = PBXBuildFile; fileRef = CDF79FD82105D82100B97367 /* SketchShareMetal.metal */; };
+		CDF79FEB2105D85400B97367 /* SketchShareFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF79FE22105D85300B97367 /* SketchShareFramework.framework */; };
+		CDF79FF22105D85400B97367 /* SketchShareFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF79FF12105D85400B97367 /* SketchShareFrameworkTests.swift */; };
+		CDF79FF42105D85400B97367 /* SketchShareFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF79FE42105D85400B97367 /* SketchShareFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDF79FF72105D85400B97367 /* SketchShareFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF79FE22105D85300B97367 /* SketchShareFramework.framework */; };
+		CDF79FF82105D85400B97367 /* SketchShareFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CDF79FE22105D85300B97367 /* SketchShareFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CDF7A0012105DBC200B97367 /* AngaPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF7A0002105DBC200B97367 /* AngaPlan.swift */; };
+		CDF7A00321062F2700B97367 /* FieldWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF7A00221062F2700B97367 /* FieldWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +52,27 @@
 			remoteGlobalIDString = CD281E1420FF80690079BF59;
 			remoteInfo = FirebaseFramework;
 		};
+		CDF79FEC2105D85400B97367 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 144454A320F5F7AB00D6A30C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDF79FE12105D85300B97367;
+			remoteInfo = SketchShareFramework;
+		};
+		CDF79FEE2105D85400B97367 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 144454A320F5F7AB00D6A30C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 144454AA20F5F7AB00D6A30C;
+			remoteInfo = SketchShareFirebase;
+		};
+		CDF79FF52105D85400B97367 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 144454A320F5F7AB00D6A30C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDF79FE12105D85300B97367;
+			remoteInfo = SketchShareFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +83,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				CD281E5F20FF8C2C0079BF59 /* FirebaseFramework.framework in Embed Frameworks */,
+				CDF79FF82105D85400B97367 /* SketchShareFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +132,17 @@
 		CD281E71210055840079BF59 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD281E732100558B0079BF59 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD281E75210055900079BF59 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF79FD22105D79A00B97367 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		CDF79FD62105D82100B97367 /* SketchShareMetal.metallib */ = {isa = PBXFileReference; explicitFileType = "archive.metal-library"; includeInIndex = 0; path = SketchShareMetal.metallib; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF79FD82105D82100B97367 /* SketchShareMetal.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = SketchShareMetal.metal; sourceTree = "<group>"; };
+		CDF79FE22105D85300B97367 /* SketchShareFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SketchShareFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF79FE42105D85400B97367 /* SketchShareFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SketchShareFramework.h; sourceTree = "<group>"; };
+		CDF79FE52105D85400B97367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDF79FEA2105D85400B97367 /* SketchShareFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SketchShareFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF79FF12105D85400B97367 /* SketchShareFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SketchShareFrameworkTests.swift; sourceTree = "<group>"; };
+		CDF79FF32105D85400B97367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDF7A0002105DBC200B97367 /* AngaPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngaPlan.swift; sourceTree = "<group>"; };
+		CDF7A00221062F2700B97367 /* FieldWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldWrapper.swift; sourceTree = "<group>"; };
 		D97AC78E1B556B8CF15EFAB5 /* Pods-FirebaseFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseFramework/Pods-FirebaseFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		F7F344615124734981CE9319 /* Pods-SketchShare-SketchShareFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShare-SketchShareFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShare-SketchShareFirebase/Pods-SketchShare-SketchShareFirebase.release.xcconfig"; sourceTree = "<group>"; };
 		FDC71EA64BA3FB63C72D0145 /* Pods-SketchShareFirebase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E93478BF31E67A776521925 /* Pods_SketchShareFirebase.framework in Frameworks */,
+				CDF79FF72105D85400B97367 /* SketchShareFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +173,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CDF79FDE2105D85300B97367 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF79FE72105D85400B97367 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF79FEB2105D85400B97367 /* SketchShareFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -139,6 +197,9 @@
 				144454AD20F5F7AB00D6A30C /* SketchShareFirebase */,
 				CD281E1620FF80690079BF59 /* FirebaseFramework */,
 				CD22BC6421005A25004367D2 /* SketchShareFirebaseTests */,
+				CDF79FD72105D82100B97367 /* SketchShareMetal */,
+				CDF79FE32105D85400B97367 /* SketchShareFramework */,
+				CDF79FF02105D85400B97367 /* SketchShareFrameworkTests */,
 				144454AC20F5F7AB00D6A30C /* Products */,
 				532E00AB6C8A249FB2A96596 /* Pods */,
 				A7DDF9871CA2A4805C5D69F6 /* Frameworks */,
@@ -151,6 +212,9 @@
 				144454AB20F5F7AB00D6A30C /* SketchShareFirebase.app */,
 				CD281E1520FF80690079BF59 /* FirebaseFramework.framework */,
 				CD22BC6321005A25004367D2 /* SketchShareFirebaseTests.xctest */,
+				CDF79FD62105D82100B97367 /* SketchShareMetal.metallib */,
+				CDF79FE22105D85300B97367 /* SketchShareFramework.framework */,
+				CDF79FEA2105D85400B97367 /* SketchShareFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				CD281E3820FF80730079BF59 /* FirebaseField.swift */,
+				CDF7A00221062F2700B97367 /* FieldWrapper.swift */,
 			);
 			path = Field;
 			sourceTree = "<group>";
@@ -255,6 +320,50 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CDF79FD12105D78400B97367 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CDF79FD22105D79A00B97367 /* UserModel.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		CDF79FD72105D82100B97367 /* SketchShareMetal */ = {
+			isa = PBXGroup;
+			children = (
+				CDF79FD82105D82100B97367 /* SketchShareMetal.metal */,
+			);
+			path = SketchShareMetal;
+			sourceTree = "<group>";
+		};
+		CDF79FE32105D85400B97367 /* SketchShareFramework */ = {
+			isa = PBXGroup;
+			children = (
+				CDF79FFF2105DBAA00B97367 /* Anga */,
+				CDF79FD12105D78400B97367 /* User */,
+				CDF79FE42105D85400B97367 /* SketchShareFramework.h */,
+				CDF79FE52105D85400B97367 /* Info.plist */,
+			);
+			path = SketchShareFramework;
+			sourceTree = "<group>";
+		};
+		CDF79FF02105D85400B97367 /* SketchShareFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				CDF79FF12105D85400B97367 /* SketchShareFrameworkTests.swift */,
+				CDF79FF32105D85400B97367 /* Info.plist */,
+			);
+			path = SketchShareFrameworkTests;
+			sourceTree = "<group>";
+		};
+		CDF79FFF2105DBAA00B97367 /* Anga */ = {
+			isa = PBXGroup;
+			children = (
+				CDF7A0002105DBC200B97367 /* AngaPlan.swift */,
+			);
+			path = Anga;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -263,6 +372,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD281E2720FF80690079BF59 /* FirebaseFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF79FDF2105D85300B97367 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF79FF42105D85400B97367 /* SketchShareFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +402,7 @@
 			);
 			dependencies = (
 				CD281E6120FF8C2C0079BF59 /* PBXTargetDependency */,
+				CDF79FF62105D85400B97367 /* PBXTargetDependency */,
 			);
 			name = SketchShareFirebase;
 			productName = SketchShareFirebase;
@@ -329,6 +447,58 @@
 			productReference = CD281E1520FF80690079BF59 /* FirebaseFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		CDF79FD52105D82100B97367 /* SketchShareMetal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF79FDA2105D82100B97367 /* Build configuration list for PBXNativeTarget "SketchShareMetal" */;
+			buildPhases = (
+				CDF79FD42105D82100B97367 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SketchShareMetal;
+			productName = SketchShareMetal;
+			productReference = CDF79FD62105D82100B97367 /* SketchShareMetal.metallib */;
+			productType = "com.apple.product-type.metal-library";
+		};
+		CDF79FE12105D85300B97367 /* SketchShareFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF79FF92105D85400B97367 /* Build configuration list for PBXNativeTarget "SketchShareFramework" */;
+			buildPhases = (
+				CDF79FDD2105D85300B97367 /* Sources */,
+				CDF79FDE2105D85300B97367 /* Frameworks */,
+				CDF79FDF2105D85300B97367 /* Headers */,
+				CDF79FE02105D85300B97367 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SketchShareFramework;
+			productName = SketchShareFramework;
+			productReference = CDF79FE22105D85300B97367 /* SketchShareFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CDF79FE92105D85400B97367 /* SketchShareFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF79FFC2105D85400B97367 /* Build configuration list for PBXNativeTarget "SketchShareFrameworkTests" */;
+			buildPhases = (
+				CDF79FE62105D85400B97367 /* Sources */,
+				CDF79FE72105D85400B97367 /* Frameworks */,
+				CDF79FE82105D85400B97367 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDF79FED2105D85400B97367 /* PBXTargetDependency */,
+				CDF79FEF2105D85400B97367 /* PBXTargetDependency */,
+			);
+			name = SketchShareFrameworkTests;
+			productName = SketchShareFrameworkTests;
+			productReference = CDF79FEA2105D85400B97367 /* SketchShareFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -354,6 +524,17 @@
 					CD281E1420FF80690079BF59 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
+					CDF79FD52105D82100B97367 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					CDF79FE12105D85300B97367 = {
+						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
+					};
+					CDF79FE92105D85400B97367 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 144454AA20F5F7AB00D6A30C;
+					};
 				};
 			};
 			buildConfigurationList = 144454A620F5F7AB00D6A30C /* Build configuration list for PBXProject "SketchShareFirebase" */;
@@ -372,6 +553,9 @@
 				144454AA20F5F7AB00D6A30C /* SketchShareFirebase */,
 				CD281E1420FF80690079BF59 /* FirebaseFramework */,
 				CD22BC6221005A25004367D2 /* SketchShareFirebaseTests */,
+				CDF79FD52105D82100B97367 /* SketchShareMetal */,
+				CDF79FE12105D85300B97367 /* SketchShareFramework */,
+				CDF79FE92105D85400B97367 /* SketchShareFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -396,6 +580,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CD281E1320FF80690079BF59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF79FE02105D85300B97367 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF79FE82105D85400B97367 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -533,6 +731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				144454B120F5F7AB00D6A30C /* LoginController.swift in Sources */,
+				CDF79FD32105D79A00B97367 /* UserModel.swift in Sources */,
 				144454AF20F5F7AB00D6A30C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,8 +754,33 @@
 				CD281E4820FF851B0079BF59 /* FirebaseLoginManager.swift in Sources */,
 				CD281E4B20FF85250079BF59 /* FirestoreObject.swift in Sources */,
 				CD281E4920FF851B0079BF59 /* FirestoreManager.swift in Sources */,
+				CDF7A00321062F2700B97367 /* FieldWrapper.swift in Sources */,
 				CD281E4720FF851B0079BF59 /* FirebaseManager.swift in Sources */,
 				CD281E4A20FF85250079BF59 /* FirebaseField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF79FD42105D82100B97367 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF79FD92105D82100B97367 /* SketchShareMetal.metal in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF79FDD2105D85300B97367 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF7A0012105DBC200B97367 /* AngaPlan.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF79FE62105D85400B97367 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF79FF22105D85400B97367 /* SketchShareFrameworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +796,21 @@
 			isa = PBXTargetDependency;
 			target = CD281E1420FF80690079BF59 /* FirebaseFramework */;
 			targetProxy = CD281E6020FF8C2C0079BF59 /* PBXContainerItemProxy */;
+		};
+		CDF79FED2105D85400B97367 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDF79FE12105D85300B97367 /* SketchShareFramework */;
+			targetProxy = CDF79FEC2105D85400B97367 /* PBXContainerItemProxy */;
+		};
+		CDF79FEF2105D85400B97367 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 144454AA20F5F7AB00D6A30C /* SketchShareFirebase */;
+			targetProxy = CDF79FEE2105D85400B97367 /* PBXContainerItemProxy */;
+		};
+		CDF79FF62105D85400B97367 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDF79FE12105D85300B97367 /* SketchShareFramework */;
+			targetProxy = CDF79FF52105D85400B97367 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -857,6 +1096,123 @@
 			};
 			name = Release;
 		};
+		CDF79FDB2105D82100B97367 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2V9ET57N8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CDF79FDC2105D82100B97367 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2V9ET57N8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CDF79FFA2105D85400B97367 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FD4QN73B6D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SketchShareFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.SketchShareFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CDF79FFB2105D85400B97367 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FD4QN73B6D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SketchShareFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.SketchShareFramework;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CDF79FFD2105D85400B97367 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2V9ET57N8;
+				INFOPLIST_FILE = SketchShareFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.SketchShareFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SketchShareFirebase.app/SketchShareFirebase";
+			};
+			name = Debug;
+		};
+		CDF79FFE2105D85400B97367 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2V9ET57N8;
+				INFOPLIST_FILE = SketchShareFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.SketchShareFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SketchShareFirebase.app/SketchShareFirebase";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -892,6 +1248,33 @@
 			buildConfigurations = (
 				CD281E2C20FF80690079BF59 /* Debug */,
 				CD281E2D20FF80690079BF59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDF79FDA2105D82100B97367 /* Build configuration list for PBXNativeTarget "SketchShareMetal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF79FDB2105D82100B97367 /* Debug */,
+				CDF79FDC2105D82100B97367 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDF79FF92105D85400B97367 /* Build configuration list for PBXNativeTarget "SketchShareFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF79FFA2105D85400B97367 /* Debug */,
+				CDF79FFB2105D85400B97367 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDF79FFC2105D85400B97367 /* Build configuration list for PBXNativeTarget "SketchShareFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF79FFD2105D85400B97367 /* Debug */,
+				CDF79FFE2105D85400B97367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

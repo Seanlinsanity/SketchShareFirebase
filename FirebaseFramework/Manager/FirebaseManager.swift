@@ -17,7 +17,7 @@ public class FirebaseManager {
     
     var ref: DatabaseReference!
     public let loginManager = FirebaseLogingManager()
-    
+    public var firestore:FirestoreManager!
     public init() {
         
     }
@@ -25,8 +25,9 @@ public class FirebaseManager {
     public func configure(){
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-
         ref = Database.database().reference()
+        //初始化firestore
+        firestore = FirestoreManager(db: Firestore.firestore())
         debugPrint(ref)
     }
     

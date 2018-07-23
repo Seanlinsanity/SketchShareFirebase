@@ -11,6 +11,7 @@ import FirebaseFirestore
 /// firestore存取
 public class FirestoreManager {
     let db:Firestore!
+    var setCount:Int = 0
     init(db:Firestore) {
         self.db = db
     }
@@ -35,6 +36,28 @@ public class FirestoreManager {
         else
         {
             return parentRef!.collection(collection).addDocument(data: data)
+        }
+    }
+    
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - collection: <#collection description#>
+    ///   - id: <#id description#>
+    ///   - data: <#data description#>
+    ///   - parentRef: <#parentRef description#>
+    func setDocument(collection: String,id: String,data: [String:Any],parentRef: DocumentReference?) {
+        self.setCount = self.setCount+1
+        if (parentRef != nil) {
+            return (parentRef?
+                .collection(collection)
+                .document(id)
+                .setData(data))!;
+        } else
+        {
+            return self.db
+                .collection(collection)
+                .document(id).setData(data, merge: true);
         }
     }
 }

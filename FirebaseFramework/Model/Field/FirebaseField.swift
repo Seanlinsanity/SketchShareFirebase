@@ -7,6 +7,9 @@
 //
 
 import Foundation
-class FirebaseField {
+
+
+
+class FirebaseField<T>:FieldWrapper<T> {
     var fieldName:String!
 }

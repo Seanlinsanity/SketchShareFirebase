@@ -8,23 +8,38 @@
 
 import Foundation
 import PromiseKit
-public class FirebaseModel: FirebaseModelProtocol{
-    
+public class FirebaseModel//: FirebaseModelProtocol
+{
+    init(){
+        
+    }
     /// 設定firebase field的名字，得到此Model的所有Field
-    func initFields()->[FirebaseField] {
+    func initFields()->[FirebaseField<Any>] {
         let mirror = Mirror(reflecting: self)
-        var array: [FirebaseField] = [];
+        var array: [FirebaseField<Any>] = [] as! [FirebaseField<Any>];
         for (name, value) in mirror.children {
             guard let name = name else { continue }
             print("\(name): \(type(of: value)) = '\(value)'")
-            if type(of: value)==FirebaseField.self
+            if type(of: value)==FirebaseField<Any>.self
             {
-                let field = value as! FirebaseField
+                let field = value as! FirebaseField<Any>
                 array.append(field)
                 field.fieldName = name
             }
         }
         return array;
+    }
+    func createDataFromField()->[String:Any] {
+        var data:[String:Any] = [:]
+        for field in initFields(){
+            if(field.val != nil)
+            {data[field.fieldName] = field}
+          //  if (field.val || field.val == 0) data[field.fieldName] = field.val;
+        }
+        
+        
+        
+        return data;
     }
         
     
@@ -85,10 +100,10 @@ public class FirebaseModel: FirebaseModelProtocol{
         
     }
     
-    func setModel(model: Any) -> Promise<Any> {
-        return Promise { seal in
-            seal.fulfill("TODO")
-        }
+    func setModel(model: Any)// -> Promise<Any>
+    {
+        let obj = self.createDataFromField();
+        return firebaseManager.setValue(url: self.databaseURL, value: obj)
         
     }
     
