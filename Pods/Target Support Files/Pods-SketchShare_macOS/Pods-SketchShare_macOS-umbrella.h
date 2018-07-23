@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_FirebaseFrameworkTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_FirebaseFrameworkTestsVersionString[];
+FOUNDATION_EXPORT double Pods_SketchShare_macOSVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_SketchShare_macOSVersionString[];
 
