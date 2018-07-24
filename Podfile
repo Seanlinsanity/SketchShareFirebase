@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '9.0'
+#platform :ios, '9.0'
+
  use_frameworks!
 def firebase_pods
     # Pods for SketchShareFirebase
@@ -25,6 +26,7 @@ target 'SketchShareFirebase' do
        firebase_pods
     end
 end
+#platform: osx,'10.13'
 target 'SketchShare_macOS' do
     workspace 'SketchShareFirebase.xcworkspace'
     project 'SketchShareFirebase.xcodeproj'
