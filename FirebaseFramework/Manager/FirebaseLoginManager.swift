@@ -7,19 +7,29 @@
 //
 
 import Foundation
-//管理登入的部分
 import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
-//登入的部分
+import PromiseKit
+
+enum FirebaseAuthError: Error {
+    case invalidUser
+}
+
 public class FirebaseLogingManager {
     
     public init() {
-        //FirebaseApp.configure()
+
     }
     
-    public func checkUserId() {
-        print(Auth.auth().currentUser?.uid ?? "No User ID")
+    public func checkUserId() -> Promise<String> {
+        return Promise<String> {(seal) in
+            if let user = Auth.auth().currentUser {
+                seal.fulfill("uid: \(user.uid), name: \(user.displayName ?? "invalid username")")
+            }else {
+                seal.reject(FirebaseAuthError.invalidUser)
+            }
+        }
     }
     
     public func signInFirebaseWithFB(){

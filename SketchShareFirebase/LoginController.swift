@@ -10,6 +10,7 @@ import UIKit
 import FirebaseFramework
 import FBSDKLoginKit
 import GoogleSignIn
+import PromiseKit
 
 class LoginController: UIViewController, GIDSignInUIDelegate {
     
@@ -41,8 +42,14 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         view.backgroundColor = .white
         
         firebaseManager.loginManager.checkUserId()
-        firebaseManager.loginManager.signOut()
+            .done { (user) in
+                print(user)
+            }.catch { (error) in
+                print(error)
+        }
         
+        //firebaseManager.loginManager.signOut()
+ 
         setupFacebookLoginButton()
         setupGoogleLoginButton()
     }
