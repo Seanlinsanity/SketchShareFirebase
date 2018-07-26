@@ -281,11 +281,11 @@ public extension Mat4 { // Projection transformations
     
     public static func lookAt(eye: Vec3, center: Vec3, up: Vec3) -> Mat4 {
         let n = normalize(v:eye - center)
-        let u = normalize(v:cross(a: up, b: n))
-        let v = cross(a: n, b: u)
-        return Mat4(xx: u.x, yx: u.y, zx: u.z, wx: dot(-u, b: eye),
-                    xy: v.x, yy: v.y, zy: v.z, wy: dot(-v, b: eye),
-                    xz: n.x, yz: n.y, zz: n.z, wz: dot(-n, b: eye),
+        let u = normalize(v:cross( up,  n))
+        let v = cross( n,  u)
+        return Mat4(xx: u.x, yx: u.y, zx: u.z, wx: dot(-u,  eye),
+                    xy: v.x, yy: v.y, zy: v.z, wy: dot(-v,  eye),
+                    xz: n.x, yz: n.y, zz: n.z, wz: dot(-n,  eye),
                     xw: 0, yw: 0, zw: 0, ww: 1)
     }
 }

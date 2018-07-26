@@ -66,14 +66,14 @@ class Node {
         commandBuffer.present(drawable)
         commandBuffer.commit()
     }
-    func modelMatrix() -> Mat4 {
-//        
+    func modelMatrix(){
+//
 //        let matrix = Mat4()
 //        Mat4.translate(x: positionX, y: positionY, z: positionZ)
 //        matrix.translate(positionX, y: positionY, z: positionZ)
 //        matrix.rotateAroundX(rotationX, y: rotationY, z: rotationZ)
 //        matrix.scale(scale, y: scale, z: scale)
     
-        return matrix
+//        return matrix
     }
 }

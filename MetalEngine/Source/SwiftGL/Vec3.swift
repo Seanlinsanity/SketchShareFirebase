@@ -259,8 +259,8 @@ public func /= ( a:inout Vec3, b: Float) {a = a / b}
 public func length(v: Vec3) -> Float {return v.length}
 public func length2(v: Vec3) -> Float {return v.length2}
 public func normalize(v: Vec3) -> Vec3 {return v / v.length}
-public func dot(a: Vec3, b: Vec3) -> Float {return a.x * b.x + a.y * b.y + a.z * b.z}
-public func cross(a: Vec3, b: Vec3) -> Vec3 {return Vec3(x: a.y * b.z - a.z * b.y, y: a.z * b.x - a.x * b.z, z: a.x * b.y - a.y * b.x)}
+public func dot(_ a: Vec3,_  b: Vec3) -> Float {return a.x * b.x + a.y * b.y + a.z * b.z}
+public func cross(_ a: Vec3,_ b: Vec3) -> Vec3 {return Vec3(x: a.y * b.z - a.z * b.y, y: a.z * b.x - a.x * b.z, z: a.x * b.y - a.y * b.x)}
 
 public func clamp(value: Vec3, min: Float, max: Float) -> Vec3 {return Vec3(clamp(value:value.x, min: min, max: max), clamp(value: value.y, min: min, max: max), clamp(value: value.z, min: min, max: max))}
 public func mix(a: Vec3, b: Vec3, t: Float) -> Vec3 {return a + (b - a) * t}

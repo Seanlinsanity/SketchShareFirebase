@@ -8,7 +8,6 @@
 
 import Metal
 import MetalKit
-import UIKit
 
 open class MetalRenderView:MTKView,MTKViewDelegate{
     public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
