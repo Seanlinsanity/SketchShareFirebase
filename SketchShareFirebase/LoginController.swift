@@ -41,14 +41,13 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         
         view.backgroundColor = .white
         
-        firebaseManager.loginManager.checkUserId()
-            .done { (user) in
-                print(user)
-            }.catch { (error) in
-                print(error)
+        firebaseManager.loginManager.checkUserId().done { (uid) in
+            print(uid)
+        }.catch { (error) in
+            print(error)
         }
         
-        //firebaseManager.loginManager.signOut()
+        firebaseManager.loginManager.signOut()
  
         setupFacebookLoginButton()
         setupGoogleLoginButton()
@@ -80,11 +79,14 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
             if error != nil{
                 print("Custom FB Login failed: ", error ?? "error")
             }
-            firebaseManager.loginManager.signInFirebaseWithFB()
+            firebaseManager.loginManager.signInFirebaseWithFB().done({ (uid) in
+                print(uid)
+            }).catch({ (error) in
+                print(error)
+            })
         }
     
     }
-
 
 
 }
