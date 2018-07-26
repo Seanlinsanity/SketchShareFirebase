@@ -103,7 +103,7 @@ public class FirebaseModel//: FirebaseModelProtocol
     func setModel(model: Any)// -> Promise<Any>
     {
         let obj = self.createDataFromField();
-        return firebaseManager.setValue(url: self.databaseURL, value: obj)
+//        return firebaseManager.setValue(url: self.databaseURL, value: obj)
         
     }
     

@@ -36,7 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             print("Failed to log into Google", err)
             return
         }
-        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user)
+        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user).done { (uid) in
+            print(uid)
+        }.catch { (error) in
+            print(error)
+        }
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

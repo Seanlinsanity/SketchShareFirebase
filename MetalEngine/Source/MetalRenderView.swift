@@ -6,10 +6,10 @@
 //  Copyright © 2018年 com.sketchshare. All rights reserved.
 //
 
-import Foundation
 import Metal
 import MetalKit
-import Cocoa
+import UIKit
+
 open class MetalRenderView:MTKView,MTKViewDelegate{
     public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         print("size change")

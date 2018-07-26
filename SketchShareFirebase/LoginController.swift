@@ -10,6 +10,7 @@ import UIKit
 import FirebaseFramework
 import FBSDKLoginKit
 import GoogleSignIn
+import PromiseKit
 
 class LoginController: UIViewController, GIDSignInUIDelegate {
     
@@ -40,9 +41,14 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         
         view.backgroundColor = .white
         
-        firebaseManager.loginManager.checkUserId()
-        firebaseManager.loginManager.signOut()
+        firebaseManager.loginManager.checkUserId().done { (uid) in
+            print(uid)
+        }.catch { (error) in
+            print(error)
+        }
         
+        firebaseManager.loginManager.signOut()
+ 
         setupFacebookLoginButton()
         setupGoogleLoginButton()
     }
@@ -73,11 +79,14 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
             if error != nil{
                 print("Custom FB Login failed: ", error ?? "error")
             }
-            firebaseManager.loginManager.signInFirebaseWithFB()
+            firebaseManager.loginManager.signInFirebaseWithFB().done({ (uid) in
+                print(uid)
+            }).catch({ (error) in
+                print(error)
+            })
         }
     
     }
-
 
 
 }

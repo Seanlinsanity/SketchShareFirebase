@@ -7,56 +7,82 @@
 //
 
 import Foundation
-//管理登入的部分
 import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
-//登入的部分
+import PromiseKit
+
+enum FirebaseAuthError: Error {
+    case invalidUser
+}
+
 public class FirebaseLogingManager {
     
     public init() {
-        //FirebaseApp.configure()
+
     }
     
-    public func checkUserId() {
-        print(Auth.auth().currentUser?.uid ?? "No User ID")
-    }
-    
-    public func signInFirebaseWithFB(){
-        let accessToken = FBSDKAccessToken.current()
-        guard let accessTokenString = accessToken?.tokenString else { return }
-        let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
-        
-        Auth.auth().signInAndRetrieveData(with: credentials) { (result, error) in
-            if error != nil {
-                print("Failed to sign in Firebase by FB: ", error ?? "error")
-                return
+    public func checkUserId() -> Promise<String> {
+        return Promise<String> {(seal) in
+            if let user = Auth.auth().currentUser {
+                seal.fulfill(user.uid)
+            }else {
+                seal.reject(FirebaseAuthError.invalidUser)
             }
-            print("Successfully logged in Firebase with facebook...")
-            print(result?.user.uid ?? "no uid")
-        }
-        
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
-            if err != nil {
-                print("Failed to start graph request: ", err ?? "error")
-                return
-            }
-            guard let result = result as? [String: Any] else { return }
-            guard let email = result["email"] else { return }
-            print("user email: ", email)
         }
     }
     
-    public func signInFirebaseWithGoogle(user: GIDGoogleUser){
-        guard let idToken = user.authentication.idToken else { return }
-        guard let accessToken = user.authentication.accessToken else { return }
-        let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
-        Auth.auth().signInAndRetrieveData(with: credentials) { (result, error) in
-            if let err = error {
-                print("Failed to create a Firebase User with Google account: ", err)
-                return
+    public func signInFirebaseWithFB() -> Promise<String> {
+        return Promise<String> { (seal) in
+            let accessToken = FBSDKAccessToken.current()
+            guard let accessTokenString = accessToken?.tokenString else { return }
+            let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+            
+            Auth.auth().signInAndRetrieveData(with: credentials) { (result, error) in
+                if let error = error {
+                    print("Failed to sign in Firebase with Facebook")
+                    seal.reject(error)
+                }else{
+                    print("Successfully logged in Firebase with facebook...")
+                    guard let user = result?.user else { return }
+                    seal.fulfill(user.uid)
+                }
             }
-            print(user.profile.email ?? "user email error")
+        }
+    }
+    
+    public func getFacebookUserInfo() -> Promise<[String: Any]>{
+        return Promise<[String: Any]> { (seal) in
+            FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
+                if let err = err {
+                    print("Failed to start graph request")
+                    seal.reject(err)
+                }else{
+                    guard let result = result as? [String: Any] else { return }
+                    guard let email = result["email"] else { return }
+                    print("user email: ", email)
+                    seal.fulfill(result)
+                }
+            }
+        }
+    }
+    
+    public func signInFirebaseWithGoogle(user: GIDGoogleUser) -> Promise<String> {
+        return Promise<String> { (seal) in
+            guard let idToken = user.authentication.idToken else { return }
+            guard let accessToken = user.authentication.accessToken else { return }
+            let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+            
+            Auth.auth().signInAndRetrieveData(with: credentials) { (result, error) in
+                if let error = error {
+                    print("Failed to sign in Firebase with Google")
+                    seal.reject(error)
+                }else{
+                    print("Successfully logged in Firebase with Google...")
+                    guard let user = result?.user else { return }
+                    seal.fulfill(user.uid)
+                }
+            }
         }
     }
     
