@@ -16,6 +16,7 @@ public class FirestoreManager {
         self.db = db
     }
     
+    //拿到參考
     func getDocumentRef(collection: String, id: String)->DocumentReference {
         return db.collection(collection).document(id)
     }
@@ -47,6 +48,7 @@ public class FirestoreManager {
     ///   - data: <#data description#>
     ///   - parentRef: <#parentRef description#>
     func setDocument(collection: String,id: String,data: [String:Any],parentRef: DocumentReference?) {
+        //TODO: promise化
         self.setCount = self.setCount+1
         if (parentRef != nil) {
             return (parentRef?
@@ -59,5 +61,8 @@ public class FirestoreManager {
                 .collection(collection)
                 .document(id).setData(data, merge: true);
         }
+    }
+    func getDocument(){
+        //TODO:
     }
 }

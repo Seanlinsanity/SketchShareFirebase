@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
 import PromiseKit
 import GoogleSignIn
 /**
@@ -29,6 +30,7 @@ public class FirebaseManager {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         ref = Database.database().reference()
         //初始化firestore
+        
         firestore = FirestoreManager(db: Firestore.firestore())
         debugPrint(ref)
     }

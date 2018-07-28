@@ -8,7 +8,6 @@
 
 import Metal
 import MetalKit
-import UIKit
 
 open class MetalRenderView:MTKView,MTKViewDelegate{
     public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
@@ -16,12 +15,13 @@ open class MetalRenderView:MTKView,MTKViewDelegate{
     }
     
  
-//    var metalLayer: CAMetalLayer!
-    var vertexBuffer: MTLBuffer!
+
+//    var vertexBuffer: MTLBuffer!
+    var objectToDraw: Node!
     var pipelineState: MTLRenderPipelineState!
     var commandQueue: MTLCommandQueue!
     
-    init(frame frameRect:CGRect) {
+    public init(frame frameRect:CGRect) {
         let device = MTLCreateSystemDefaultDevice()
         super.init(frame: frameRect, device: device)
         self.device = device
@@ -51,20 +51,22 @@ open class MetalRenderView:MTKView,MTKViewDelegate{
             -1.0, -1.0, 0.0,
             1.0, -1.0, 0.0]
         
-        //創建渲染的緩衝
-        let dataSize = vertexData.count * MemoryLayout.size(ofValue: vertexData[0]) // 1
-        vertexBuffer = device?.makeBuffer(bytes: vertexData, length: dataSize, options: []) // 2
-        
+//        //創建渲染的緩衝
+//        let dataSize = vertexData.count * MemoryLayout.size(ofValue: vertexData[0]) // 1
+//        vertexBuffer = device?.makeBuffer(bytes: vertexData, length: dataSize, options: []) // 2
+//        objectToDraw = Triangle(device: device!)
+        objectToDraw = Cube(device: device!)
         // 讀取shader著色器並建立pipeline
-        let defaultLibrary = device?.makeDefaultLibrary()!
-//        let frameworkBundle = Bundle(for: SketchShareMetalShaderFramework.self)
-//        guard let defaultLibrary = try? device.makeDefaultLibrary(bundle: frameworkBundle) else {
-//            fatalError("Could not load default library from specified bundle")
-//        }
-        let fragmentProgram = defaultLibrary?.makeFunction(name: "basic_fragment")
+        // let defaultLibrary = device?.makeDefaultLibrary()!
+        //將Shader code包在Framework之中：當Shader的target和執行app不同時，必須用bundle去找，將for:Class宣告在framework中
+        let frameworkBundle = Bundle(for: SketchShareMetalShaderFramework.self)
+        guard let defaultLibrary = try? device?.makeDefaultLibrary(bundle: frameworkBundle) else {
+            fatalError("Could not load default library from specified bundle")
+        }
+       
         let vertexProgram = defaultLibrary?.makeFunction(name: "basic_vertex")
-        
-        // 2
+         let fragmentProgram = defaultLibrary?.makeFunction(name: "basic_fragment")
+        // 2 渲染流程
         let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = vertexProgram
         pipelineStateDescriptor.fragmentFunction = fragmentProgram
@@ -73,29 +75,21 @@ open class MetalRenderView:MTKView,MTKViewDelegate{
         // 3
         pipelineState = try! device?.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
         
-        //GPU 指令佇列
+        //產生GPU 指令佇列
         commandQueue = device?.makeCommandQueue()
     }
     
     public func draw(in view: MTKView) {
-        print("draw")
-        // TODO
-        //guard let drawable = metalLayer?.nextDrawable() else { return }
-        if let renderPassDescriptor = view.currentRenderPassDescriptor, let drawable = view.currentDrawable {
-
-//            renderPassDescriptor.colorAttachments[0].texture = drawable.texture
-            renderPassDescriptor.colorAttachments[0].loadAction = .clear
-            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 104.0/255.0, blue: 5.0/255.0, alpha: 1.0)
-            let commandBuffer = commandQueue.makeCommandBuffer()
-            let renderEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
-            renderEncoder?.setRenderPipelineState(pipelineState)
-            renderEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-            renderEncoder?.drawPrimitives(type: .line, vertexStart: 0, vertexCount: 3, instanceCount: 1)
-            renderEncoder?.endEncoding()
-            commandBuffer?.present(drawable)
-             commandBuffer?.commit()
-        }
-        
+        guard let drawable = view.currentDrawable else { return }
+          objectToDraw.render(commandQueue: commandQueue, pipelineState: pipelineState, drawable: drawable, clearColor: nil)
     }
+    override open func mouseDragged(with event: NSEvent) {
+        let location = event.locationInWindow
+        let delta = CGPoint(x:event.deltaX, y:event.deltaY)
+        event.pressure
+        print("eee")
+    }
+    
+    
 }
 open class SketchShareMetalShaderFramework {}
