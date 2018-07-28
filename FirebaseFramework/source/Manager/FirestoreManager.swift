@@ -29,13 +29,10 @@ public class FirestoreManager {
     ///   - data: data to store in the document
     ///   - parentRef: if there is a parent collection, pass this
     /// - Returns: new document reference
-    func addDocument(collection: String,id: String,data:[String:Any],parentRef:DocumentReference?)->DocumentReference{
-        if((parentRef) != nil)
-        {
+    func addDocument(collection: String, id: String, data: [String:Any], parentRef: DocumentReference?) -> DocumentReference{
+        if(parentRef != nil) {
             return db.collection(collection).addDocument(data: data)
-        }
-        else
-        {
+        }else{
             return parentRef!.collection(collection).addDocument(data: data)
         }
     }
@@ -61,7 +58,7 @@ public class FirestoreManager {
                 .collection(collection)
                 .document(id).setData(data, merge: true);
         }
-    }
+    } 
     func getDocument(){
         //TODO:
     }

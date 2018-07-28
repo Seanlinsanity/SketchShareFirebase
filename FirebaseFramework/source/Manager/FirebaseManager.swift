@@ -20,6 +20,7 @@ public class FirebaseManager {
     
     var ref: DatabaseReference!
     public let loginManager = FirebaseLogingManager()
+    public let storageManager = FirebaseStorageManager()
     public var firestore: FirestoreManager!
     public init() {
         
@@ -29,10 +30,10 @@ public class FirebaseManager {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         ref = Database.database().reference()
-        //初始化firestore
         
+        //初始化firestore
         firestore = FirestoreManager(db: Firestore.firestore())
-        debugPrint(ref)
+        
     }
     
     //realtime database 讀取
@@ -66,7 +67,7 @@ public class FirebaseManager {
         }
     }
     
-    public func pushValue(url: String, value: [String: Any]) -> Promise<[String: Any]> {
+    public func updateValue(url: String, value: [String: Any]) -> Promise<[String: Any]> {
         return Promise<[String: Any]>{ seal in
             
             ref.child(url).updateChildValues(value) { (error, ref) in

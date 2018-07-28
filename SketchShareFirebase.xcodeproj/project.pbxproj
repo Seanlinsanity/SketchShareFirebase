@@ -16,8 +16,7 @@
 		2E93478BF31E67A776521925 /* Pods_SketchShareFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF4AF32767C6E4F6EE4FD21 /* Pods_SketchShareFirebase.framework */; };
 		334BCAF0A8AB673085075A47 /* Pods_SketchShare_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3923CEDA69863E601BB36564 /* Pods_SketchShare_macOS.framework */; };
 		6CEFE1D66139713FFF3DC33F /* Pods_SketchShareFirebase_FirebaseFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE2E71BE6BABCF7C083C175 /* Pods_SketchShareFirebase_FirebaseFramework.framework */; };
-		CD1D5993210846A700FD87A4 /* SketchShareMetal_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6D24EE210691A1001A8737 /* SketchShareMetal_iOS.framework */; };
-		CD1D5994210846A700FD87A4 /* SketchShareMetal_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD6D24EE210691A1001A8737 /* SketchShareMetal_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CD1D5994210846A700FD87A4 /* SketchShareMetal_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD6D24EE210691A1001A8737 /* SketchShareMetal_iOS.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CD1D599A2108738C00FD87A4 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59992108738C00FD87A4 /* Vertex.swift */; };
 		CD1D599B2108739600FD87A4 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59992108738C00FD87A4 /* Vertex.swift */; };
 		CD1D599D210873AC00FD87A4 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D599C210873AC00FD87A4 /* Node.swift */; };
@@ -40,7 +39,7 @@
 		CD1D59C921089EBD00FD87A4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD1D59B021089EBD00FD87A4 /* Info.plist */; };
 		CD1D59CA21089EBD00FD87A4 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59B121089EBD00FD87A4 /* Float.swift */; };
 		CD1D59CB21089EBD00FD87A4 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59B121089EBD00FD87A4 /* Float.swift */; };
-		CD1D59CD2109B55F00FD87A4 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59CC2109B55F00FD87A4 /* StorageManager.swift */; };
+		CD1D59CD2109B55F00FD87A4 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59CC2109B55F00FD87A4 /* FirebaseStorageManager.swift */; };
 		CD1D59CF2109B67800FD87A4 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59CE2109B67800FD87A4 /* UserObject.swift */; };
 		CD281E2720FF80690079BF59 /* FirebaseFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CD281E1720FF80690079BF59 /* FirebaseFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD281E4720FF851B0079BF59 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3420FF80730079BF59 /* FirebaseManager.swift */; };
@@ -167,7 +166,7 @@
 		CD1D59AF21089EBD00FD87A4 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CD1D59B021089EBD00FD87A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD1D59B121089EBD00FD87A4 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
-		CD1D59CC2109B55F00FD87A4 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		CD1D59CC2109B55F00FD87A4 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		CD1D59CE2109B67800FD87A4 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		CD22BC4C21005939004367D2 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD22BC4E21005939004367D2 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,7 +220,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E93478BF31E67A776521925 /* Pods_SketchShareFirebase.framework in Frameworks */,
-				CD1D5993210846A700FD87A4 /* SketchShareMetal_iOS.framework in Frameworks */,
 				CDF79FF72105D85400B97367 /* SketchShareFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,8 +389,8 @@
 			children = (
 				CD281E3420FF80730079BF59 /* FirebaseManager.swift */,
 				CD281E3520FF80730079BF59 /* FirebaseLoginManager.swift */,
+				CD1D59CC2109B55F00FD87A4 /* FirebaseStorageManager.swift */,
 				CD281E3620FF80730079BF59 /* FirestoreManager.swift */,
-				CD1D59CC2109B55F00FD87A4 /* StorageManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -970,7 +968,7 @@
 				CD281E4B20FF85250079BF59 /* FirestoreObject.swift in Sources */,
 				CD281E4920FF851B0079BF59 /* FirestoreManager.swift in Sources */,
 				CDF7A00321062F2700B97367 /* FieldWrapper.swift in Sources */,
-				CD1D59CD2109B55F00FD87A4 /* StorageManager.swift in Sources */,
+				CD1D59CD2109B55F00FD87A4 /* FirebaseStorageManager.swift in Sources */,
 				CD281E4720FF851B0079BF59 /* FirebaseManager.swift in Sources */,
 				CD281E4A20FF85250079BF59 /* FirebaseField.swift in Sources */,
 			);

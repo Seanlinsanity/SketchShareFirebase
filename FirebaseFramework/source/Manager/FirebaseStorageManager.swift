@@ -10,19 +10,13 @@ import UIKit
 import Firebase
 import PromiseKit
 
-public class StorageManager {
-
-    var storageRef: StorageReference!
-    
-    public init() {
-        storageRef = Storage.storage().reference()
-    }
+public class FirebaseStorageManager {
     
     public func uploadImage(folder: String, filename: String, image: UIImage) -> Promise<StorageReference>{
         return Promise<StorageReference> { (seal) in
          
             guard let data = UIImageJPEGRepresentation(image, 1) else { return }
-            let dataStorageRef = storageRef.child(folder).child(filename)
+            let dataStorageRef = Storage.storage().reference().child(folder).child(filename)
             
             dataStorageRef.putData(data, metadata: nil, completion: { (metadata, error) in
                 if let error = error {
@@ -44,6 +38,21 @@ public class StorageManager {
                     seal.fulfill(downloadurl)
                 }
             })
+        }
+    }
+    
+    public func downloadFile(url: String) -> Promise<UIImage> {
+        return Promise<UIImage> { (seal) in
+            guard let url = URL(string: url) else { return }
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                if let error = error {
+                    seal.reject(error)
+                }else{
+                    guard let data = data else { return }
+                    guard let image = UIImage(data: data) else { return }
+                    seal.fulfill(image)
+                }
+            }).resume()
         }
     }
     

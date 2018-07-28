@@ -41,13 +41,13 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         
         view.backgroundColor = .white
         
-        firebaseManager.loginManager.checkUserId().done { (uid) in
-            print(uid)
-        }.catch { (error) in
-            print(error)
-        }
-        
-        firebaseManager.loginManager.signOut()
+//        firebaseManager.loginManager.checkUserId().done { (uid) in
+//            print(uid)
+//        }.catch { (error) in
+//            print(error)
+//        }
+//
+//        firebaseManager.loginManager.signOut()
  
         setupFacebookLoginButton()
         setupGoogleLoginButton()
