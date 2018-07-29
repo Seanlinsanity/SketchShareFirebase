@@ -8,58 +8,65 @@
 
 import Foundation
 import FirebaseFirestore
+import PromiseKit
 /// firestore存取
 public class FirestoreManager {
-    let db:Firestore!
-    var setCount:Int = 0
-    init(db:Firestore) {
+    let db: Firestore!
+    var setCount: Int = 0
+    
+    public init(db:Firestore) {
         self.db = db
     }
     
     //拿到參考
-    func getDocumentRef(collection: String, id: String)->DocumentReference {
+    public func getDocumentRef(collection: String, id: String) -> DocumentReference {
         return db.collection(collection).document(id)
     }
     
-    /// Create new document into firestore database
-    ///
-    /// - Parameters:
-    ///   - collection: firestore collection
-    ///   - id: document id
-    ///   - data: data to store in the document
-    ///   - parentRef: if there is a parent collection, pass this
-    /// - Returns: new document reference
-    func addDocument(collection: String, id: String, data: [String:Any], parentRef: DocumentReference?) -> DocumentReference{
-        if(parentRef != nil) {
-            return db.collection(collection).addDocument(data: data)
+    public func addDocument(collection: String, id: String, data: [String:Any], parentRef: DocumentReference?) -> DocumentReference {
+        if let ref = parentRef {
+            return ref.collection(collection).addDocument(data: data)
         }else{
-            return parentRef!.collection(collection).addDocument(data: data)
+            return db.collection(collection).addDocument(data: data)
         }
     }
     
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - collection: <#collection description#>
-    ///   - id: <#id description#>
-    ///   - data: <#data description#>
-    ///   - parentRef: <#parentRef description#>
-    func setDocument(collection: String,id: String,data: [String:Any],parentRef: DocumentReference?) {
-        //TODO: promise化
-        self.setCount = self.setCount+1
-        if (parentRef != nil) {
-            return (parentRef?
-                .collection(collection)
-                .document(id)
-                .setData(data))!;
-        } else
-        {
-            return self.db
-                .collection(collection)
-                .document(id).setData(data, merge: true);
+    public func setDocument(collection: String, id: String, data: [String : Any], parentRef: DocumentReference?) -> Promise<[String : Any]> {
+        
+        return Promise<[String : Any]> { (seal) in
+            self.setCount = self.setCount + 1
+            if let ref = parentRef {
+                ref.collection(collection).document(id).setData(data, completion: { (error) in
+                    if let error = error {
+                        seal.reject(error)
+                    }else{
+                        seal.fulfill(data)
+                    }
+                })
+            }else{
+                return self.db.collection(collection).document(id).setData(data, merge: true, completion: { (err) in
+                    if let err = err {
+                        seal.reject(err)
+                    }else{
+                        seal.fulfill(data)
+                    }
+                })
+            }
         }
-    } 
-    func getDocument(){
-        //TODO:
+
+
+    }
+    
+    public func getDocument(collection: String, id: String) -> Promise<[String: Any]> {
+        return Promise<[String: Any]> { (seal) in
+            db.collection(collection).document(id).getDocument { (snapshot, error) in
+                if let error = error {
+                    seal.reject(error)
+                }else{
+                    guard let documentData = snapshot?.data() else { return }
+                    seal.fulfill(documentData)
+                }
+            }
+        }
     }
 }
