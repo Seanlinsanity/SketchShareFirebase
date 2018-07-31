@@ -8,7 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
-import PromiseKit
+import Promises
 /// firestore存取
 public class FirestoreManager {
     let db: Firestore!
@@ -31,24 +31,24 @@ public class FirestoreManager {
         }
     }
     
-    public func setDocument(collection: String, id: String, data: [String : Any], parentRef: DocumentReference?) -> Promise<[String : Any]> {
+    public func setDocument(collection: String, id: String, data: [String : Any], parentRef: DocumentReference? = nil) -> Promise<Bool> {
         
-        return Promise<[String : Any]> { (seal) in
+        return Promise<Bool> { (fulfill,reject) in
             self.setCount = self.setCount + 1
             if let ref = parentRef {
                 ref.collection(collection).document(id).setData(data, completion: { (error) in
                     if let error = error {
-                        seal.reject(error)
+                        reject(error)
                     }else{
-                        seal.fulfill(data)
+                        fulfill(true)
                     }
                 })
             }else{
                 return self.db.collection(collection).document(id).setData(data, merge: true, completion: { (err) in
                     if let err = err {
-                        seal.reject(err)
+                        reject(err)
                     }else{
-                        seal.fulfill(data)
+                        fulfill(true)
                     }
                 })
             }
@@ -58,32 +58,66 @@ public class FirestoreManager {
     }
     
     public func getDocument(collection: String, id: String,ref:DocumentReference?) -> Promise<[String: Any]> {
-        return Promise<[String: Any]> { (seal) in
+        return Promise<[String: Any]> { (fulfill,reject)in
             //有parent collection的情況
             if(ref != nil)
             {
                 ref?.collection(collection).document(id).getDocument { (snapshot, error) in
                     if let error = error {
-                        seal.reject(error)
+                        reject(error)
                     }else{
                         guard let documentData = snapshot?.data() else { return }
-                        seal.fulfill(documentData)
+                        fulfill(documentData)
                     }
                 }
             }
-            db.collection(collection).document(id).getDocument { (snapshot, error) in
+            self.db.collection(collection).document(id).getDocument { (snapshot, error) in
                 if let error = error {
-                    seal.reject(error)
+                    reject(error)
                 }else{
                     guard let documentData = snapshot?.data() else { return }
-                    seal.fulfill(documentData)
+                    fulfill(documentData)
                 }
             }
         }
     }
+    public func updateField(
+        collection: String,
+        id: String,
+        fieldName: String,
+        fieldValue: Any,
+        parentRef:DocumentReference? = nil
+        )->Promise<Bool> {
+        return Promise<Bool>{(fulfill,reject) in
+            self.setCount = self.setCount + 1;
+            if (parentRef != nil)
+            {
+                parentRef?
+                    .collection(collection).document(id).updateData([fieldName: fieldValue], completion: { (error) in
+                        fulfill(true)
+                    })
+            }
+            else
+            {
+                
+            self.db
+                .collection(collection).document(id).updateData([fieldName: fieldValue], completion: { (error) in
+                    fulfill(true)
+                })
+              
+            }
+        }
+    }
+    public func updateDocument(){
+        //TODO:
+    }
     public func deleteDocument(){
         //TODO:
     }
+ 
+   
+}
+
     
 //    queryDocuments(
 //    collection: string,
@@ -125,4 +159,4 @@ public class FirestoreManager {
 //    return snapshot;
 //    });
 //    }
-}
+

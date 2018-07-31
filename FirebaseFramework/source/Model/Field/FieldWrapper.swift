@@ -50,8 +50,8 @@ class FieldWrapper<T>{
                     let trimmedString = v.trimmingCharacters(in: .whitespacesAndNewlines)
                     return trimmedString.count==0
                 }
+                return false
             }
-            
         }
     }
    

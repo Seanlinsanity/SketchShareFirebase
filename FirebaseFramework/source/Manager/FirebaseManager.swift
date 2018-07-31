@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
-import PromiseKit
+import Promises
 import GoogleSignIn
 /**
  * 管理firebase的api 和 realtime database 存取
@@ -25,7 +25,6 @@ public class FirebaseManager {
     public init() {
         
     }
-    
     public func configure(){
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -38,60 +37,77 @@ public class FirebaseManager {
     
     //realtime database 讀取
     public func getValue(url: String) -> Promise< [String: Any]> {
-        return Promise< [String: Any]> { seal in
-            ref.child(url).observeSingleEvent(of: .value, with: { (snapshot) in
+        return Promise< [String: Any]> { (fulfill,reject) in
+            self.ref.child(url).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let value = snapshot.value as?  [String: Any]{
                     debugPrint("Firebase get: \(value)")
                     
-                    seal.fulfill(value)
+                    fulfill(value)
                 }
             }) { (error) in
                 print(error.localizedDescription)
-                seal.reject(error)
+                reject(error)
             }
         }
     }
-    ///寫入
-    public func setValue(url: String, value: [String: Any]) -> Promise<Any> {
-        return Promise<Any> { seal in
-            ref.child(url).setValue(value) { (error, ref) in
+    /// 把資料寫入
+    /// - Parameters:
+    ///   - url:
+    ///   - value:
+    /// - Returns: 成功
+    public func setValue(url: String, value: [String: Any]) -> Promise<Bool> {
+        return Promise<Bool> { (fulfill,reject) in
+            self.ref.child(url).setValue(value) { (error, ref) in
                 if error != nil {
                     print("Failed to set value in Firebase")
                     guard let error = error else { return }
-                    seal.reject(error)
+                    reject(error)
                 }
                 print("Successfully to set value :\(value) in Firebase")
-                seal.fulfill(true)
+                fulfill(true)
+            }
+        }
+    }
+    public func pushValue(url: String, value: [String: Any]) -> Promise<String> {
+         return Promise<String> { (fulfill,reject) in
+            self.ref.child(url).childByAutoId().setValue(value) { (error, ref) in
+                if error != nil {
+                    print("Failed to push value in Firebase")
+                    guard let error = error else { return }
+                    reject(error)
+                }
+                print("Successfully to push value :\(value) in Firebase")
+                fulfill(ref.key)
             }
         }
     }
     
-    public func updateValue(url: String, value: [String: Any]) -> Promise<Any> {
-        return Promise<Any>{ seal in
+    public func updateValue(url: String, value: [String: Any]) -> Promise<Bool> {
+        return Promise<Bool>{ (fulfill,reject) in
             
-            ref.child(url).updateChildValues(value) { (error, ref) in
+            self.ref.child(url).updateChildValues(value) { (error, ref) in
                 if error != nil{
                     print("Failed to update value in Firebase")
                     guard let error = error else { return }
-                    seal.reject(error)
+                    reject(error)
                 }
                 print("Successfully to update value: \(value) in Firebase")
-                seal.fulfill(true)
+                fulfill(true)
             }
         }
 
     }
     
-    public func deleteValue(url: String) -> Promise<String> {
-        return Promise<String> { seal in
-            ref.child(url).removeValue { (error, ref) in
+    public func deleteValue(url: String) -> Promise<Bool> {
+        return Promise<Bool> { (fulfill,reject) in
+            self.ref.child(url).removeValue { (error, ref) in
                 if error != nil {
                     print("Failed to delete value in Firebase: ")
                     guard let error = error else { return }
-                    seal.reject(error)
+                    reject(error)
                 }
                 print("Successfully to delete value at \(url) in Firebase")
-                seal.fulfill(url)
+                fulfill(true)
             }
         }
     }

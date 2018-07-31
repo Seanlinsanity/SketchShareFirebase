@@ -9,7 +9,9 @@
 import Foundation
 import FirebaseFramework
 
-public class UserBrief : FirebaseModel
+open class UserBrief : FirebaseModel
 {
-    init()
+    init(){
+        
+    }
 }

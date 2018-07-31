@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import PromiseKit
+import Promises
 //type FirebaseFieldType =
 //    | string
 //    | number
@@ -19,10 +19,9 @@ import PromiseKit
 //    | any;
 
 class FirebaseField<T>:FieldWrapper<T> {
-    
     var hasBind:Bool = false;
-    var bindModel: FirebaseModelProtocol;
-    var fieldName: String;
+    var bindModel: FirebaseModelProtocol!;
+    var fieldName: String!;
     //將doc和brief同步資料連結用
     var linkFields: [FirebaseField<T>]!;
    init(
@@ -35,19 +34,19 @@ class FirebaseField<T>:FieldWrapper<T> {
     }
     
     func bind(bindModel: FirebaseModelProtocol) {
-    self.bindModel = bindModel;
-    self.hasBind = true;
+        self.bindModel = bindModel;
+        self.hasBind = true;
     }
    
     
     //TODO: ref in obj
-    func update(val: T?)->Promise<Any> {
-        if (self.hasBind == false) {
-        // console.error("Not bind yet can't update");
-            
-            return Promise(error: "Not bind yet can't update" as! Error);
-        }
-            var ps:[Promise<Any>] = [] as! [Promise];
+    func update(val: T?)->Promise<Bool> {
+        return Promise<Bool>{(fulfill,reject) in
+            if (self.hasBind == false) {
+            // console.error("Not bind yet can't update");
+                reject("Not bind yet can't update" as! Error);
+            }
+            var ps:[Promise<Bool>] = [] as! [Promise];
             if ((self.linkFields) != nil)
             {
                 for field in self.linkFields
@@ -55,10 +54,11 @@ class FirebaseField<T>:FieldWrapper<T> {
                     ps.append(field.update(val: val));
                 }
             }
-            ps.append(self.bindModel.updateField(fieldName: self.fieldName, fieldValue: self.val))
-        return  when(fulfilled: ps).then({results in
-                return Promise(
-            })
+            ps.append(self.bindModel.updateField(fieldName: self.fieldName, fieldValue: self.val!))
+            all(ps).then{results in
+                fulfill(true)
+            }
+        }
     }
     func set(val: T) {
         self.val = val
@@ -69,8 +69,6 @@ class FirebaseField<T>:FieldWrapper<T> {
             }
         }
     }
-    var toString: String {
-        return String(self.val)
-    }
+   
 }
 

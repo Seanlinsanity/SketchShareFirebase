@@ -7,10 +7,13 @@
 //
 
 import Foundation
-import PromiseKit
-open class FirebaseModel: FirebaseModelProtocol
+import Promises
+open class FirebaseModel: FirebaseModelBase, FirebaseModelProtocol
 {
-    init(){
+
+   
+    
+    override init(){
         
     }
     var hasBind = false
@@ -25,48 +28,53 @@ open class FirebaseModel: FirebaseModelProtocol
         {
             debugPrint("model not bind yet\(String(describing: collection)) \(String(describing: self.modelName))")
         }
-        let url = "\(collection)/\(self.modelName)/\(String(describing: id))";
+        let url = "\(collection)/\(self.modelName)/\(id))";
         return url
     }
     //將firebase下載的[String:Any轉換成model的fields]
-    func parseModel(model: [String:Any], modelName: String?) {
+    func parseModel(model: [String:Any], modelName: String? = nil) {
         if ((modelName) != nil){ self.modelName = modelName;}
         
         for prop in model{
-            var fieldName = prop
-            var field = self[fieldName] as FirebaseField;
-            if (field) {
-                field.fieldName = fieldName;
-                field.val = model[fieldName];
+            
+            let fieldName = prop.key
+            let mirror = Mirror(reflecting: self)
+            for child in mirror.children
+            {
+                if child.label==fieldName
+                {
+                    let field = child.value as! FirebaseField<Any>
+                    field.fieldName = fieldName
+                    field.val = prop.value
+                }
             }
+            
         }
         self.loaded = true;
     }
-    var loaded = false
    //TODO: 待捕
-    func updateField(fieldName: String, fieldValue: Any) -> Promise<Any> {
-        return Promise { seal in
-            seal.fulfill("TODO")
-        }
-       
-    }
-    
-   
-    func transactionAddValue(fieldName: String, val: Float) -> Promise<Any> {
-        return Promise { seal in
-            seal.fulfill("TODO")
-        }
+    func updateField(fieldName: String, fieldValue: Any) -> Promise<Bool> {
+        return firebaseManager.updateValue(url: "\(self.bindObj.collection)\(self.modelName)\(self.bindObj.id)\(fieldName)", value: fieldValue as! [String : Any])
         
     }
+    
+//
+//   
+//    func transactionAddValue(fieldName: String, val: Float) -> Promise<Any> {
+//        return Promise<Any> { (fulfill,reject) in
+//            seal.fulfill("TODO")
+//        }
+//        
+//    }
     
     //TODO:
-    func getModel() -> Promise<Any> {
-        return Promise { seal in
-            seal.fulfill("TODO")
+    func getModel() -> Promise<Bool> {
+        return firebaseManager.getValue(url: self.databaseURL).then{model in
+            self.parseModel(model: model)
+            return Promise(true)
         }
-        
     }
-    func setModel(model: Any) -> Promise<Any>
+    func setModel() -> Promise<Bool>
     {
         let obj = self.createDataFromField();
         return firebaseManager.setValue(url: self.databaseURL, value: obj)
@@ -74,25 +82,24 @@ open class FirebaseModel: FirebaseModelProtocol
     }
     
     
-    func addModel() -> Promise<Any> {
-        return Promise { seal in
-            seal.fulfill("TODO")
+    func addModel() -> Promise<String> {
+         let obj = self.createDataFromField();
+        return firebaseManager.pushValue(url: "\(self.bindObj.collection)/\(self.modelName)", value: obj ).then{url in
+            return Promise(url)
         }
         
     }
     
-    func updateModel(obj: Any) -> Promise<Any> {
-        return Promise { seal in
-            seal.fulfill("TODO")
-        }
+    func updateModel() -> Promise<Bool> {
+         let obj = self.createDataFromField();
+        return firebaseManager.updateValue(url: self.databaseURL, value: obj )
         
     }
     
     
-    func deleteModel() -> Promise<Any> {
-        return Promise { seal in
-            seal.fulfill("TODO")
-        }
+    func deleteModel() -> Promise<Bool> {
+        return firebaseManager.deleteValue(url: self.databaseURL)
         
     }
+    
 }

@@ -7,16 +7,17 @@
 //
 
 import Foundation
-import PromiseKit
+import Promises
 protocol FirebaseModelProtocol {
     
-    func updateField(fieldName: String, fieldValue: Any)-> Promise<Any>;
-    func transactionAddValue(fieldName: String, val: Float) -> Promise<Any>
-    func getModel() -> Promise<Any>
-    func addModel() -> Promise<Any>
-    func updateModel(obj: Any) -> Promise<Any>
-    func setModel(model: Any) -> Promise<Any>
-    func deleteModel() -> Promise<Any>
+   
+//    func transactionAddValue(fieldName: String, val: Float) -> Promise<Any>
+//    func getModel() -> Promise<Bool>
+//    func addModel() -> Promise<String>
+//    func updateModel() -> Promise<Bool>
+//    func setModel() -> Promise<Bool>
+//    func deleteModel() -> Promise<Bool>
+     func updateField(fieldName: String, fieldValue: Any)-> Promise<Bool>;
     func properties()->[String]
 }
 extension FirebaseModelProtocol

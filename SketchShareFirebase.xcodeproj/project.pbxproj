@@ -60,6 +60,7 @@
 		CD6D25162106971B001A8737 /* Pods_SketchShare_macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3923CEDA69863E601BB36564 /* Pods_SketchShare_macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CD6D251B2106EC32001A8737 /* SketchShareMetal.metal in Sources */ = {isa = PBXBuildFile; fileRef = CD6D25192106EC32001A8737 /* SketchShareMetal.metal */; };
 		CD6D251D2106EC32001A8737 /* MetalRenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6D251A2106EC32001A8737 /* MetalRenderView.swift */; };
+		CD86E1032110DB1F0071D101 /* FirebaseModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD86E1022110DB1F0071D101 /* FirebaseModelBase.swift */; };
 		CDAEF52E21068D4400BB91FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAEF52D21068D4400BB91FC /* AppDelegate.swift */; };
 		CDAEF53021068D4400BB91FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAEF52F21068D4400BB91FC /* ViewController.swift */; };
 		CDAEF53221068D4500BB91FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDAEF53121068D4500BB91FC /* Assets.xcassets */; };
@@ -199,6 +200,7 @@
 		CD6D24F1210691A1001A8737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD6D25192106EC32001A8737 /* SketchShareMetal.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = SketchShareMetal.metal; sourceTree = "<group>"; };
 		CD6D251A2106EC32001A8737 /* MetalRenderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalRenderView.swift; sourceTree = "<group>"; };
+		CD86E1022110DB1F0071D101 /* FirebaseModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModelBase.swift; sourceTree = "<group>"; };
 		CDAEF52B21068D4400BB91FC /* SketchShare_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SketchShare_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDAEF52D21068D4400BB91FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDAEF52F21068D4400BB91FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				CD281E3C20FF80730079BF59 /* FirebaseModelProtocol.swift */,
 				CD281E3D20FF80730079BF59 /* FirebaseObjectProtocol.swift */,
 				CD1D59D0210BBF0200FD87A4 /* FirestoreDocument.swift */,
+				CD86E1022110DB1F0071D101 /* FirebaseModelBase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -819,11 +822,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SketchShare_macOS/Pods-SketchShare_macOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit.root-CorePromise-Foundation/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC-macOS/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesSwift-macOS/Promises.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -855,7 +860,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC-iOS/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesSwift-iOS/Promises.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -874,7 +880,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -968,6 +975,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD281E4D20FF85250079BF59 /* FirebaseModelProtocol.swift in Sources */,
+				CD86E1032110DB1F0071D101 /* FirebaseModelBase.swift in Sources */,
 				CD281E4E20FF85250079BF59 /* FirebaseObjectProtocol.swift in Sources */,
 				CD281E4C20FF85250079BF59 /* FirebaseModel.swift in Sources */,
 				CD281E4820FF851B0079BF59 /* FirebaseLoginManager.swift in Sources */,

@@ -8,15 +8,18 @@
 
 import Foundation
 import FirebaseFirestore
-import PromiseKit
-public class FirestoreDocument:FirebaseModelProtocol{
-    
+import Promises
+public class FirestoreDocument:FirebaseModelBase, FirebaseModelProtocol{
+
     
     //timestamp
     //TODO: 確認firestore timestamp格式
     var created_at = FirebaseField<Int>(value: 0)
     var created_by = FirebaseField<String>(value: ""); //user
-    init(modelName: String?) {}
+    init(modelName: String?) {
+        
+    }
+    
     func bind(obj: FirebaseObjectProtocol) {
     self.bindObj = obj;
         let fields = self.initFields()
@@ -26,39 +29,63 @@ public class FirestoreDocument:FirebaseModelProtocol{
        
     }
     internal var bindObj: FirebaseObjectProtocol!;
-    func updateField(fieldName: String, fieldValue: Any) -> Promise<Any> {
-        <#code#>
-    }
+
     
-    func transactionAddValue(fieldName: String, val: Float) -> Promise<Any> {
-        <#code#>
-    }
-    
-    func getModel() -> Promise<Any> {
-//        return firebaseManager.firestore.getDocument(collection: self.bindObj.collection, id: self.bindObj.id, ref: self.bindObj.parentRef).then{result in
-//                result
-//            };
-    }
-    
-    func addModel() -> Promise<Any> {
-        var obj = self.createDataFromField();
-        return firebaseManager.firestore.addDocument(collection: self.bindObj.collection, id: self.bindObj.id,data: self.bindObj.obj, parentRef: self.bindObj.parentRef).then{docRef in
-            self.bindObj.bindID(docRef.id);
-            return docRef.id;
+    func getModel() -> Promise<Bool> {
+        return firebaseManager.firestore.getDocument(collection: self.bindObj.collection, id: self.bindObj.id, ref: self.bindObj.parentRef).then{result in
+            self.parseDocument(document: result)
+            return Promise(true)
             };
     }
-    
-    func updateModel(obj: Any) -> Promise<Any> {
-        <#code#>
+    func updateField(fieldName: String, fieldValue: Any) -> Promise<Bool> {
+        //,self.bindObj.parentRef
+        return firebaseManager.firestore.updateField(collection: self.bindObj.collection, id: self.bindObj.id, fieldName: fieldName, fieldValue: fieldValue,parentRef: self.bindObj.parentRef)
+    }
+
+
+    //將firebase下載的[String:Any轉換成model的fields]
+    func parseDocument(document: [String:Any]) {
+        for prop in document{
+            
+            let fieldName = prop.key
+            let mirror = Mirror(reflecting: self)
+            for child in mirror.children
+            {
+                if child.label==fieldName
+                {
+                    let field = child.value as! FirebaseField<Any>
+                    field.fieldName = fieldName
+                    field.val = prop.value
+                }
+            }
+            
+        }
+        self.loaded = true;
     }
     
-    func setModel(model: Any) -> Promise<Any> {
-        <#code#>
+    
+    func addModel() -> Promise<String> {
+        let obj = self.createDataFromField();
+        let docRef = firebaseManager.firestore.addDocument(collection: self.bindObj.collection, id: self.bindObj.id,data: obj, parentRef: self.bindObj.parentRef)
+        self.bindObj.bindID(id: docRef.documentID)
+        return Promise(docRef.documentID)
+        
     }
     
-    func deleteModel() -> Promise<Any> {
-        <#code#>
+   
+    
+    func setModel() -> Promise<Bool> {
+        let obj = self.createDataFromField();
+        return firebaseManager.firestore.setDocument(collection: self.bindObj.collection, id: self.bindObj.id, data: obj, parentRef: self.bindObj.parentRef)
     }
+//    func updateModel() -> Promise<Bool> {
+//        let obj = self.createDataFromField();
+//        return firebaseManager.firestore.updateDocument()
+//
+//    }
+//    func deleteModel() -> Promise<Bool> {
+//        return firebaseManager.firestore.deleteDocument()
+//    }
     
 //    func checkAllFieldsValid()->Bool {
 //        for field in self.fields {
@@ -70,7 +97,7 @@ public class FirestoreDocument:FirebaseModelProtocol{
 //        return true;
 //    }
     var fields: [FirebaseField<Any>] {
-        if (self._fields == nil){ self._fields = this.initFields();}
+        if (self._fields == nil){ self._fields = self.initFields();}
         return self._fields;
     }
     private var _fields: [FirebaseField<Any>]!;

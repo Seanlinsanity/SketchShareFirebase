@@ -8,35 +8,35 @@
 
 import UIKit
 import Firebase
-import PromiseKit
+import Promises
 
 public class FirebaseStorageManager {
     
     //TODO:這個目的是要拿到圖片網址，要跟底下的function寫一個合併的版本嗎？
     public func uploadImage(folder: String, filename: String, image: UIImage) -> Promise<StorageReference>{
-        return Promise<StorageReference> { (seal) in
+        return Promise<StorageReference> { (fulfill,reject) in
          
             guard let data = UIImageJPEGRepresentation(image, 1) else { return }
             let dataStorageRef = Storage.storage().reference().child(folder).child(filename)
             
             dataStorageRef.putData(data, metadata: nil, completion: { (metadata, error) in
                 if let error = error {
-                    seal.reject(error)
+                    reject(error)
                 }else{
-                    seal.fulfill(dataStorageRef)
+                    fulfill(dataStorageRef)
                 }
             })
         }
     }
     
     public func getDownloadUrl(dataStorageRef: StorageReference) -> Promise<String> {
-        return Promise<String> { (seal) in
+        return Promise<String> { (fulfill,reject) in
             dataStorageRef.downloadURL(completion: { (url, err) in
                 if let err = err {
-                    seal.reject(err)
+                    reject(err)
                 }else{
                     guard let downloadurl = url?.absoluteString else { return }
-                    seal.fulfill(downloadurl)
+                    fulfill(downloadurl)
                 }
             })
         }
@@ -44,15 +44,15 @@ public class FirebaseStorageManager {
     
     //TODO: 這個不是圖片，目前會用到是繪畫過程檔案，但短期應該還用不到
     public func downloadFile(url: String) -> Promise<UIImage> {
-        return Promise<UIImage> { (seal) in
+        return Promise<UIImage> { (fulfill,reject) in
             guard let url = URL(string: url) else { return }
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if let error = error {
-                    seal.reject(error)
+                    reject(error)
                 }else{
                     guard let data = data else { return }
                     guard let image = UIImage(data: data) else { return }
-                    seal.fulfill(image)
+                    fulfill(image)
                 }
             }).resume()
         }
