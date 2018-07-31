@@ -8,10 +8,11 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseFirestore
 protocol  FirebaseObjectProtocol{
     var collection: String{get set}
     var id: String{get set}
-    var parentRef:Database!{get set}
-    // parentRef: firebase.firestore.DocumentReference;
+    //firestore object才需要
+    var parentRef:DocumentReference!{get set}
     func bindID(id: String);
 }

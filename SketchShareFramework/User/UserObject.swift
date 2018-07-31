@@ -7,10 +7,10 @@
 //
 
 //import Foundation
-//public class UserObject: FirestoreObject
-//{
-//    init(){
-//
-//    }
-//    brief:
-//}
+public class UserObject : FirestoreObject
+{
+    init(){
+        
+    }
+    var brief:UserBriefModel
+}

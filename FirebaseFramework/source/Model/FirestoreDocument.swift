@@ -13,18 +13,19 @@ public class FirestoreDocument:FirebaseModelProtocol{
     
     
     //timestamp
-    var created_at = FirebaseField(val: <#T?#>)
-    var created_by = FirebaseField(val: <#T?#>); //user
+    //TODO: 確認firestore timestamp格式
+    var created_at = FirebaseField<Int>(value: 0)
+    var created_by = FirebaseField<String>(value: ""); //user
     init(modelName: String?) {}
     func bind(obj: FirebaseObjectProtocol) {
     self.bindObj = obj;
-    var fields = self.initFields()
+        let fields = self.initFields()
         for field in fields {
-            field.bind(self);
+            field.bind(bindModel: self);
         }
        
     }
-    protected var bindObj: IFirebaseObject!;
+    internal var bindObj: FirebaseObjectProtocol!;
     func updateField(fieldName: String, fieldValue: Any) -> Promise<Any> {
         <#code#>
     }
@@ -34,11 +35,17 @@ public class FirestoreDocument:FirebaseModelProtocol{
     }
     
     func getModel() -> Promise<Any> {
-        <#code#>
+//        return firebaseManager.firestore.getDocument(collection: self.bindObj.collection, id: self.bindObj.id, ref: self.bindObj.parentRef).then{result in
+//                result
+//            };
     }
     
     func addModel() -> Promise<Any> {
-        <#code#>
+        var obj = self.createDataFromField();
+        return firebaseManager.firestore.addDocument(collection: self.bindObj.collection, id: self.bindObj.id,data: self.bindObj.obj, parentRef: self.bindObj.parentRef).then{docRef in
+            self.bindObj.bindID(docRef.id);
+            return docRef.id;
+            };
     }
     
     func updateModel(obj: Any) -> Promise<Any> {
@@ -53,85 +60,20 @@ public class FirestoreDocument:FirebaseModelProtocol{
         <#code#>
     }
     
-    createObjFromField() {
-    var obj = new Object();
-    this.initFields().forEach(field => {
-    if (field.dirty == true) obj[field.fieldName] = field.val;
-    });
-    return obj;
+//    func checkAllFieldsValid()->Bool {
+//        for field in self.fields {
+//
+//            field.startCheckValid();
+//            if (!field.checkValid())
+//            {return false;}
+//        }
+//        return true;
+//    }
+    var fields: [FirebaseField<Any>] {
+        if (self._fields == nil){ self._fields = this.initFields();}
+        return self._fields;
     }
-    checkAllFieldsValid() {
-    this.fields.forEach(field => {
-    field.startCheckValid();
-    if (!field.checkValid()) return false;
-    });
-    return true;
-    }
-    get fields() {
-    if (this._fields == null) this._fields = this.initFields();
-    return this._fields;
-    }
-    private _fields: FirebaseField[];
-    getModel() {
-    var { collection, id, parentRef } = this.bindObj;
-    return firestore.getDocument(collection, id, parentRef);
-    }
-    addModel(): Promise<string> {
-    var obj = this.createObjFromField();
-    var { collection, parentRef } = this.bindObj;
-    return firestore.addDocument(collection, obj, parentRef).then(docRef => {
-    this.bindObj.bindID(docRef.id);
-    return docRef.id;
-    });
-    }
-    updateModel(): Promise<any> {
-    var obj = this.createObjFromField();
-    var { collection, id, parentRef } = this.bindObj;
-    return firestore.updateDocument(collection, id, obj, parentRef);
-    }
-    setModel(): Promise<any> {
-    var obj = this.createObjFromField();
-    var { collection, id, parentRef } = this.bindObj;
-    return firestore.setDocument(collection, id, obj, parentRef);
-    }
-    deleteModel(): Promise<any> {
-    //TODO:
-    //get subcollection and delete
-    var { collection, id, parentRef } = this.bindObj;
-    return firestore.deleteDocument(collection, id, parentRef);
-    }
-    updateField(fieldName: string, fieldValue: any) {
-    var { collection, id, parentRef } = this.bindObj;
-    return firestore.updateField(
-    collection,
-    id,
-    fieldName,
-    fieldValue,
-    parentRef
-    );
-    }
-    transactionAddValue(fieldName, value: number) {
-    //TODO: check value is number?
-    var { collection, id, parentRef } = this.bindObj;
-    return firestore.transactionAddValue(
-    collection,
-    id,
-    fieldName,
-    value as number,
-    parentRef
-    );
-    }
-    parseDocument(document: any) {
-    for (var prop in document) {
-    var fieldName = prop as string;
-    var field = this[fieldName] as FirebaseField;
-    if (field) {
-    field.fieldName = fieldName;
-    field.init(document[fieldName]);
-    } else {
-    var { collection, id } = this.bindObj;
-    console.error("No Field firestore", collection, id, fieldName);
-    }
-    }
-    }
+    private var _fields: [FirebaseField<Any>]!;
+   
+   
 }

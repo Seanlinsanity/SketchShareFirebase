@@ -57,8 +57,20 @@ public class FirestoreManager {
 
     }
     
-    public func getDocument(collection: String, id: String) -> Promise<[String: Any]> {
+    public func getDocument(collection: String, id: String,ref:DocumentReference?) -> Promise<[String: Any]> {
         return Promise<[String: Any]> { (seal) in
+            //有parent collection的情況
+            if(ref != nil)
+            {
+                ref?.collection(collection).document(id).getDocument { (snapshot, error) in
+                    if let error = error {
+                        seal.reject(error)
+                    }else{
+                        guard let documentData = snapshot?.data() else { return }
+                        seal.fulfill(documentData)
+                    }
+                }
+            }
             db.collection(collection).document(id).getDocument { (snapshot, error) in
                 if let error = error {
                     seal.reject(error)
@@ -69,4 +81,48 @@ public class FirestoreManager {
             }
         }
     }
+    public func deleteDocument(){
+        //TODO:
+    }
+    
+//    queryDocuments(
+//    collection: string,
+//    filters?: FireStoreFilter[],
+//    orderby?: FireStoreOrderby,
+//    lastSnapShot?: firebase.firestore.DocumentSnapshot,
+//    defaultLoadAmount: number = 10,
+//    parentRef?: firebase.firestore.DocumentReference
+//    ) {
+//    LoaderStore.isLoading = true;
+//    console.log(
+//    "[Firestore] queryDocument",
+//    collection,
+//    filters,
+//    orderby,
+//    lastSnapShot,
+//    defaultLoadAmount
+//    );
+//    this.queryCount++;
+//    if (defaultLoadAmount == null) {
+//    defaultLoadAmount = 100000;
+//    }
+//    if (parentRef) var collectionRef = parentRef.collection(collection);
+//    else collectionRef = this.db.collection(collection);
+//    var query = collectionRef.limit(defaultLoadAmount);
+//    //orderby
+//    if (orderby) query = orderby.applyTo(query);
+//    //filters, one range and equals
+//    if (filters && filters.length > 0) {
+//    for (var i = 0; i < filters.length; i++) {
+//    query = filters[i].applyTo(query);
+//    }
+//    }
+//    //pagination
+//    if (lastSnapShot) query = query.startAfter(lastSnapShot);
+//
+//    return query.get().then(snapshot => {
+//    LoaderStore.isLoading = false;
+//    return snapshot;
+//    });
+//    }
 }

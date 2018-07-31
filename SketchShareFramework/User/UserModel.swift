@@ -8,14 +8,8 @@
 
 import Foundation
 import FirebaseFramework
-public class UserObject : FirestoreObject
-{
-    init(){
-        
-    }
-   var brief:UserBriefModel
-}
-public class UserBriefModel : FirebaseModel
+
+public class UserBrief : FirebaseModel
 {
     init()
 }

@@ -37,11 +37,10 @@ public class FirebaseManager {
     }
     
     //realtime database 讀取
-    public func getValue(url: String) -> Promise<NSDictionary> {
-        return Promise<NSDictionary> { seal in
-            
+    public func getValue(url: String) -> Promise< [String: Any]> {
+        return Promise< [String: Any]> { seal in
             ref.child(url).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let value = snapshot.value as? NSDictionary{
+                if let value = snapshot.value as?  [String: Any]{
                     debugPrint("Firebase get: \(value)")
                     
                     seal.fulfill(value)
@@ -53,8 +52,8 @@ public class FirebaseManager {
         }
     }
     ///寫入
-    public func setValue(url: String, value: [String: Any]) -> Promise<[String: Any]> {
-        return Promise<[String: Any]> { seal in
+    public func setValue(url: String, value: [String: Any]) -> Promise<Any> {
+        return Promise<Any> { seal in
             ref.child(url).setValue(value) { (error, ref) in
                 if error != nil {
                     print("Failed to set value in Firebase")
@@ -62,13 +61,13 @@ public class FirebaseManager {
                     seal.reject(error)
                 }
                 print("Successfully to set value :\(value) in Firebase")
-                seal.fulfill(value)
+                seal.fulfill(true)
             }
         }
     }
     
-    public func updateValue(url: String, value: [String: Any]) -> Promise<[String: Any]> {
-        return Promise<[String: Any]>{ seal in
+    public func updateValue(url: String, value: [String: Any]) -> Promise<Any> {
+        return Promise<Any>{ seal in
             
             ref.child(url).updateChildValues(value) { (error, ref) in
                 if error != nil{
@@ -77,7 +76,7 @@ public class FirebaseManager {
                     seal.reject(error)
                 }
                 print("Successfully to update value: \(value) in Firebase")
-                seal.fulfill(value)
+                seal.fulfill(true)
             }
         }
 

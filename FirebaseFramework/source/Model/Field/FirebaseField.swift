@@ -26,8 +26,8 @@ class FirebaseField<T>:FieldWrapper<T> {
     //將doc和brief同步資料連結用
     var linkFields: [FirebaseField<T>]!;
    init(
-    value: T?,
-    dirty: Bool?
+    value: T? = nil,
+    dirty: Bool? = nil
     ) {
     
         super.init(val: value)
@@ -41,33 +41,36 @@ class FirebaseField<T>:FieldWrapper<T> {
    
     
     //TODO: ref in obj
-    func update(val?: T) {
-    super.update(val);
-    if (self.hasBind == false) {
-    // console.error("Not bind yet can't update");
-        Promise
-    return Promise.reject("Not bind yet can't update");
+    func update(val: T?)->Promise<Any> {
+        if (self.hasBind == false) {
+        // console.error("Not bind yet can't update");
+            
+            return Promise(error: "Not bind yet can't update" as! Error);
+        }
+            var ps:[Promise<Any>] = [] as! [Promise];
+            if ((self.linkFields) != nil)
+            {
+                for field in self.linkFields
+                {
+                    ps.append(field.update(val: val));
+                }
+            }
+            ps.append(self.bindModel.updateField(fieldName: self.fieldName, fieldValue: self.val))
+        return  when(fulfilled: ps).then({results in
+                return Promise(
+            })
     }
-    var ps = [];
-    if (this.linkFields) {
-    this.linkFields.forEach(field => {
-    ps.push(field.update(val));
-    });
+    func set(val: T) {
+        self.val = val
+        if ((self.linkFields) != nil) {
+            for field in self.linkFields
+            {
+                field.set(val: val)
+            }
+        }
     }
-    ps.push(this.bindModel.updateField(this.fieldName, this.val));
-    return Promise.all(ps);
-    }
-    set(val: T) {
-    super.set(val);
-    if (this.linkFields) {
-    this.linkFields.forEach(field => {
-    field.set(this.val);
-    });
-    }
-    }
-    
-    toString() {
-    return new String(this.val).toString();
+    var toString: String {
+        return String(self.val)
     }
 }
 
