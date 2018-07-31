@@ -41,6 +41,7 @@
 		CD1D59CB21089EBD00FD87A4 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59B121089EBD00FD87A4 /* Float.swift */; };
 		CD1D59CD2109B55F00FD87A4 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59CC2109B55F00FD87A4 /* FirebaseStorageManager.swift */; };
 		CD1D59CF2109B67800FD87A4 /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59CE2109B67800FD87A4 /* UserObject.swift */; };
+		CD1D59D1210BBF0200FD87A4 /* FirestoreDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1D59D0210BBF0200FD87A4 /* FirestoreDocument.swift */; };
 		CD281E2720FF80690079BF59 /* FirebaseFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CD281E1720FF80690079BF59 /* FirebaseFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD281E4720FF851B0079BF59 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3420FF80730079BF59 /* FirebaseManager.swift */; };
 		CD281E4820FF851B0079BF59 /* FirebaseLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3520FF80730079BF59 /* FirebaseLoginManager.swift */; };
@@ -168,6 +169,7 @@
 		CD1D59B121089EBD00FD87A4 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		CD1D59CC2109B55F00FD87A4 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		CD1D59CE2109B67800FD87A4 /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
+		CD1D59D0210BBF0200FD87A4 /* FirestoreDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDocument.swift; sourceTree = "<group>"; };
 		CD22BC4C21005939004367D2 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD22BC4E21005939004367D2 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD22BC5021005939004367D2 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -412,6 +414,7 @@
 				CD281E3B20FF80730079BF59 /* FirebaseModel.swift */,
 				CD281E3C20FF80730079BF59 /* FirebaseModelProtocol.swift */,
 				CD281E3D20FF80730079BF59 /* FirebaseObjectProtocol.swift */,
+				CD1D59D0210BBF0200FD87A4 /* FirestoreDocument.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -967,6 +970,7 @@
 				CD281E4820FF851B0079BF59 /* FirebaseLoginManager.swift in Sources */,
 				CD281E4B20FF85250079BF59 /* FirestoreObject.swift in Sources */,
 				CD281E4920FF851B0079BF59 /* FirestoreManager.swift in Sources */,
+				CD1D59D1210BBF0200FD87A4 /* FirestoreDocument.swift in Sources */,
 				CDF7A00321062F2700B97367 /* FieldWrapper.swift in Sources */,
 				CD1D59CD2109B55F00FD87A4 /* FirebaseStorageManager.swift in Sources */,
 				CD281E4720FF851B0079BF59 /* FirebaseManager.swift in Sources */,
