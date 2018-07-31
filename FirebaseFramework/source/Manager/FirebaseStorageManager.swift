@@ -12,6 +12,7 @@ import PromiseKit
 
 public class FirebaseStorageManager {
     
+    //TODO:這個目的是要拿到圖片網址，要跟底下的function寫一個合併的版本嗎？
     public func uploadImage(folder: String, filename: String, image: UIImage) -> Promise<StorageReference>{
         return Promise<StorageReference> { (seal) in
          
@@ -41,6 +42,7 @@ public class FirebaseStorageManager {
         }
     }
     
+    //TODO: 這個不是圖片，目前會用到是繪畫過程檔案，但短期應該還用不到
     public func downloadFile(url: String) -> Promise<UIImage> {
         return Promise<UIImage> { (seal) in
             guard let url = URL(string: url) else { return }
