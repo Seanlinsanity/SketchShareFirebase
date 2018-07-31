@@ -29,6 +29,7 @@ public class FirebaseModel//: FirebaseModelProtocol
         }
         return array;
     }
+    
     func createDataFromField()->[String:Any] {
         var data:[String:Any] = [:]
         for field in initFields(){
@@ -36,9 +37,6 @@ public class FirebaseModel//: FirebaseModelProtocol
             {data[field.fieldName] = field}
           //  if (field.val || field.val == 0) data[field.fieldName] = field.val;
         }
-        
-        
-        
         return data;
     }
         
@@ -46,7 +44,6 @@ public class FirebaseModel//: FirebaseModelProtocol
     var hasBind = false
     var bindObj:FirebaseObjectProtocol!
     var modelName:String!
-    
     
     /// 獲取model在firebase的路徑位置
     var databaseURL: String {

@@ -1,15 +1,18 @@
-////
-////  FirestoreObject.swift
-////  FirebaseFramework
-////
-////  Created by 詹易衡 on 2018/7/18.
-////  Copyright © 2018年 詹易衡. All rights reserved.
-////
 //
-//import Foundation
-//public class FirestoreObject{
-//    
-//}
+//  FirestoreObject.swift
+//  FirebaseFramework
+//
+//  Created by 詹易衡 on 2018/7/18.
+//  Copyright © 2018年 詹易衡. All rights reserved.
+//
+
+import Foundation
+public class FirebaseObjectBase{
+
+}
+public class FirestoreObject<T:FirestoreDocument>:FirebaseObjectBase{
+    
+}
 //
 ///**
 // * 繼承FirestoreObject之前必須先做幾件事
@@ -17,8 +20,7 @@
 // * @class FirestoreObject
 // * @template T
 // */
-//class FirestoreObject<T extends FirestoreDocument = FirestoreDocument>
-//extends FirebaseObjectBase
+//class FirestoreObject<T:FirestoreDocument>:FirebaseObjectBase
 //implements IFirebaseObject {
 //    indexInLoader: number;
 //    constructor(collection?: string, id?: string) {
@@ -27,7 +29,7 @@
 //            this.bind();
 //        }
 //    }
-//    
+//
 //    /**
 //     * 連接物件的document id
 //     *
@@ -45,7 +47,7 @@
 //     * @memberof FirestoreObject
 //     */
 //    doc?: T; //store in "FireStore"
-//    
+//
 //    /**
 //     *
 //     * 基本的資料
@@ -54,7 +56,7 @@
 //     * @memberof FirestoreObject
 //     */
 //    brief?: FirebaseModel;
-//    
+//
 //    /**
 //     * 細節資料，顯示物件頁面
 //     * store in realtime database
@@ -75,7 +77,7 @@
 //        }
 //        return this.belongObj;
 //    }
-//    
+//
 //    get dbRef(): firebase.firestore.DocumentReference {
 //        if (this.belongObj)
 //        return this.belongObj.dbRef.collection(this.collection).doc(this.id);
@@ -88,7 +90,7 @@
 //        if (this.belongObj) return this.belongObj.dbRef;
 //        else return undefined;
 //    }
-//    
+//
 //    initDetail() {}
 //    loadBrief() {
 //        if (this.brief.loaded) return Promise.resolve(true);
@@ -108,7 +110,7 @@
 //            return this.detail.getModel();
 //        }
 //    }
-//    
+//
 //    findCreatedUser() {
 //        //TODO:有些object沒有brief(relationObj，可能可以改)
 //        if (this.collection == FirestoreCollection.User)
@@ -132,7 +134,7 @@
 //            return PromiseUtility.nullPromise();
 //        }
 //    }
-//    
+//
 //    /**
 //     *
 //     * sugar function
@@ -148,9 +150,9 @@
 //        }
 //        return userName;
 //    }
-//    
-//   
-//    
+//
+//
+//
 //    //   if (this.belongObj) var ref = this.belongObj.dbRef;
 //    get created_time_from_doc() {
 //        var n = this.doc.created_at.val.toDate();
@@ -166,7 +168,7 @@
 //    }
 //    delete() {
 //        var p = [];
-//        
+//
 //        console.log("[FireStore Object] delete");
 //        if (this.belongObj) {
 //            p.push(this.dbRef.delete());
@@ -174,7 +176,7 @@
 //        } else {
 //            if (this.doc) p.push(this.doc.deleteModel());
 //        }
-//        
+//
 //        // if (this.brief) {
 //        //   p.push(this.brief.deleteModel());
 //        // }
@@ -200,7 +202,7 @@
 //                });
 //        }
 //    }
-//    
+//
 //    static removeItemFromArray(
 //    array: FirestoreObject[],
 //    target: FirestoreObject
