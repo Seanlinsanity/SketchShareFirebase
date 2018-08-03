@@ -14,7 +14,7 @@ public class FirestoreDocument:FirebaseModelBase, FirebaseModelProtocol{
     
     //timestamp
     //TODO: 確認firestore timestamp格式
-    var created_at = FirebaseField<Int>(value: 0)
+    var created_at = FirebaseField<Timestamp>(value: Timestamp(date: Date(timeIntervalSinceNow: 0)))
     var created_by = FirebaseField<String>(value: ""); //user
     init(modelName: String?) {
         
