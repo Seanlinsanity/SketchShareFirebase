@@ -8,14 +8,14 @@
 
 import Foundation
 import Promises
-open class FirebaseModel: FirebaseModelBase, FirebaseModelProtocol
+open class FirebaseModel: FirebaseModelProtocol
 {
-
-   
-    
-    override init(){
-        
+    public init(modelName:String?)
+    {
+        self.modelName = modelName
     }
+    
+    var loaded = false
     var hasBind = false
     var bindObj:FirebaseObjectProtocol!
     var modelName:String!
@@ -28,11 +28,36 @@ open class FirebaseModel: FirebaseModelBase, FirebaseModelProtocol
         {
             debugPrint("model not bind yet\(String(describing: collection)) \(String(describing: self.modelName))")
         }
-        let url = "\(collection)/\(self.modelName)/\(id))";
+        let url = "\(collection)/\(self.modelName!)/\(id))";
         return url
     }
+    func initFields()->[FirebaseField] {
+        let mirror = Mirror(reflecting: self)
+        var array:[FirebaseField] = []
+        debugPrint(mirror, mirror.children)
+        for (name, value) in mirror.children {
+            guard let name = name else { continue }
+            print("\(name): \(type(of: value)) = '\(value)'")
+//            if type(of: value)==FirebaseField<Any>.self
+//            {
+                let field =  value as! FirebaseField
+            field.fieldName = name
+                array.append(field)
+//            }
+        }
+        return array;
+    }
+    
+    func createDataFromField()->[String:Any] {
+        var data:[String:Any] = [:]
+        for field in initFields(){
+            if(field.val != nil && field.dirty == true)
+            {data[field.fieldName] = field.val}
+        }
+        return data;
+    }
     //將firebase下載的[String:Any轉換成model的fields]
-    func parseModel(model: [String:Any], modelName: String? = nil) {
+    public func parseModel(model: [String:Any], modelName: String? = nil) {
         if ((modelName) != nil){ self.modelName = modelName;}
         
         for prop in model{
@@ -43,9 +68,9 @@ open class FirebaseModel: FirebaseModelBase, FirebaseModelProtocol
             {
                 if child.label==fieldName
                 {
-                    let field = child.value as! FirebaseField<Any>
+                    let field = child.value as! FirebaseField
                     field.fieldName = fieldName
-                    field.val = prop.value
+                    field.val = prop.value as AnyObject
                 }
             }
             
@@ -53,7 +78,7 @@ open class FirebaseModel: FirebaseModelBase, FirebaseModelProtocol
         self.loaded = true;
     }
    //TODO: 待捕
-    func updateField(fieldName: String, fieldValue: Any) -> Promise<Bool> {
+    public func updateField(fieldName: String, fieldValue: Any) -> Promise<Bool> {
         return firebaseManager.updateValue(url: "\(self.bindObj.collection)\(self.modelName)\(self.bindObj.id)\(fieldName)", value: fieldValue as! [String : Any])
         
     }
@@ -68,13 +93,13 @@ open class FirebaseModel: FirebaseModelBase, FirebaseModelProtocol
 //    }
     
     //TODO:
-    func getModel() -> Promise<Bool> {
+    public func getModel() -> Promise<Bool> {
         return firebaseManager.getValue(url: self.databaseURL).then{model in
             self.parseModel(model: model)
             return Promise(true)
         }
     }
-    func setModel() -> Promise<Bool>
+    public func setModel() -> Promise<Bool>
     {
         let obj = self.createDataFromField();
         return firebaseManager.setValue(url: self.databaseURL, value: obj)
@@ -82,24 +107,31 @@ open class FirebaseModel: FirebaseModelBase, FirebaseModelProtocol
     }
     
     
-    func addModel() -> Promise<String> {
+    public func addModel() -> Promise<String> {
          let obj = self.createDataFromField();
-        return firebaseManager.pushValue(url: "\(self.bindObj.collection)/\(self.modelName)", value: obj ).then{url in
+        let url = "\(self.bindObj.collection)/\(self.modelName!)"
+        debugPrint("addModel:",url,obj)
+        return firebaseManager.pushValue(url: url, value: obj ).then{url in
             return Promise(url)
         }
         
     }
     
-    func updateModel() -> Promise<Bool> {
+   public func updateModel() -> Promise<Bool> {
          let obj = self.createDataFromField();
         return firebaseManager.updateValue(url: self.databaseURL, value: obj )
         
     }
     
     
-    func deleteModel() -> Promise<Bool> {
+   public func deleteModel() -> Promise<Bool> {
         return firebaseManager.deleteValue(url: self.databaseURL)
         
     }
     
+}
+open class FirebaseBriefModel:FirebaseModel{
+    public convenience init() {
+        self.init(modelName: "brief")
+    }
 }

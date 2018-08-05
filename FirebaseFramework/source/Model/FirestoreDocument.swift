@@ -9,13 +9,13 @@
 import Foundation
 import FirebaseFirestore
 import Promises
-public class FirestoreDocument:FirebaseModelBase, FirebaseModelProtocol{
+open class FirestoreDocument:FirebaseModelBase, FirebaseModelProtocol{
 
     
     //timestamp
     //TODO: 確認firestore timestamp格式
-    var created_at = FirebaseField<Timestamp>(value: Timestamp(date: Date(timeIntervalSinceNow: 0)))
-    var created_by = FirebaseField<String>(value: ""); //user
+    var created_at = FirebaseField(value: Timestamp(date: Date(timeIntervalSinceNow: 0)))
+    var created_by = FirebaseField(value: "" as AnyObject); //user
     init(modelName: String?) {
         
     }
@@ -53,9 +53,9 @@ public class FirestoreDocument:FirebaseModelBase, FirebaseModelProtocol{
             {
                 if child.label==fieldName
                 {
-                    let field = child.value as! FirebaseField<Any>
+                    let field = child.value as! FirebaseField
                     field.fieldName = fieldName
-                    field.val = prop.value
+                    field.val = prop.value as AnyObject
                 }
             }
             
@@ -96,11 +96,11 @@ public class FirestoreDocument:FirebaseModelBase, FirebaseModelProtocol{
 //        }
 //        return true;
 //    }
-    var fields: [FirebaseField<Any>] {
+    var fields: [FirebaseField] {
         if (self._fields == nil){ self._fields = self.initFields();}
         return self._fields;
     }
-    private var _fields: [FirebaseField<Any>]!;
+    private var _fields: [FirebaseField]!;
    
    
 }

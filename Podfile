@@ -23,9 +23,10 @@ target 'SketchShareFirebase' do
     workspace 'SketchShareFirebase.xcworkspace'
     project 'SketchShareFirebase.xcodeproj'
       pod 'PromisesSwift', '~> 1.2.3'
-    target 'FirebaseFramework' do
-       firebase_pods
-    end
+        target 'FirebaseFramework' do
+           firebase_pods
+        end
+    
 end
 #platform: osx,'10.13'
 target 'SketchShare_macOS' do
@@ -34,6 +35,7 @@ target 'SketchShare_macOS' do
      pod 'PromisesSwift', '~> 1.2.3'
     
 end
+
 #abstract_target 'SketchShare' do
 #
 #    target 'FirebaseFramework' do

@@ -6,22 +6,22 @@
 //  Copyright © 2018年 com.sketchshare. All rights reserved.
 //
 
-class FieldWrapper<T>{
-    init(val:T?)
+open class FieldWrapper{
+    public init(val:Any?)
     {
         if(val != nil)
         {
             self._val = val
         }
     }
-    private var _val:T?
+    private var _val:Any!
 
-    var val: T? {
+    public var val: Any! {
         get {
-            return _val!
+            return _val
         }
         set {
-            self._val = val;
+            self._val = newValue;
             self.dirty = true;
         }
     }

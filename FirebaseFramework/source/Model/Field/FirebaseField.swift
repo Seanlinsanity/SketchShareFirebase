@@ -18,19 +18,19 @@ import Promises
 //    | Array<boolean>
 //    | any;
 
-class FirebaseField<T>:FieldWrapper<T> {
+open class FirebaseField:FieldWrapper {
     var hasBind:Bool = false;
     var bindModel: FirebaseModelProtocol!;
     var fieldName: String!;
     //將doc和brief同步資料連結用
-    var linkFields: [FirebaseField<T>]!;
-   init(
-    value: T? = nil,
-    dirty: Bool? = nil
+    var linkFields: [FirebaseField]!;
+   public init(
+    value: Any? = nil,
+    dirty: Bool = false
     ) {
     
         super.init(val: value)
-        if (dirty!){ self.dirty = true}
+    if (dirty){ self.dirty = true}
     }
     
     func bind(bindModel: FirebaseModelProtocol) {
@@ -40,7 +40,7 @@ class FirebaseField<T>:FieldWrapper<T> {
    
     
     //TODO: ref in obj
-    func update(val: T?)->Promise<Bool> {
+    func update(val: Any?)->Promise<Bool> {
         return Promise<Bool>{(fulfill,reject) in
             if (self.hasBind == false) {
             // console.error("Not bind yet can't update");
@@ -60,7 +60,7 @@ class FirebaseField<T>:FieldWrapper<T> {
             }
         }
     }
-    func set(val: T) {
+    func set(val: Any) {
         self.val = val
         if ((self.linkFields) != nil) {
             for field in self.linkFields

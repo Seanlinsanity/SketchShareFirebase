@@ -7,11 +7,37 @@
 //
 
 import Foundation
-public class FirebaseObjectBase{
-
-}
-public class FirestoreObject<T:FirestoreDocument>:FirebaseObjectBase{
+import FirebaseFirestore
+open class FirestoreObject<T:FirestoreDocument>:FirebaseObjectProtocol{
+    var collection: String = ""
+    var _id: String = ""
+    var id:String {
+        return self._id;
+    }
     
+    public init(collection: String?, id: String?) {
+        if(id != nil)
+        {self._id = id!;}
+        if ((collection) != nil) {
+            self.collection = collection!;
+            self.bind();
+        }
+    }
+   
+    var parentRef: DocumentReference!
+    
+    public func bindID(id: String) {
+        self._id = id
+    }
+    
+ 
+    public func bind(){
+        if((self.brief) != nil)
+        {
+            self.brief.bindObj = self
+        }
+    }
+    public var brief:FirebaseModel!
 }
 //
 ///**

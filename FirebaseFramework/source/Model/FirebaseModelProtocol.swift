@@ -34,15 +34,16 @@ extension FirebaseModelProtocol
     }
     /// 設定field的名字，初始化此Model的所有Field
     
-    func initFields()->[FirebaseField<Any>] {
+    func initFields()->[FirebaseField] {
         let mirror = Mirror(reflecting: self)
-        var array: [FirebaseField<Any>] = [] as! [FirebaseField<Any>];
+        var array: [FirebaseField] = [] as! [FirebaseField];
+        debugPrint(mirror)
         for (name, value) in mirror.children {
             guard let name = name else { continue }
             print("\(name): \(type(of: value)) = '\(value)'")
-            if type(of: value)==FirebaseField<Any>.self
+            if type(of: value) == FirebaseField.self
             {
-                let field = value as! FirebaseField<Any>
+                let field = value as! FirebaseField
                 array.append(field)
                 field.fieldName = name
             }
@@ -53,7 +54,7 @@ extension FirebaseModelProtocol
     func createDataFromField()->[String:Any] {
         var data:[String:Any] = [:]
         for field in initFields(){
-            if(field.val != nil&&field.dirty == true)
+            if(field.val != nil && field.dirty == true)
             {data[field.fieldName] = field.val}
         }
         return data;
