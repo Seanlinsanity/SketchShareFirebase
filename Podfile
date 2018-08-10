@@ -16,6 +16,8 @@ def firebase_pods
     pod 'FBSDKLoginKit', '~> 4.0'
     pod 'GoogleSignIn', '~> 4.0'
     pod 'PromisesSwift', '~> 1.2.3'
+    pod 'RxSwift',    '~> 4.0'
+    pod 'RxCocoa',    '~> 4.0'
     #pod 'FirebaseUI', '~> 5.0'       # Pull in all Firebase UI features
 end
 

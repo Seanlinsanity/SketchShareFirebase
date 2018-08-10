@@ -13,6 +13,7 @@
 		144454B620F5F7AF00D6A30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 144454B520F5F7AF00D6A30C /* Assets.xcassets */; };
 		144454B920F5F7AF00D6A30C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */; };
 		144DC17D210478AB007407D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 144DC17C210478AA007407D0 /* GoogleService-Info.plist */; };
+		14B5C598211AC0D700F04711 /* EditableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5C597211AC0D700F04711 /* EditableTextView.swift */; };
 		2E93478BF31E67A776521925 /* Pods_SketchShareFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF4AF32767C6E4F6EE4FD21 /* Pods_SketchShareFirebase.framework */; };
 		334BCAF0A8AB673085075A47 /* Pods_SketchShare_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3923CEDA69863E601BB36564 /* Pods_SketchShare_macOS.framework */; };
 		3FBBECE443144A49285E4CB5 /* Pods_SketchShareFirebase_SketchShareFramework_iOS_FirebaseFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6246D9A65DE15A3E9CA0D4 /* Pods_SketchShareFirebase_SketchShareFramework_iOS_FirebaseFramework.framework */; };
@@ -150,6 +151,7 @@
 		144454B820F5F7AF00D6A30C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		144454BA20F5F7AF00D6A30C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		144DC17C210478AA007407D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		14B5C597211AC0D700F04711 /* EditableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTextView.swift; sourceTree = "<group>"; };
 		14BC70AE21024A30008F5F8C /* SketchShareFirebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SketchShareFirebase.entitlements; sourceTree = "<group>"; };
 		1620C002C339AB02B7A923E6 /* Pods-SketchShareFirebase-SketchShareFramework_iOS-FirebaseFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase-SketchShareFramework_iOS-FirebaseFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase-SketchShareFramework_iOS-FirebaseFramework/Pods-SketchShareFirebase-SketchShareFramework_iOS-FirebaseFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		1A3F80C431943D4944040A65 /* Pods-SketchShareFirebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SketchShareFirebase.release.xcconfig"; path = "Pods/Target Support Files/Pods-SketchShareFirebase/Pods-SketchShareFirebase.release.xcconfig"; sourceTree = "<group>"; };
@@ -321,11 +323,12 @@
 			children = (
 				14BC70AE21024A30008F5F8C /* SketchShareFirebase.entitlements */,
 				144454AE20F5F7AB00D6A30C /* AppDelegate.swift */,
-				144DC17C210478AA007407D0 /* GoogleService-Info.plist */,
 				144454B020F5F7AB00D6A30C /* LoginController.swift */,
-				144454B220F5F7AB00D6A30C /* Main.storyboard */,
+				14B5C597211AC0D700F04711 /* EditableTextView.swift */,
 				144454B520F5F7AF00D6A30C /* Assets.xcassets */,
 				144454B720F5F7AF00D6A30C /* LaunchScreen.storyboard */,
+				144454B220F5F7AB00D6A30C /* Main.storyboard */,
+				144DC17C210478AA007407D0 /* GoogleService-Info.plist */,
 				144454BA20F5F7AF00D6A30C /* Info.plist */,
 			);
 			path = SketchShareFirebase;
@@ -904,6 +907,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -924,6 +929,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -1003,6 +1010,7 @@
 				144454AF20F5F7AB00D6A30C /* AppDelegate.swift in Sources */,
 				F433ABC52114D88700AE48E7 /* UserModel.swift in Sources */,
 				F433ABC62114D88700AE48E7 /* UserObject.swift in Sources */,
+				14B5C598211AC0D700F04711 /* EditableTextView.swift in Sources */,
 				F43A399521157B9C00678CC7 /* UserStore.swift in Sources */,
 				F433ABC42114D88700AE48E7 /* AngaPlan.swift in Sources */,
 			);

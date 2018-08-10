@@ -27,22 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         
         let loginController = LoginController()
         window?.rootViewController = loginController
-       self.testUserCreation()
+//       self.testUserCreation()
         return true
     }
     
     
     /// 測試上傳User brief model
-    func testUserCreation(){
-        let testUser = UserObject()
-        testUser.userBrief.nick_name.val = "jerry"
-        testUser.userBrief.email.val = "test@gmail.com"
-        
-        testUser.brief.addModel().then{_ in
-            print("Updated!")
-            userStore.currentUser = testUser
-        }
-    }
+//    func testUserCreation(){
+//        let testUser = UserObject()
+//        testUser.userBrief.nick_name.val = "jerry"
+//        testUser.userBrief.email.val = "test@gmail.com"
+//        
+//        testUser.brief.addModel().then{_ in
+//            print("Updated!")
+//            userStore.currentUser = testUser
+//        }
+//    }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error {

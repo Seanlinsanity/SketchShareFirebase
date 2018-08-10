@@ -11,6 +11,7 @@ import FirebaseFramework
 import FBSDKLoginKit
 import GoogleSignIn
 import Promises
+import RxSwift
 
 class LoginController: UIViewController, GIDSignInUIDelegate {
     
@@ -35,23 +36,49 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         loginButton.addTarget(self, action: #selector(handleCustomGoogleSignIn), for: .touchUpInside)
         return loginButton
     }()
+    
+    lazy var editableTextView: EditableTextView = {
+        let tv = EditableTextView()
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
+    
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         
-//        firebaseManager.loginManager.checkUserId().done { (uid) in
-//            print(uid)
-//        }.catch { (error) in
-//            print(error)
-//        }
-//
-//        firebaseManager.loginManager.signOut()
- 
         setupFacebookLoginButton()
         setupGoogleLoginButton()
+        setupEditableTextView()
+        
     }
+    
+    private func setupEditableTextView(){
+        view.addSubview(editableTextView)
+        editableTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
+        editableTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        editableTextView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -32).isActive = true
+        editableTextView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        editableTextView.textObservable.subscribe(onNext: { [weak self] (text) in
+            self?.testUserCreation(text: text)
+        }).disposed(by: disposeBag)
+    }
+    
+    private func testUserCreation(text: String){
+        let testUser = UserObject()
+        testUser.userBrief.nick_name.val = text
+        testUser.userBrief.email.val = "seanTextRxSwift@gmail.com"
+        
+        testUser.brief.addModel().then{_ in
+            print("Updated!")
+            userStore.currentUser = testUser
+        }
+    }
+
     
     private func setupGoogleLoginButton(){
         view.addSubview(customGoogleLoginButton)
