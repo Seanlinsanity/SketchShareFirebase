@@ -18,6 +18,11 @@ class UserInfoView: UIView {
         
     }
     
+    func updateUserInfo(){
+        userNameLabel.text = user?.userBrief.nick_name.val as? String
+        userEmailLabel.text = user?.userBrief.email.val as? String
+    }
+    
     let userNameLabel : UILabel = {
         let label = UILabel()
         label.text = "Sean Lin"

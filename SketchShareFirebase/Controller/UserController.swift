@@ -47,7 +47,7 @@ class UserController: UIViewController {
         editUserController.user = testUser
         
         editUserController.userVariableObserver?.subscribe(onNext: { [weak self] (user) in
-            self?.userInfoView.user = user
+            self?.userInfoView.updateUserInfo()
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
         
         present(UINavigationController(rootViewController: editUserController), animated: true, completion: nil)
