@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         window?.makeKeyAndVisible()
         
         let loginController = LoginController()
-        window?.rootViewController = loginController
+        window?.rootViewController = UINavigationController(rootViewController: loginController)
 //       self.testUserCreation()
         return true
     }
@@ -49,8 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             print("Failed to log into Google", err)
             return
         }
-        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user).then { (uid) in
+        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user).then { [weak self] (uid) in
             print(uid)
+            guard let navigationController = self?.window?.rootViewController as? UINavigationController else { return }
+            guard let rootVC = navigationController.viewControllers.first as? LoginController else { return }
+            rootVC.presentUserController()
+            
         }.catch { (error) in
             print(error)
         }

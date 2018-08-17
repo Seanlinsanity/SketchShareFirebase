@@ -11,10 +11,11 @@ import RxSwift
 
 class EditableTextView: UIView {
     
-    private let textVariable = Variable("user")
-    var textObservable: Observable<String> {
-        return textVariable.asObservable()
-    }
+
+//    private let textVariable = Variable("user")
+//    var textObservable: Observable<String> {
+//        return textVariable.asObservable()
+//    }
     
     let textView: UITextView = {
         let tv = UITextView()
@@ -45,8 +46,8 @@ class EditableTextView: UIView {
             editCompletionButton.setTitle("編輯", for: .normal)
             textView.isEditable = false
             textView.endEditing(true)
-            guard let text = textView.text else { return }
-            textVariable.value = text
+//            guard let text = textView.text else { return }
+//            textVariable.value = text
         }
         
     }
@@ -54,7 +55,7 @@ class EditableTextView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        textView.text = textVariable.value
+//        textView.text = textVariable.value
         addSubview(textView)
         textView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         textView.topAnchor.constraint(equalTo: topAnchor).isActive = true

@@ -37,7 +37,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         return loginButton
     }()
     
-    lazy var editableTextView: EditableTextView = {
+    let editableTextView: EditableTextView = {
         let tv = EditableTextView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
@@ -52,27 +52,29 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         
         setupFacebookLoginButton()
         setupGoogleLoginButton()
-        setupEditableTextView()
+        
+//        setupEditableTextView()
         
     }
     
-    private func setupEditableTextView(){
-        view.addSubview(editableTextView)
-        editableTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
-        editableTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        editableTextView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -32).isActive = true
-        editableTextView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        
-        editableTextView.textObservable.subscribe(onNext: { [weak self] (text) in
-            self?.testUserCreation(text: text)
-        }).disposed(by: disposeBag)
-    }
+//    private func setupEditableTextView(){
+//
+//        view.addSubview(editableTextView)
+//        editableTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
+//        editableTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        editableTextView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -32).isActive = true
+//        editableTextView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+//
+//        editableTextView.textObservable.subscribe(onNext: { [weak self] (text) in
+//            self?.testUserCreation(text: text)
+//        }).disposed(by: disposeBag)
+//    }
     
     private func testUserCreation(text: String){
         let testUser = UserObject()
         testUser.userBrief.nick_name.val = text
         testUser.userBrief.email.val = "seanTextRxSwift@gmail.com"
-        
+
         testUser.brief.addModel().then{_ in
             print("Updated!")
             userStore.currentUser = testUser
@@ -106,13 +108,19 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
             if error != nil{
                 print("Custom FB Login failed: ", error ?? "error")
             }
-            firebaseManager.loginManager.signInFirebaseWithFB().then{ (uid) in
+            firebaseManager.loginManager.signInFirebaseWithFB().then{ [weak self] (uid) in
                 print(uid)
+                self?.presentUserController()
             }.catch({ (error) in
                 print(error)
             })
         }
     
+    }
+    
+    func presentUserController(){
+        let userController = UserController()
+        self.navigationController?.pushViewController(userController, animated: true)
     }
 
 
