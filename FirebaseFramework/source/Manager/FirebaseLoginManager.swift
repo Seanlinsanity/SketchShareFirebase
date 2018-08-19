@@ -67,8 +67,8 @@ public class FirebaseLogingManager {
         }
     }
     
-    public func signInFirebaseWithGoogle(user: GIDGoogleUser) -> Promise<String> {
-        return Promise<String> {  (fulfill,reject) in
+    public func signInFirebaseWithGoogle(user: GIDGoogleUser) -> Promise<User> {
+        return Promise<User> {  (fulfill,reject) in
             guard let idToken = user.authentication.idToken else { return }
             guard let accessToken = user.authentication.accessToken else { return }
             let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
@@ -80,7 +80,7 @@ public class FirebaseLogingManager {
                 }else{
                     print("Successfully logged in Firebase with Google...")
                     guard let user = result?.user else { return }
-                    fulfill(user.uid)
+                    fulfill(user)
                 }
             }
         }

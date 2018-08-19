@@ -20,7 +20,7 @@ class EditUserController: UIViewController {
             
             userVariable = BehaviorRelay(value : user ?? UserObject())
             userVariableObserver = userVariable?.asObservable()
-           
+
         }
     }
     
@@ -111,10 +111,17 @@ class EditUserController: UIViewController {
     @objc private func handleEditCompletion(){
         user?.userBrief.nick_name.val = nameTextField.text
         user?.userBrief.email.val = emailTextField.text
-        guard let user = user else { return }
-        userVariable?.accept(user)
+        user?.userBrief.updateModel().then({ (success) in
+            if success {
+                guard let user = self.user else { return }
+                self.userVariable?.accept(user)
+                
+                self.dismiss(animated: true, completion: nil)
+            }
+        }).catch({ (error) in
+            print("update user error: ", error)
+        })
         
-        dismiss(animated: true, completion: nil)
     }
     
 }

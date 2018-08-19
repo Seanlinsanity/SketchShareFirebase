@@ -12,7 +12,7 @@ import RxSwift
 class UserController: UIViewController {
     
     let userInfoView = UserInfoView()
-    let testUser = UserObject()
+    var testUser: UserObject?
     
     let disposeBag = DisposeBag()
 
@@ -22,9 +22,6 @@ class UserController: UIViewController {
         view.backgroundColor = .white
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "編輯", style: .plain, target: self, action: #selector(handleEdit))
-        
-        testUser.userBrief.nick_name.val = "Sean"
-        testUser.userBrief.email.val = "sean@gmail.com"
         
         setupUserInfoView()
         
@@ -46,9 +43,17 @@ class UserController: UIViewController {
         let editUserController = EditUserController()
         editUserController.user = testUser
         
+        var shouldUpdate = false
         editUserController.userVariableObserver?.subscribe(onNext: { [weak self] (user) in
-            self?.userInfoView.updateUserInfo()
-        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+            
+            if !shouldUpdate {
+                shouldUpdate = !shouldUpdate
+            }else{
+                self?.userInfoView.updateUserInfo()
+            }
+            
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
+                
         
         present(UINavigationController(rootViewController: editUserController), animated: true, completion: nil)
         

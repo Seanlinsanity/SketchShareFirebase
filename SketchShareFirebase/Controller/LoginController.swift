@@ -15,6 +15,8 @@ import RxSwift
 
 class LoginController: UIViewController, GIDSignInUIDelegate {
     
+    var user: UserObject?
+    
     let customFBLoginButton: UIButton = {
         let loginButton = UIButton(type: .system)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -53,32 +55,6 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         setupFacebookLoginButton()
         setupGoogleLoginButton()
         
-//        setupEditableTextView()
-        
-    }
-    
-//    private func setupEditableTextView(){
-//
-//        view.addSubview(editableTextView)
-//        editableTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
-//        editableTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        editableTextView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -32).isActive = true
-//        editableTextView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-//
-//        editableTextView.textObservable.subscribe(onNext: { [weak self] (text) in
-//            self?.testUserCreation(text: text)
-//        }).disposed(by: disposeBag)
-//    }
-    
-    private func testUserCreation(text: String){
-        let testUser = UserObject()
-        testUser.userBrief.nick_name.val = text
-        testUser.userBrief.email.val = "seanTextRxSwift@gmail.com"
-
-        testUser.brief.addModel().then{_ in
-            print("Updated!")
-            userStore.currentUser = testUser
-        }
     }
 
     
@@ -108,18 +84,30 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
             if error != nil{
                 print("Custom FB Login failed: ", error ?? "error")
             }
-            firebaseManager.loginManager.signInFirebaseWithFB().then{ [weak self] (uid) in
-                print(uid)
-                self?.presentUserController()
-            }.catch({ (error) in
-                print(error)
-            })
+            self.setupUserObject()
         }
     
     }
     
+    private func setupUserObject(){
+        user = UserObject()
+        firebaseManager.loginManager.signInFirebaseWithFB().then{ (_) -> Promise<[String: Any]> in
+            return firebaseManager.loginManager.getFacebookUserInfo()
+            }.then({ (result) -> Promise<String> in
+                self.user?.userBrief.email.val = result["email"] ?? ""
+                self.user?.userBrief.nick_name.val = result["name"] ?? ""
+                return self.user!.userBrief.addModel()
+            }).then({ (uid) in
+                self.user?.bindID(id: uid)
+                self.presentUserController()
+            }).catch({ (error) in
+                print(error)
+            })
+    }
+    
     func presentUserController(){
         let userController = UserController()
+        userController.testUser = user
         self.navigationController?.pushViewController(userController, animated: true)
     }
 

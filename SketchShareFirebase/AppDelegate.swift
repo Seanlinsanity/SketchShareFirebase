@@ -49,10 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             print("Failed to log into Google", err)
             return
         }
-        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user).then { [weak self] (uid) in
-            print(uid)
+        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user).then { [weak self] (userResult) in
             guard let navigationController = self?.window?.rootViewController as? UINavigationController else { return }
             guard let rootVC = navigationController.viewControllers.first as? LoginController else { return }
+            
+            let userObject = UserObject()
+            userObject.userBrief.email.val = userResult.email ?? ""
+            userObject.userBrief.nick_name.val = userResult.displayName ?? ""
+            userObject.userBrief.addModel().then { (uid)  in
+                userObject.bindID(id: uid)
+            }
+            rootVC.user = userObject
             rootVC.presentUserController()
             
         }.catch { (error) in

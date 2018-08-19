@@ -28,7 +28,7 @@ open class FirebaseModel: FirebaseModelProtocol
         {
             debugPrint("model not bind yet\(String(describing: collection)) \(String(describing: self.modelName))")
         }
-        let url = "\(collection)/\(self.modelName!)/\(id))";
+        let url = "\(collection)/\(self.modelName!)/\(id)";
         return url
     }
     func initFields()->[FirebaseField] {
