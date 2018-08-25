@@ -25,7 +25,7 @@ class UserInfoView: UIView {
     
     let userNameLabel : UILabel = {
         let label = UILabel()
-        label.text = "Sean Lin"
+        label.text = "載入中..."
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -33,7 +33,7 @@ class UserInfoView: UIView {
     
     let userEmailLabel : UILabel = {
         let label = UILabel()
-        label.text = "seanlin@gmail.com"
+        label.text = "載入中..."
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

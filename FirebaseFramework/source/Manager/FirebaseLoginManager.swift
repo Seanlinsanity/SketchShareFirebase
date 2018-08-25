@@ -86,13 +86,16 @@ public class FirebaseLogingManager {
         }
     }
     
-    public func signOut(){
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            print("sign out successfully")
-        } catch let signOutError as NSError {
-            print ("Error signing out: ", signOutError)
+    public func signOut() -> Promise<Bool>{
+        return Promise<Bool>{ (fulfill,reject) in
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                print("sign out successfully")
+                fulfill(true)
+            } catch let signOutError as NSError {
+                reject(signOutError)
+            }
         }
     }
     

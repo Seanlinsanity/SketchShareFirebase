@@ -13,9 +13,14 @@ import GoogleSignIn
 import Promises
 import RxSwift
 
+protocol LoginDelegate {
+    func loginWithUser(user: UserObject)
+}
+
 class LoginController: UIViewController, GIDSignInUIDelegate {
     
-    var user: UserObject?
+    var userObject: UserObject?
+    var delegate: LoginDelegate?
     
     let customFBLoginButton: UIButton = {
         let loginButton = UIButton(type: .system)
@@ -86,29 +91,86 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
             }
             self.setupUserObject()
         }
-    
     }
     
     private func setupUserObject(){
-        user = UserObject()
-        firebaseManager.loginManager.signInFirebaseWithFB().then{ (_) -> Promise<[String: Any]> in
-            return firebaseManager.loginManager.getFacebookUserInfo()
-            }.then({ (result) -> Promise<String> in
-                self.user?.userBrief.email.val = result["email"] ?? ""
-                self.user?.userBrief.nick_name.val = result["name"] ?? ""
-                return self.user!.userBrief.addModel()
-            }).then({ (uid) in
-                self.user?.bindID(id: uid)
-                self.presentUserController()
-            }).catch({ (error) in
-                print(error)
-            })
+        userObject = UserObject()
+        firebaseManager.loginManager.signInFirebaseWithFB().then{ (uid) -> Promise<[String: Any]?> in
+            self.userObject?.bindID(id: uid)
+            return firebaseManager.getUserBriefValue(uid: uid)
+        }.then({ (userInfo) in
+            if userInfo != nil {
+                guard let email = userInfo?["email"], let nickName = userInfo?["nick_name"] else { return }
+                self.userObject?.userBrief.email.val = email
+                self.userObject?.userBrief.nick_name.val = nickName
+                self.handleDismiss()
+            }else{
+                self.fetchUserInfoFromFacebook()
+            }
+            
+        }).catch({ (error) in
+            print(error)
+        })
     }
     
-    func presentUserController(){
-        let userController = UserController()
-        userController.testUser = user
-        self.navigationController?.pushViewController(userController, animated: true)
+    private func fetchUserInfoFromFacebook(){
+        firebaseManager.loginManager.getFacebookUserInfo().then({ (result) -> Promise<Bool> in
+            self.userObject?.userBrief.email.val = result["email"] ?? ""
+            self.userObject?.userBrief.nick_name.val = result["name"] ?? ""
+            return self.userObject!.userBrief.updateModel()
+        }).then({ (success) in
+            if success {
+                self.handleDismiss()
+            }
+        }).catch({ (error) in
+            print(error)
+        })
+    }
+    
+    func signInFirebaseWithGoogle(user: GIDGoogleUser){
+        userObject = UserObject()
+        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user).then {[weak self] (userResult) -> Promise<[String: Any]?> in
+            self?.userObject?.bindID(id: userResult.uid)
+            return firebaseManager.getUserBriefValue(uid: userResult.uid)
+        }.then {[weak self] (userInfo) in
+            if userInfo != nil {
+                self?.loginWithGoogleUser(userInfo: userInfo, googleUser: nil)
+            }else{
+                self?.loginWithGoogleUser(userInfo: nil, googleUser: user)
+            }
+        }.catch { (error) in
+            print(error)
+        }
+    }
+    
+    private func loginWithGoogleUser(userInfo: [String: Any]?, googleUser: GIDGoogleUser?){
+        if userInfo == nil {
+            userObject?.userBrief.email.val = googleUser?.profile.email ?? ""
+            userObject?.userBrief.nick_name.val = googleUser?.profile.name ?? ""
+            addUserInDatabase(user: userObject!)
+        }else{
+            guard let email = userInfo?["email"], let nickName = userInfo?["nick_name"] else { return }
+            userObject?.userBrief.email.val = email
+            userObject?.userBrief.nick_name.val = nickName
+        }
+        
+        handleDismiss()
+    }
+    
+    private func addUserInDatabase(user: UserObject){
+        user.userBrief.updateModel().then {[weak self] (success)  in
+            if success {
+                self?.userObject = user
+            }
+        }.catch({ (error) in
+            print(error)
+        })
+    }
+    
+    func handleDismiss(){
+        guard let userObject = userObject else { return }
+        delegate?.loginWithUser(user: userObject)
+        dismiss(animated: true, completion: nil)
     }
 
 

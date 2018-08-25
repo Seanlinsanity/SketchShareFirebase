@@ -10,6 +10,7 @@ import UIKit
 import FirebaseFramework
 import FBSDKCoreKit
 import GoogleSignIn
+import Promises
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
@@ -25,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
         window = UIWindow()
         window?.makeKeyAndVisible()
         
-        let loginController = LoginController()
-        window?.rootViewController = UINavigationController(rootViewController: loginController)
+        let userController = UserController()
+        window?.rootViewController = UINavigationController(rootViewController: userController)
 //       self.testUserCreation()
         return true
     }
@@ -49,24 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate{
             print("Failed to log into Google", err)
             return
         }
-        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user).then { [weak self] (userResult) in
-            guard let navigationController = self?.window?.rootViewController as? UINavigationController else { return }
-            guard let rootVC = navigationController.viewControllers.first as? LoginController else { return }
-            
-            let userObject = UserObject()
-            userObject.userBrief.email.val = userResult.email ?? ""
-            userObject.userBrief.nick_name.val = userResult.displayName ?? ""
-            userObject.userBrief.addModel().then { (uid)  in
-                userObject.bindID(id: uid)
-            }
-            rootVC.user = userObject
-            rootVC.presentUserController()
-            
-        }.catch { (error) in
-            print(error)
-        }
+        signInFirebaseWithGoogle(user: user)
     }
     
+    private func signInFirebaseWithGoogle(user: GIDGoogleUser){
+        guard let navigationController = self.window?.rootViewController as? UINavigationController else { return }
+        guard let userController = navigationController.viewControllers.first as? UserController else { return }
+        userController.loginController.signInFirebaseWithGoogle(user: user)
+    }
+
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         
