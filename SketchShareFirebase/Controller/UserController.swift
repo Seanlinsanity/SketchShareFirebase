@@ -9,8 +9,6 @@
 import UIKit
 import RxSwift
 import FirebaseFramework
-import GoogleSignIn
-import Promises
 
 class UserController: UIViewController, LoginDelegate {
     

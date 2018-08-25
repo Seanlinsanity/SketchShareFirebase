@@ -95,17 +95,14 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
     
     private func setupUserObject(){
         userObject = UserObject()
-        firebaseManager.loginManager.signInFirebaseWithFB().then{ (uid) -> Promise<[String: Any]?> in
-            self.userObject?.bindID(id: uid)
+        firebaseManager.loginManager.signInFirebaseWithFB().then{ [weak self](uid) -> Promise<[String: Any]?> in
+            self?.userObject?.bindID(id: uid)
             return firebaseManager.getUserBriefValue(uid: uid)
-        }.then({ (userInfo) in
+        }.then({ [weak self] (userInfo) in
             if userInfo != nil {
-                guard let email = userInfo?["email"], let nickName = userInfo?["nick_name"] else { return }
-                self.userObject?.userBrief.email.val = email
-                self.userObject?.userBrief.nick_name.val = nickName
-                self.handleDismiss()
+                self?.fetchUserInfoFromDatabase(userInfo: userInfo)
             }else{
-                self.fetchUserInfoFromFacebook()
+                self?.fetchUserInfoFromFacebook()
             }
             
         }).catch({ (error) in
@@ -113,11 +110,18 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         })
     }
     
+    private func fetchUserInfoFromDatabase(userInfo: [String: Any]?){
+        guard let email = userInfo?["email"], let nickName = userInfo?["nick_name"] else { return }
+        userObject?.userBrief.email.val = email
+        userObject?.userBrief.nick_name.val = nickName
+        handleDismiss()
+    }
+    
     private func fetchUserInfoFromFacebook(){
-        firebaseManager.loginManager.getFacebookUserInfo().then({ (result) -> Promise<Bool> in
-            self.userObject?.userBrief.email.val = result["email"] ?? ""
-            self.userObject?.userBrief.nick_name.val = result["name"] ?? ""
-            return self.userObject!.userBrief.updateModel()
+        firebaseManager.loginManager.getFacebookUserInfo().then({ [weak self](result) -> Promise<Bool> in
+            self?.userObject?.userBrief.email.val = result["email"] ?? ""
+            self?.userObject?.userBrief.nick_name.val = result["name"] ?? ""
+            return self!.userObject!.userBrief.updateModel()
         }).then({ (success) in
             if success {
                 self.handleDismiss()
