@@ -13,8 +13,8 @@ import Promises
 public class FirebaseStorageManager {
     
     //TODO:這個目的是要拿到圖片網址，要跟底下的function寫一個合併的版本嗎？
-    public func uploadImage(folder: String, filename: String, image: UIImage) -> Promise<StorageReference>{
-        return Promise<StorageReference> { (fulfill,reject) in
+    public func uploadImage(folder: String, filename: String, image: UIImage) -> Promise<String>{
+        return Promise<String> { (fulfill,reject) in
          
             guard let data = UIImageJPEGRepresentation(image, 1) else { return }
             let dataStorageRef = Storage.storage().reference().child(folder).child(filename)
@@ -23,20 +23,14 @@ public class FirebaseStorageManager {
                 if let error = error {
                     reject(error)
                 }else{
-                    fulfill(dataStorageRef)
-                }
-            })
-        }
-    }
-    
-    public func getDownloadUrl(dataStorageRef: StorageReference) -> Promise<String> {
-        return Promise<String> { (fulfill,reject) in
-            dataStorageRef.downloadURL(completion: { (url, err) in
-                if let err = err {
-                    reject(err)
-                }else{
-                    guard let downloadurl = url?.absoluteString else { return }
-                    fulfill(downloadurl)
+                    dataStorageRef.downloadURL(completion: { (url, err) in
+                        if let err = err {
+                            reject(err)
+                        }else{
+                            guard let downloadurl = url?.absoluteString else { return }
+                            fulfill(downloadurl)
+                        }
+                    })
                 }
             })
         }

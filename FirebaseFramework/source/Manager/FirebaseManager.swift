@@ -41,29 +41,14 @@ public class FirebaseManager {
             self.ref.child(url).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let value = snapshot.value as?  [String: Any]{
                     debugPrint("Firebase get: \(value)")
-                    
                     fulfill(value)
+                }else{
+                   fulfill([String: Any]())
                 }
             }) { (error) in
                 print(error.localizedDescription)
                 reject(error)
             }
-        }
-    }
-    
-    public func getUserBriefValue(uid: String) -> Promise<[String: Any]?> {
-        return Promise<[String: Any]?> { (fulfill, reject) in
-            self.ref.child("users").child("brief").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                if snapshot.exists(){
-                    guard let value = snapshot.value as? [String: Any] else { return }
-                    fulfill(value)
-                }else{
-                    fulfill(nil)
-                }
-            }, withCancel: { (error) in
-                reject(error)
-            })
-        
         }
     }
     /// 把資料寫入

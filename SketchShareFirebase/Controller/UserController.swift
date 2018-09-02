@@ -61,13 +61,12 @@ class UserController: UIViewController, LoginDelegate {
     }
     
     private func fetchUserBriefDatabase(uid: String){
-        firebaseManager.getUserBriefValue(uid: uid).then { [weak self] (userInfo) in
-            guard let userInfo = userInfo else { return }
+        firebaseManager.getValue(url: "/users/brief/\(uid)").then { [weak self] (userInfo) in
             guard let email = userInfo["email"], let nickName = userInfo["nick_name"] else { return }
             self?.userObject.userBrief.email.val = email
             self?.userObject.userBrief.nick_name.val = nickName
             self?.userInfoView.user = self?.userObject
-        }.catch { (error) in
+            }.catch { (error) in
                 print(error)
         }
     }

@@ -95,16 +95,16 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
     
     private func setupUserObject(){
         userObject = UserObject()
-        firebaseManager.loginManager.signInFirebaseWithFB().then{ [weak self](uid) -> Promise<[String: Any]?> in
+        firebaseManager.loginManager.signInFirebaseWithFB().then{ [weak self](uid) -> Promise<[String: Any]> in
             self?.userObject?.bindID(id: uid)
-            return firebaseManager.getUserBriefValue(uid: uid)
+            return firebaseManager.getValue(url: "users/brief/\(uid)")
         }.then({ [weak self] (userInfo) in
-            if userInfo != nil {
+            if userInfo.count != 0 {
                 self?.fetchUserInfoFromDatabase(userInfo: userInfo)
             }else{
                 self?.fetchUserInfoFromFacebook()
+
             }
-            
         }).catch({ (error) in
             print(error)
         })
@@ -133,11 +133,11 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
     
     func signInFirebaseWithGoogle(user: GIDGoogleUser){
         userObject = UserObject()
-        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user).then {[weak self] (userResult) -> Promise<[String: Any]?> in
+        firebaseManager.loginManager.signInFirebaseWithGoogle(user: user).then {[weak self] (userResult) -> Promise<[String: Any]> in
             self?.userObject?.bindID(id: userResult.uid)
-            return firebaseManager.getUserBriefValue(uid: userResult.uid)
+            return firebaseManager.getValue(url: "users/brief/\(userResult.uid)")
         }.then {[weak self] (userInfo) in
-            if userInfo != nil {
+            if userInfo.count != 0 {
                 self?.loginWithGoogleUser(userInfo: userInfo, googleUser: nil)
             }else{
                 self?.loginWithGoogleUser(userInfo: nil, googleUser: user)
