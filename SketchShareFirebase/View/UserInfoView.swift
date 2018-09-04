@@ -19,7 +19,6 @@ class UserInfoView: UIView {
                 print("Update Email")
                 self.userEmailLabel.text = self.user?.userBrief.email.val as? String
             })
-            user?.userBrief.email.subject.onNext("testEmail")
         }
         
     }

@@ -26,7 +26,7 @@ open class FirebaseModel: FirebaseModelProtocol
         let collection = self.bindObj!.collection
         if self.hasBind==false
         {
-            debugPrint("model not bind yet\(String(describing: collection)) \(String(describing: self.modelName))")
+            debugPrint("model not bind yet\(self)\(String(describing: collection)) \(String(describing: self.modelName))")
         }
         let url = "\(collection)/\(self.modelName!)/\(id)";
         return url
