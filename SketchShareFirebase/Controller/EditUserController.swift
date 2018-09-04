@@ -113,9 +113,8 @@ class EditUserController: UIViewController {
         user?.userBrief.email.val = emailTextField.text
         user?.userBrief.updateModel().then({ (success) in
             if success {
-                guard let user = self.user else { return }
-                self.userVariable?.accept(user)
-                
+//                guard let user = self.user else { return }
+//                self.userVariable?.accept(user)
                 self.dismiss(animated: true, completion: nil)
             }
         }).catch({ (error) in

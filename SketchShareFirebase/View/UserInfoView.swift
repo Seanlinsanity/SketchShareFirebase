@@ -14,6 +14,12 @@ class UserInfoView: UIView {
         didSet{
             userNameLabel.text = user?.userBrief.nick_name.val as? String
             userEmailLabel.text = user?.userBrief.email.val as? String
+              print("set User Object")
+            user?.userBrief.email.subject.subscribe(onNext: {val in
+                print("Update Email")
+                self.userEmailLabel.text = self.user?.userBrief.email.val as? String
+            })
+            user?.userBrief.email.subject.onNext("testEmail")
         }
         
     }
@@ -78,3 +84,10 @@ class UserInfoView: UIView {
     
     
 }
+//extension Reactive where Base: UITextField {
+//    var textFieldEnable: UIBindingObserver<Base, Result> {
+//        return UIBindingObserver(UIElement: base) { textFiled, result in
+//            textFiled.isEnabled = result.isValid
+//        }
+//    }
+//}

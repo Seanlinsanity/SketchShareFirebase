@@ -56,6 +56,7 @@
 		CD281E4C20FF85250079BF59 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3B20FF80730079BF59 /* FirebaseModel.swift */; };
 		CD281E4D20FF85250079BF59 /* FirebaseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3C20FF80730079BF59 /* FirebaseModelProtocol.swift */; };
 		CD281E4E20FF85250079BF59 /* FirebaseObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD281E3D20FF80730079BF59 /* FirebaseObjectProtocol.swift */; };
+		CD3100CE213EBED000F13C1A /* ObjectStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3100CD213EBED000F13C1A /* ObjectStore.swift */; };
 		CD6D24DD21069160001A8737 /* SketchShareMetal_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6D24CD21069160001A8737 /* SketchShareMetal_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD6D24E021069160001A8737 /* SketchShareMetal_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6D24CB21069160001A8737 /* SketchShareMetal_macOS.framework */; };
 		CD6D24E121069160001A8737 /* SketchShareMetal_macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD6D24CB21069160001A8737 /* SketchShareMetal_macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -212,6 +213,7 @@
 		CD281E71210055840079BF59 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD281E732100558B0079BF59 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD281E75210055900079BF59 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD3100CD213EBED000F13C1A /* ObjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectStore.swift; sourceTree = "<group>"; };
 		CD6D24CB21069160001A8737 /* SketchShareMetal_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SketchShareMetal_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6D24CD21069160001A8737 /* SketchShareMetal_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SketchShareMetal_macOS.h; sourceTree = "<group>"; };
 		CD6D24CE21069160001A8737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				CD281E3520FF80730079BF59 /* FirebaseLoginManager.swift */,
 				CD1D59CC2109B55F00FD87A4 /* FirebaseStorageManager.swift */,
 				CD281E3620FF80730079BF59 /* FirestoreManager.swift */,
+				CD3100CD213EBED000F13C1A /* ObjectStore.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 					};
 					CD281E1420FF80690079BF59 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					CD6D24CA21069160001A8737 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1057,6 +1061,7 @@
 				CD281E4920FF851B0079BF59 /* FirestoreManager.swift in Sources */,
 				CD1D59D1210BBF0200FD87A4 /* FirestoreDocument.swift in Sources */,
 				CDF7A00321062F2700B97367 /* FieldWrapper.swift in Sources */,
+				CD3100CE213EBED000F13C1A /* ObjectStore.swift in Sources */,
 				CD1D59CD2109B55F00FD87A4 /* FirebaseStorageManager.swift in Sources */,
 				CD281E4720FF851B0079BF59 /* FirebaseManager.swift in Sources */,
 				CD281E4A20FF85250079BF59 /* FirebaseField.swift in Sources */,
@@ -1333,6 +1338,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10E4A2CCF777F25D71A57DA8 /* Pods-SketchShareFirebase-FirebaseFramework.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_MODULES_AUTOLINK = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -1354,6 +1360,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sketchshare.FirebaseFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1365,6 +1372,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6068CDE028FC0DAD8BDC0CB6 /* Pods-SketchShareFirebase-FirebaseFramework.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_MODULES_AUTOLINK = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

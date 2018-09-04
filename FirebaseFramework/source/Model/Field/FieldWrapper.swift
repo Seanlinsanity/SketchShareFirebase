@@ -5,15 +5,18 @@
 //  Created by 詹易衡 on 2018/7/23.
 //  Copyright © 2018年 com.sketchshare. All rights reserved.
 //
-
+import RxSwift
+import RxCocoa
 open class FieldWrapper{
     public init(val:Any?)
     {
         if(val != nil)
         {
-            self._val = val
+            self.val = val
+        
         }
     }
+    public let subject = BehaviorSubject<Any>(value :"")
     private var _val:Any!
 
     public var val: Any! {
@@ -23,6 +26,8 @@ open class FieldWrapper{
         set {
             self._val = newValue;
             self.dirty = true;
+            print("Set val",newValue)
+            self.subject.onNext(newValue)
         }
     }
     var dirty = false;

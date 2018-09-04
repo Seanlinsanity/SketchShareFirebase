@@ -8,7 +8,6 @@
 
 import Foundation
 public class UserStore{
-    
     var currentUser:UserObject!
     init() {
       

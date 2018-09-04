@@ -60,7 +60,11 @@ class UserController: UIViewController, LoginDelegate {
         }
     }
     
+    //創建UserObject
     private func fetchUserBriefDatabase(uid: String){
+//        userStore.currentUser = UserObject(id: uid)
+//        userStore.currentUser.brief.getModel()
+//        
         firebaseManager.getValue(url: "/users/brief/\(uid)").then { [weak self] (userInfo) in
             guard let email = userInfo["email"], let nickName = userInfo["nick_name"] else { return }
             self?.userObject.userBrief.email.val = email
@@ -72,12 +76,13 @@ class UserController: UIViewController, LoginDelegate {
     }
     
     private func setupUserInfoView(){
-        
         view.addSubview(userInfoView)
         userInfoView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
         userInfoView.topAnchor.constraint(equalTo: view.topAnchor, constant: 96).isActive = true
         userInfoView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 16).isActive = true
         userInfoView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        
+   
     }
     
     func loginWithUser(user: UserObject) {
@@ -88,18 +93,9 @@ class UserController: UIViewController, LoginDelegate {
     @objc private func handleEdit(){
         
         let editUserController = EditUserController()
-        editUserController.user = userObject
         
-        var shouldUpdate = false
-        editUserController.userVariableObserver?.subscribe(onNext: { [weak self] (user) in
-            
-            if !shouldUpdate {
-                shouldUpdate = !shouldUpdate
-            }else{
-                self?.userInfoView.updateUserInfo()
-            }
-            
-            }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
+        editUserController.user = userObject
+       
         
         present(UINavigationController(rootViewController: editUserController), animated: true, completion: nil)
     }

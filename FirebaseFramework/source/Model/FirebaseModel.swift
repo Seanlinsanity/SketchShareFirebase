@@ -108,11 +108,12 @@ open class FirebaseModel: FirebaseModelProtocol
     
     
     public func addModel() -> Promise<String> {
-         let obj = self.createDataFromField();
+        let obj = self.createDataFromField();
         let url = "\(self.bindObj.collection)/\(self.modelName!)"
         debugPrint("addModel:",url,obj)
-        return firebaseManager.pushValue(url: url, value: obj ).then{url in
-            return Promise(url)
+        return firebaseManager.pushValue(url: url, value: obj ).then{id in
+            //TODO:
+            self.bindObj.bindID(id: id)
         }
         
     }

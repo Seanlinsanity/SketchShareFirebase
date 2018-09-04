@@ -97,6 +97,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         userObject = UserObject()
         firebaseManager.loginManager.signInFirebaseWithFB().then{ [weak self](uid) -> Promise<[String: Any]> in
             self?.userObject?.bindID(id: uid)
+            //TODO: 改成brief.getModel, success??
             return firebaseManager.getValue(url: "users/brief/\(uid)")
         }.then({ [weak self] (userInfo) in
             if userInfo.count != 0 {
