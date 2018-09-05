@@ -12,8 +12,6 @@ import FirebaseFramework
 
 class UserController: UIViewController, LoginDelegate {
     
-    var userObject = UserObject()
-    let disposeBag = DisposeBag()
     lazy var loginController = LoginController()
 
     let userInfoView: UserInfoView = {
@@ -53,7 +51,7 @@ class UserController: UIViewController, LoginDelegate {
     private func checkUserId(){
         firebaseManager.loginManager.checkUserId().then { [weak self] (uid) in
             print(uid)
-            self?.userObject.bindID(id: uid)
+            userStore.currentUser = UserObject(id: uid)
             self?.fetchUserBriefDatabase(uid: uid)
         }.catch { [weak self] (_) in
             self?.presentLoginController()
@@ -62,16 +60,11 @@ class UserController: UIViewController, LoginDelegate {
     
     //創建UserObject
     private func fetchUserBriefDatabase(uid: String){
-//        userStore.currentUser = UserObject(id: uid)
-//        userStore.currentUser.brief.getModel()
-//        
-        firebaseManager.getValue(url: "/users/brief/\(uid)").then { [weak self] (userInfo) in
-            guard let email = userInfo["email"], let nickName = userInfo["nick_name"] else { return }
-            self?.userObject.userBrief.email.val = email
-            self?.userObject.userBrief.nick_name.val = nickName
-            self?.userInfoView.user = self?.userObject
-            }.catch { (error) in
-                print(error)
+        userStore.currentUser = UserObject(id: uid)
+        userStore.currentUser.brief.getModel().then { (success) in
+            self.userInfoView.user = userStore.currentUser
+        }.catch { (error) in
+            print(error)
         }
     }
     
@@ -85,17 +78,13 @@ class UserController: UIViewController, LoginDelegate {
    
     }
     
-    func loginWithUser(user: UserObject) {
-        userObject = user
-        userInfoView.user = userObject
+    func loginWithUser() {
+        userInfoView.user = userStore.currentUser
     }
-    
+
     @objc private func handleEdit(){
-        
         let editUserController = EditUserController()
-        
-        editUserController.user = userObject
-       
+        editUserController.user = userStore.currentUser
         
         present(UINavigationController(rootViewController: editUserController), animated: true, completion: nil)
     }
@@ -103,6 +92,8 @@ class UserController: UIViewController, LoginDelegate {
     @objc private func handleLogout(){
         firebaseManager.loginManager.signOut().then { (success) in
             if success {
+                userStore.currentUser.userBrief.email.subject.dispose()
+                userStore.currentUser.userBrief.email.subject.dispose()
                 self.presentLoginController()
             }
         }.catch { (error) in

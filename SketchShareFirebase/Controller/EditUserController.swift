@@ -17,15 +17,9 @@ class EditUserController: UIViewController {
         didSet{
             nameTextField.text = user?.userBrief.nick_name.val as? String
             emailTextField.text = user?.userBrief.email.val as? String
-            
-            userVariable = BehaviorRelay(value : user ?? UserObject())
-            userVariableObserver = userVariable?.asObservable()
-
         }
     }
     
-    var userVariable: BehaviorRelay<UserObject>?
-    var userVariableObserver: Observable<UserObject>?
     
     let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -113,8 +107,6 @@ class EditUserController: UIViewController {
         user?.userBrief.email.val = emailTextField.text
         user?.userBrief.updateModel().then({ (success) in
             if success {
-//                guard let user = self.user else { return }
-//                self.userVariable?.accept(user)
                 self.dismiss(animated: true, completion: nil)
             }
         }).catch({ (error) in

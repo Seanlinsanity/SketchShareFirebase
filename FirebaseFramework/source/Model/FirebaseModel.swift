@@ -95,6 +95,7 @@ open class FirebaseModel: FirebaseModelProtocol
     //TODO:
     public func getModel() -> Promise<Bool> {
         return firebaseManager.getValue(url: self.databaseURL).then{model in
+            if model.count == 0 { return Promise(false) }
             self.parseModel(model: model)
             return Promise(true)
         }

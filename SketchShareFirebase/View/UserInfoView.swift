@@ -15,9 +15,13 @@ class UserInfoView: UIView {
             userNameLabel.text = user?.userBrief.nick_name.val as? String
             userEmailLabel.text = user?.userBrief.email.val as? String
               print("set User Object")
-            user?.userBrief.email.subject.subscribe(onNext: {val in
+                user?.userBrief.email.subject.subscribe(onNext: {val in
                 print("Update Email")
                 self.userEmailLabel.text = self.user?.userBrief.email.val as? String
+            })
+                user?.userBrief.nick_name.subject.subscribe(onNext: { (val) in
+                print("Update Nikname")
+                self.userNameLabel.text = self.user?.userBrief.nick_name.val as? String
             })
         }
         

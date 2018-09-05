@@ -7,8 +7,11 @@
 //
 import RxSwift
 import RxCocoa
+
 open class FieldWrapper{
+    
     public init(val:Any?)
+    
     {
         if(val != nil)
         {
