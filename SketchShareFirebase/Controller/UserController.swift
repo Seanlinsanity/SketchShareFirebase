@@ -92,8 +92,6 @@ class UserController: UIViewController, LoginDelegate {
     @objc private func handleLogout(){
         firebaseManager.loginManager.signOut().then { (success) in
             if success {
-                userStore.currentUser.userBrief.email.subject.dispose()
-                userStore.currentUser.userBrief.email.subject.dispose()
                 self.presentLoginController()
             }
         }.catch { (error) in

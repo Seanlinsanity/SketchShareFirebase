@@ -49,8 +49,6 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         return tv
     }()
     
-    let disposeBag = DisposeBag()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
